@@ -90,8 +90,8 @@ export default function AgencySite() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <button onClick={() => scrollTo('philosophie')} className="hover:text-blue-900 transition-colors">Philosophie</button>
-            <button onClick={() => scrollTo('leistungen')} className="hover:text-blue-900 transition-colors">Leistungen</button>
             <button onClick={() => scrollTo('about')} className="hover:text-blue-900 transition-colors">Über mich</button>
+            <button onClick={() => scrollTo('leistungen')} className="hover:text-blue-900 transition-colors">Leistungen</button>
             <button onClick={() => scrollTo('faq')} className="hover:text-blue-900 transition-colors">FAQ</button>
             <button onClick={() => scrollTo('kontakt')} className="bg-blue-900 text-white px-5 py-2.5 rounded-sm hover:bg-blue-800 transition-colors">
               Gespräch vereinbaren
@@ -111,8 +111,8 @@ export default function AgencySite() {
         <div className={`md:hidden bg-white border-b border-slate-200 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="px-6 py-4 flex flex-col gap-4 text-center">
             <button onClick={() => scrollTo('philosophie')} className="text-slate-600 py-2">Philosophie</button>
-            <button onClick={() => scrollTo('leistungen')} className="text-slate-600 py-2">Leistungen</button>
             <button onClick={() => scrollTo('about')} className="text-slate-600 py-2">Über mich</button>
+            <button onClick={() => scrollTo('leistungen')} className="text-slate-600 py-2">Leistungen</button>
             <button onClick={() => scrollTo('faq')} className="text-slate-600 py-2">FAQ</button>
             <button onClick={() => scrollTo('kontakt')} className="bg-blue-900 text-white px-5 py-3 rounded-sm w-full">
               Gespräch vereinbaren
@@ -204,8 +204,50 @@ export default function AgencySite() {
         </div>
       </section>
 
+      {/* --- ABOUT ME --- */}
+      <section id="about" className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <Reveal direction="right">
+              <div className="relative">
+                {/* Image Placeholder */}
+                <div className="aspect-[3/4] md:aspect-square bg-white rounded-sm border border-slate-200 flex flex-col items-center justify-center text-slate-400 relative z-10">
+                  <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-slate-500 font-serif text-2xl">Foto</span>
+                  </div>
+                  <p className="text-sm">[Platzhalter für professionelles Portrait]</p>
+                </div>
+                {/* Decorative element */}
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white border border-slate-200 rounded-sm -z-10 hidden md:block"></div>
+              </div>
+            </Reveal>
+
+            <Reveal direction="left" delay={100}>
+              <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Ihr Partner für digitale Seriosität</h2>
+              <p className="text-slate-600 mb-6 leading-relaxed">
+                Guten Tag, mein Name ist Laurenz Gilbert. Mein Studium der Wirtschaftsinformatik an der Universität Potsdam habe ich mit einem 1er-Schnitt abgeschlossen. So verbinde ich als 24-jähriger IT-Experte modernstes akademisches Know-how mit einem klaren Verständnis für Ihre geschäftlichen Anforderungen.
+              </p>
+              <p className="text-slate-600 mb-8 leading-relaxed">
+                Durch meine Erfahrungen in der Unternehmensberatung bei Deloitte und meine aktuelle Tätigkeit am renommierten Hasso-Plattner-Institut (HPI) weiß ich, worauf es bei professionellen IT-Lösungen ankommt. Diese Expertise nutze ich parallel, um Ärzten, Therapeuten und Studios präzise, handprogrammierte Premium-Webseiten zu entwickeln, die durch exzellente Performance und mobile Bedienbarkeit messbar zur Neukundengewinnung beitragen.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-slate-200">
+                <div>
+                  <h4 className="font-serif text-slate-900 font-medium mb-1">Fundierte Expertise</h4>
+                  <p className="text-sm text-slate-500">Studium Wirtschaftsinformatik (Uni Potsdam, 1er-Schnitt). Praxis bei Deloitte & HPI.</p>
+                </div>
+                <div>
+                  <h4 className="font-serif text-slate-900 font-medium mb-1">Modernste Technik</h4>
+                  <p className="text-sm text-slate-500">Programmierung auf Agentur-Niveau (Astro & React).</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* --- SERVICES / OFFERS --- */}
-      <section id="leistungen" className="py-24 bg-slate-50">
+      <section id="leistungen" className="py-24 bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -219,7 +261,7 @@ export default function AgencySite() {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Package 1 */}
             <Reveal delay={100} direction="up" className="h-full">
-              <div className="bg-white p-8 md:p-10 border border-slate-200 rounded-sm shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+              <div className="bg-slate-50 p-8 md:p-10 border border-slate-200 rounded-sm shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
                 <div className="mb-6">
                   <h3 className="font-serif text-2xl text-slate-900 mb-2">Die Digitale Visitenkarte</h3>
                   <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold mb-4">One-Pager</p>
@@ -272,48 +314,6 @@ export default function AgencySite() {
                 <button onClick={() => scrollTo('kontakt')} className="w-full py-3 px-4 bg-blue-600 text-white font-medium rounded-sm hover:bg-blue-500 transition-colors relative z-10">
                   Details anfragen
                 </button>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* --- ABOUT ME --- */}
-      <section id="about" className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <Reveal direction="right">
-              <div className="relative">
-                {/* Image Placeholder */}
-                <div className="aspect-[3/4] md:aspect-square bg-slate-100 rounded-sm border border-slate-200 flex flex-col items-center justify-center text-slate-400 relative z-10">
-                  <div className="w-20 h-20 bg-slate-200 rounded-full flex items-center justify-center mb-4">
-                    <span className="text-slate-500 font-serif text-2xl">Foto</span>
-                  </div>
-                  <p className="text-sm">[Platzhalter für professionelles Portrait]</p>
-                </div>
-                {/* Decorative element */}
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-slate-50 border border-slate-200 rounded-sm -z-10 hidden md:block"></div>
-              </div>
-            </Reveal>
-
-            <Reveal direction="left" delay={100}>
-              <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Ihr Partner für digitale Seriosität</h2>
-              <p className="text-slate-600 mb-6 leading-relaxed">
-                Guten Tag, mein Name ist Laurenz Gilbert. Mein Studium der Wirtschaftsinformatik an der Universität Potsdam habe ich mit einem 1er-Schnitt abgeschlossen. So verbinde ich als 24-jähriger IT-Experte modernstes akademisches Know-how mit einem klaren Verständnis für Ihre geschäftlichen Anforderungen.
-              </p>
-              <p className="text-slate-600 mb-8 leading-relaxed">
-                Durch meine Erfahrungen in der Unternehmensberatung bei Deloitte und meine aktuelle Tätigkeit am renommierten Hasso-Plattner-Institut (HPI) weiß ich, worauf es bei professionellen IT-Lösungen ankommt. Diese Expertise nutze ich parallel, um Ärzten, Therapeuten und Studios präzise, handprogrammierte Premium-Webseiten zu entwickeln, die durch exzellente Performance und mobile Bedienbarkeit messbar zur Neukundengewinnung beitragen.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-slate-100">
-                <div>
-                  <h4 className="font-serif text-slate-900 font-medium mb-1">Fundierte Expertise</h4>
-                  <p className="text-sm text-slate-500">Studium Wirtschaftsinformatik (Uni Potsdam, 1er-Schnitt). Praxis bei Deloitte & HPI.</p>
-                </div>
-                <div>
-                  <h4 className="font-serif text-slate-900 font-medium mb-1">Modernste Technik</h4>
-                  <p className="text-sm text-slate-500">Programmierung auf Agentur-Niveau (Astro & React).</p>
-                </div>
               </div>
             </Reveal>
           </div>
