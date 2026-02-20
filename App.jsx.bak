@@ -134,8 +134,8 @@ export default function AgencySite() {
 
       <main>
       {/* --- HERO SECTION --- */}
-      <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="min-h-screen flex flex-col justify-center pt-20 pb-12 px-6">
+        <div className="max-w-4xl mx-auto text-center w-full">
           <Reveal>
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium text-slate-900 leading-[1.1] mb-6 tracking-tight">
               Hochwertige Webseiten, <br className="hidden md:block" />

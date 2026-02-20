@@ -82,16 +82,19 @@ export default function AgencySite() {
       <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all" aria-label="Hauptnavigation">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <button 
-            className="flex items-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-sm" 
+            className="flex items-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-sm group" 
             onClick={() => window.scrollTo(0,0)}
             aria-label="Zur Startseite"
           >
-            <div className="w-8 h-8 bg-blue-900 rounded-sm flex items-center justify-center">
-              <span className="text-white font-serif font-bold text-xl">L</span>
+            {/* Seriöses, minimalistisches Typografie-Logo */}
+            <div className="flex flex-col items-start justify-center">
+              <span className="font-serif text-[1.65rem] font-medium tracking-wide text-slate-900 leading-none group-hover:text-blue-900 transition-colors">
+                LCG
+              </span>
+              <span className="text-[0.65rem] font-sans font-medium uppercase tracking-[0.3em] text-slate-500 leading-none mt-1.5 ml-[0.1rem]">
+                Webdesign
+              </span>
             </div>
-            <span className="font-serif font-semibold text-xl tracking-tight text-slate-900">
-              LCG Webdesign
-            </span>
           </button>
 
           {/* Desktop Menu */}
@@ -168,7 +171,9 @@ export default function AgencySite() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Reveal>
-              <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Warum Handarbeit den Unterschied macht</h2>
+              <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">
+                Warum Handarbeit den Unterschied macht
+              </h2>
               <p className="text-slate-600 leading-relaxed">
                 Ich verzichte bewusst auf schwerfällige Standard-Lösungen und Baukastensysteme. 
                 Moderne Web-Technologien (Astro.js & React) ermöglichen es mir, Seiten zu bauen, 
