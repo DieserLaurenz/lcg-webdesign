@@ -10,7 +10,10 @@ import {
   Menu, 
   X,
   Code2,
-  ArrowRight
+  ArrowRight,
+  ExternalLink,
+  BarChart3,
+  Timer
 } from 'lucide-react';
 
 // --- CUSTOM HOOKS & COMPONENTS FOR ANIMATION ---
@@ -94,6 +97,7 @@ export default function AgencySite() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <button onClick={() => scrollTo('philosophie')} className="hover:text-blue-900 transition-colors">Philosophie</button>
+            <button onClick={() => scrollTo('referenzen')} className="hover:text-blue-900 transition-colors">Referenzen</button>
             <button onClick={() => scrollTo('about')} className="hover:text-blue-900 transition-colors">Über mich</button>
             <button onClick={() => scrollTo('leistungen')} className="hover:text-blue-900 transition-colors">Leistungen</button>
             <button onClick={() => scrollTo('faq')} className="hover:text-blue-900 transition-colors">FAQ</button>
@@ -117,6 +121,7 @@ export default function AgencySite() {
         <div className={`md:hidden bg-white border-b border-slate-200 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="px-6 py-4 flex flex-col gap-4 text-center">
             <button onClick={() => scrollTo('philosophie')} className="text-slate-600 py-2">Philosophie</button>
+            <button onClick={() => scrollTo('referenzen')} className="text-slate-600 py-2">Referenzen</button>
             <button onClick={() => scrollTo('about')} className="text-slate-600 py-2">Über mich</button>
             <button onClick={() => scrollTo('leistungen')} className="text-slate-600 py-2">Leistungen</button>
             <button onClick={() => scrollTo('faq')} className="text-slate-600 py-2">FAQ</button>
@@ -132,36 +137,26 @@ export default function AgencySite() {
       <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-900 text-xs font-semibold uppercase tracking-wider mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-              </span>
-              Ihr Webdesigner für Praxen, Salons & Studios
-            </div>
-          </Reveal>
-          
-          <Reveal delay={100}>
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium text-slate-900 leading-[1.1] mb-6 tracking-tight">
-              Digitale Exzellenz, <br className="hidden md:block" />
-              die Vertrauen schafft.
+              Hochwertige Webseiten, <br className="hidden md:block" />
+              die Vertrauen schaffen.
             </h1>
           </Reveal>
 
-          <Reveal delay={200}>
+          <Reveal delay={100}>
             <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
               Als Dienstleister im Gesundheits- und Wellnessbereich ist Ihre Website der erste Eindruck. 
               Ich entwickle hochperformante, maßgeschneiderte Internetauftritte – kompromisslos optimiert für Smartphones und lokale Sichtbarkeit.
             </p>
           </Reveal>
 
-          <Reveal delay={300}>
+          <Reveal delay={200}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button onClick={() => scrollTo('kontakt')} className="w-full sm:w-auto px-8 py-4 bg-blue-900 text-white font-medium rounded-sm hover:bg-blue-800 transition-all flex items-center justify-center gap-2">
                 Kostenlose Erstberatung <ArrowRight size={18} />
               </button>
               <button onClick={() => scrollTo('leistungen')} className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 font-medium border border-slate-200 rounded-sm hover:border-slate-300 hover:bg-slate-50 transition-all">
-                Unsere Leistungen
+                Meine Leistungen
               </button>
             </div>
           </Reveal>
@@ -207,6 +202,93 @@ export default function AgencySite() {
               title="Lokale Sichtbarkeit"
               description="Ich bereite Ihre Seite technisch ideal für Local SEO vor. Strukturierte Daten und optimierte Ladegeschwindigkeiten bilden das Fundament, um in Ihrer Region optimal gefunden zu werden."
             />
+          </div>
+        </div>
+      </section>
+
+      {/* --- FEATURED REFERENCE --- */}
+      <section id="referenzen" className="py-24 bg-slate-100 border-b border-slate-200 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="text-blue-900 font-semibold tracking-wider uppercase text-sm mb-2 block">Ausgewähltes Projekt</span>
+              <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Ergebnisse, die für sich sprechen</h2>
+              <p className="text-slate-600">
+                Ein Einblick in meine jüngste Arbeit. Hochperformant, fokussiert auf Neukundengewinnung und kompromisslos im Design.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="bg-white rounded-sm border border-slate-200 shadow-xl shadow-slate-200/50 flex flex-col lg:flex-row items-center overflow-hidden max-w-6xl mx-auto">
+            
+            {/* Left Content Side */}
+            <div className="p-10 md:p-14 lg:w-1/2 flex flex-col justify-center">
+              <Reveal delay={100} direction="right">
+                <div className="flex gap-3 mb-6">
+                  <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full">Physiotherapie & Massage</span>
+                  <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full">Premium-Website</span>
+                </div>
+                
+                <h3 className="font-serif text-3xl text-slate-900 mb-4">Bodywork Berlin</h3>
+                <p className="text-slate-600 mb-8 leading-relaxed">
+                  Für Bodywork Berlin wurde eine vollständig neue, digitale Präsenz geschaffen. Ziel war es, die Terminbuchung zu digitalisieren und die Praxis durch exzellentes lokales SEO und kompromisslose Performance als Premium-Dienstleister in der Region zu positionieren.
+                </p>
+
+                {/* Metrics */}
+                <div className="space-y-5 mb-10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-900 shrink-0">
+                      <BarChart3 size={24} />
+                    </div>
+                    <div>
+                      <p className="text-slate-900 font-semibold">100 / 100 Performance Score</p>
+                      <p className="text-sm text-slate-500">Google Lighthouse Bestnote</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-900 shrink-0">
+                      <Timer size={24} />
+                    </div>
+                    <div>
+                      <p className="text-slate-900 font-semibold">&lt; 0.5s Ladezeit</p>
+                      <p className="text-sm text-slate-500">Dank moderner Code-Architektur</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="https://bodywork.pages.dev/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-900 font-medium hover:text-blue-700 transition-colors group">
+                  Live-Seite ansehen 
+                  <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+              </Reveal>
+            </div>
+
+            {/* Right Side - Smartphone Mockup */}
+            <div className="lg:w-1/2 bg-slate-50 w-full h-full p-10 flex items-center justify-center border-t lg:border-t-0 lg:border-l border-slate-100 relative overflow-hidden group">
+              {/* Decorative background circle */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-blue-100/50 rounded-full blur-3xl -z-10 group-hover:scale-110 transition-transform duration-700"></div>
+              
+              <Reveal delay={300} direction="left">
+                {/* Device Frame */}
+                <div className="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[10px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-slate-900/50">
+                  {/* Notch */}
+                  <div className="absolute top-0 inset-x-0 h-6 bg-slate-900 rounded-b-3xl w-36 mx-auto z-20"></div>
+                  
+                  {/* Screen */}
+                  <div className="absolute inset-0 bg-white">
+                    {/* Placeholder for the screenshot. Replace the inner div with an <img> tag later */}
+                    <div className="w-full h-full bg-slate-200 flex flex-col items-center justify-center text-slate-400 group-hover:scale-105 transition-transform duration-1000 ease-out">
+                      <span className="font-serif text-lg">Screenshot</span>
+                      <span className="text-xs mt-2 text-center px-4">Hier kommt ein Bild<br/>der mobilen Ansicht rein</span>
+                    </div>
+                    {/* If you have a screenshot image, use this instead: */}
+                    {/* <img src="/pfad-zum-screenshot-mobil.jpg" alt="Referenz Mobilansicht" className="w-full h-auto object-cover group-hover:translate-y-[-10%] transition-transform duration-[3000ms] ease-out" /> */}
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
           </div>
         </div>
       </section>
@@ -371,7 +453,7 @@ export default function AgencySite() {
               <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">Bereit für Ihren digitalen Aufstieg?</h2>
               <p className="text-slate-400 mb-8 max-w-md leading-relaxed">
                 Als spezialisierter Webdesigner für <strong className="text-slate-300 font-semibold">Physiotherapeuten, Arztpraxen, Kosmetikstudios und Massagesalons</strong> verstehe ich Ihre Anforderungen genau. 
-                Vereinbaren Sie ein unverbindliches Erstgespräch und lassen Sie uns besprechen, wie wir Ihre digitale Präsenz auf ein Premium-Niveau heben.
+                Vereinbaren Sie ein unverbindliches Erstgespräch und lassen Sie uns besprechen, wie ich Ihre digitale Präsenz auf ein Premium-Niveau hebe.
               </p>
               <a href="mailto:hallo@lcg-webdesign.de" className="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors text-lg">
                 hallo@lcg-webdesign.de
