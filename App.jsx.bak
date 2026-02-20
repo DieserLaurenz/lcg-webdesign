@@ -76,16 +76,20 @@ export default function AgencySite() {
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
       
       {/* --- NAVIGATION --- */}
-      <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all">
+      <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all" aria-label="Hauptnavigation">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
+          <button 
+            className="flex items-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-sm" 
+            onClick={() => window.scrollTo(0,0)}
+            aria-label="Zur Startseite"
+          >
             <div className="w-8 h-8 bg-blue-900 rounded-sm flex items-center justify-center">
               <span className="text-white font-serif font-bold text-xl">L</span>
             </div>
             <span className="font-serif font-semibold text-xl tracking-tight text-slate-900">
               LCG Webdesign
             </span>
-          </div>
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
@@ -100,10 +104,12 @@ export default function AgencySite() {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-slate-900 p-2"
+            className="md:hidden text-slate-900 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-sm"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
 
@@ -121,6 +127,7 @@ export default function AgencySite() {
         </div>
       </nav>
 
+      <main>
       {/* --- HERO SECTION --- */}
       <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -233,11 +240,11 @@ export default function AgencySite() {
               
               <div className="grid grid-cols-2 gap-6 pt-6 border-t border-slate-200">
                 <div>
-                  <h4 className="font-serif text-slate-900 font-medium mb-1">Fundierte Expertise</h4>
+                  <h3 className="font-serif text-slate-900 font-medium mb-1">Fundierte Expertise</h3>
                   <p className="text-sm text-slate-500">Studium Wirtschaftsinformatik (Uni Potsdam, 1er-Schnitt). Praxis bei Deloitte & HPI.</p>
                 </div>
                 <div>
-                  <h4 className="font-serif text-slate-900 font-medium mb-1">Modernste Technik</h4>
+                  <h3 className="font-serif text-slate-900 font-medium mb-1">Modernste Technik</h3>
                   <p className="text-sm text-slate-500">Programmierung auf Agentur-Niveau (Astro & React).</p>
                 </div>
               </div>
@@ -354,6 +361,7 @@ export default function AgencySite() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* --- FOOTER & CTA --- */}
       <footer id="kontakt" className="bg-[#0f172a] text-slate-300 pt-20 pb-10">
@@ -439,12 +447,14 @@ function AccordionItem({ question, answer, delay }) {
       <div className="border border-slate-200 rounded-sm bg-white overflow-hidden">
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+          className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus-visible:bg-slate-50"
+          aria-expanded={isOpen}
         >
           <span className="font-serif text-lg text-slate-900 pr-8">{question}</span>
           <ChevronDown 
             size={20} 
             className={`text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+            aria-hidden="true"
           />
         </button>
         <div 
