@@ -78,6 +78,25 @@ export default function AgencySite() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
       
+      {/* --- INJECT CUSTOM FONTS & KEYFRAMES --- */}
+      <style dangerouslySetInnerHTML={{__html: `
+        /* Custom Scrollbar für das Smartphone Mockup */
+        .phone-scroll::-webkit-scrollbar {
+          width: 5px;
+        }
+        .phone-scroll::-webkit-scrollbar-track {
+          background: #f1f5f9; 
+          border-radius: 10px;
+        }
+        .phone-scroll::-webkit-scrollbar-thumb {
+          background: #cbd5e1; 
+          border-radius: 10px;
+        }
+        .phone-scroll::-webkit-scrollbar-thumb:hover {
+          background: #94a3b8; 
+        }
+      `}} />
+
       {/* --- NAVIGATION --- */}
       <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all" aria-label="Hauptnavigation">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -275,22 +294,7 @@ export default function AgencySite() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-blue-100/50 rounded-full blur-3xl -z-10 group-hover:scale-110 transition-transform duration-700"></div>
               
               <Reveal delay={300} direction="left">
-                {/* Device Frame */}
-                <div className="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[10px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-slate-900/50">
-                  {/* Notch */}
-                  <div className="absolute top-0 inset-x-0 h-6 bg-slate-900 rounded-b-3xl w-36 mx-auto z-20"></div>
-                  
-                  {/* Screen */}
-                  <div className="absolute inset-0 bg-white">
-                    {/* Placeholder for the screenshot. Replace the inner div with an <img> tag later */}
-                    <div className="w-full h-full bg-slate-200 flex flex-col items-center justify-center text-slate-400 group-hover:scale-105 transition-transform duration-1000 ease-out">
-                      <span className="font-serif text-lg">Screenshot</span>
-                      <span className="text-xs mt-2 text-center px-4">Hier kommt ein Bild<br/>der mobilen Ansicht rein</span>
-                    </div>
-                    {/* If you have a screenshot image, use this instead: */}
-                    {/* <img src="/pfad-zum-screenshot-mobil.jpg" alt="Referenz Mobilansicht" className="w-full h-auto object-cover group-hover:translate-y-[-10%] transition-transform duration-[3000ms] ease-out" /> */}
-                  </div>
-                </div>
+                <AutoScrollMockup />
               </Reveal>
             </div>
 
@@ -556,5 +560,66 @@ function AccordionItem({ question, answer, delay }) {
         </div>
       </div>
     </Reveal>
+  );
+}
+
+function AutoScrollMockup() {
+  const scrollRef = useRef(null);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const exactScrollPos = useRef(0);
+
+  useEffect(() => {
+    let animationFrameId;
+    const scrollContainer = scrollRef.current;
+
+    // Wenn der Nutzer die Maus wegnimmt, synchronisieren wir unsere interne
+    // Kommazahl mit der Stelle, an der er das Bild gerade manuell losgelassen hat.
+    if (!isInteracting && scrollContainer) {
+      exactScrollPos.current = scrollContainer.scrollTop;
+    }
+
+    const scrollStep = () => {
+      if (scrollContainer && !isInteracting) {
+        // Wir rechnen mit der internen Variable weiter, damit der Browser 
+        // Kommastellen wie 0.4 nicht ignoriert.
+        exactScrollPos.current += 0.4; 
+        scrollContainer.scrollTop = exactScrollPos.current;
+
+        // Wieder an den Anfang springen, wenn das Ende erreicht ist (mit 1px Puffer)
+        if (scrollContainer.scrollTop >= scrollContainer.scrollHeight - scrollContainer.clientHeight - 1) {
+          exactScrollPos.current = 0;
+          scrollContainer.scrollTop = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(scrollStep);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isInteracting]);
+
+  return (
+    <div className="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[10px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-slate-900/50">
+      {/* Notch */}
+      <div className="absolute top-0 inset-x-0 h-6 bg-slate-900 rounded-b-3xl w-36 mx-auto z-20 pointer-events-none"></div>
+      
+      {/* Screen - scrollbar visible and auto-scrolling */}
+      <div 
+        ref={scrollRef}
+        className="absolute inset-0 bg-white overflow-y-scroll phone-scroll"
+        onMouseEnter={() => setIsInteracting(true)}
+        onMouseLeave={() => setIsInteracting(false)}
+        onTouchStart={() => setIsInteracting(true)}
+        onTouchEnd={() => setIsInteracting(false)}
+      >
+        {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
+        {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
+        <img 
+          src="/Bodywork%20Berlin%20-%20Mobile.jpg" 
+          alt="Langer Mobile-Screenshot von Bodywork Berlin" 
+          className="w-full h-auto block" 
+        />
+      </div>
+    </div>
   );
 }
