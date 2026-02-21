@@ -80,20 +80,13 @@ export default function AgencySite() {
       
       {/* --- INJECT CUSTOM FONTS & KEYFRAMES --- */}
       <style dangerouslySetInnerHTML={{__html: `
-        /* Custom Scrollbar für das Smartphone Mockup */
-        .phone-scroll::-webkit-scrollbar {
-          width: 5px;
+        /* Verstecke die Scrollbar für einen authentischen Smartphone-Look */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Edge */
         }
-        .phone-scroll::-webkit-scrollbar-track {
-          background: #f1f5f9; 
-          border-radius: 10px;
-        }
-        .phone-scroll::-webkit-scrollbar-thumb {
-          background: #cbd5e1; 
-          border-radius: 10px;
-        }
-        .phone-scroll::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8; 
+        .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
         }
       `}} />
 
@@ -603,10 +596,10 @@ function AutoScrollMockup() {
       {/* Notch */}
       <div className="absolute top-0 inset-x-0 h-6 bg-slate-900 rounded-b-3xl w-36 mx-auto z-20 pointer-events-none"></div>
       
-      {/* Screen - scrollbar visible and auto-scrolling */}
+      {/* Screen - scrollbar is now perfectly hidden via CSS class */}
       <div 
         ref={scrollRef}
-        className="absolute inset-0 bg-white overflow-y-scroll phone-scroll"
+        className="absolute inset-0 bg-white overflow-y-scroll no-scrollbar"
         onMouseEnter={() => setIsInteracting(true)}
         onMouseLeave={() => setIsInteracting(false)}
         onTouchStart={() => setIsInteracting(true)}
@@ -615,8 +608,8 @@ function AutoScrollMockup() {
         {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
         {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
         <img 
-          src="/Bodywork%20Berlin%20-%20Mobile.jpg" 
-          alt="Langer Mobile-Screenshot von Bodywork Berlin" 
+          src="https://placehold.co/280x1800/f8fafc/475569?text=Hier+deinen%0ALong+Screenshot%0Aeinf%C3%BCgen%0A%0A%E2%86%93%0A%0A(Scrollt%0Aautomatisch)" 
+          alt="Platzhalter für langen Screenshot" 
           className="w-full h-auto block" 
         />
       </div>
