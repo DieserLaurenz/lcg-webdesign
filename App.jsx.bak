@@ -636,9 +636,9 @@ function AutoScrollMockup() {
         {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
         {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
         <img 
-          src="https://placehold.co/280x1800/f8fafc/475569?text=Hier+deinen%0ALong+Screenshot%0Aeinf%C3%BCgen%0A%0A%E2%86%93%0A%0A(Scrollt%0Aautomatisch)" 
-          alt="Platzhalter für langen Screenshot" 
-          className="w-full h-auto block pointer-events-none select-none" 
+          src="/Bodywork%20Berlin%20-%20Mobile.jpg" 
+          alt="Bodywork Berlin Mobile Page" 
+          className="w-full h-auto block" 
         />
       </div>
     </div>

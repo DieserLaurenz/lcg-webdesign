@@ -563,6 +563,7 @@ function AutoScrollMockup() {
   const hasInteracted = useRef(false);
   const exactScrollPos = useRef(0);
   const currentSpeed = useRef(0);
+  const delayPassed = useRef(false);
 
   // 1. Intersection Observer: Erkennt, ob das Handy gerade sichtbar ist
   useEffect(() => {
@@ -577,7 +578,22 @@ function AutoScrollMockup() {
     return () => observer.disconnect();
   }, []);
 
-  // 2. Animations-Logik
+  // 2. Delay Logik für die 3 Sekunden Pause
+  useEffect(() => {
+    let timeoutId;
+    if (isVisible) {
+      // Timer starten, wenn das Mockup sichtbar wird
+      timeoutId = setTimeout(() => {
+        delayPassed.current = true;
+      }, 3000);
+    } else {
+      // Timer zurücksetzen, wenn der Nutzer wieder wegschrollt
+      delayPassed.current = false;
+    }
+    return () => clearTimeout(timeoutId);
+  }, [isVisible]);
+
+  // 3. Animations-Logik
   useEffect(() => {
     let animationFrameId;
     const scrollContainer = scrollRef.current;
@@ -586,10 +602,11 @@ function AutoScrollMockup() {
       // Wenn der Nutzer jemals selbst gescrollt hat, stoppe die Animation für immer
       if (hasInteracted.current) return;
 
-      if (scrollContainer && isVisible) {
+      // NEU: Checkt zusätzlich, ob delayPassed.current true ist (3s sind vergangen)
+      if (scrollContainer && isVisible && delayPassed.current) {
         // Sanftes Anfahren (Easing): Geschwindigkeit extrem langsam aufbauen bis 0.35
         if (currentSpeed.current < 0.35) {
-          currentSpeed.current += 0.002; // Jetzt noch sanfterer Anstieg
+          currentSpeed.current += 0.002; // Sanfter Anstieg
         }
         
         exactScrollPos.current += currentSpeed.current; 
@@ -602,7 +619,7 @@ function AutoScrollMockup() {
           currentSpeed.current = 0; 
         }
       } else {
-        // Setze die Start-Geschwindigkeit zurück, wenn das Handy aus dem Bild gescrollt wurde
+        // Setze die Start-Geschwindigkeit zurück, wenn noch gewartet wird oder das Handy aus dem Bild ist
         currentSpeed.current = 0;
         if (scrollContainer) {
           exactScrollPos.current = scrollContainer.scrollTop;
@@ -636,9 +653,9 @@ function AutoScrollMockup() {
         {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
         {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
         <img 
-          src="/Bodywork%20Berlin%20-%20Mobile.jpg" 
-          alt="Bodywork Berlin Mobile Page" 
-          className="w-full h-auto block" 
+          src="https://placehold.co/280x1800/f8fafc/475569?text=Hier+deinen%0ALong+Screenshot%0Aeinf%C3%BCgen%0A%0A%E2%86%93%0A%0A(Scrollt%0Aautomatisch)" 
+          alt="Platzhalter für langen Screenshot" 
+          className="w-full h-auto block pointer-events-none select-none" 
         />
       </div>
     </div>
