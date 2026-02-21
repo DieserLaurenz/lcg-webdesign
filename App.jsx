@@ -638,25 +638,37 @@ function AutoScrollMockup() {
   };
 
   return (
-    <div ref={containerRef} className="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[10px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-slate-900/50">
-      {/* Notch */}
-      <div className="absolute top-0 inset-x-0 h-6 bg-slate-900 rounded-b-3xl w-36 mx-auto z-20 pointer-events-none"></div>
+    <div ref={containerRef} className="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] p-2 shadow-2xl ring-1 ring-slate-900/50">
       
-      {/* Screen - scrollbar is now perfectly hidden via CSS class */}
-      <div 
-        ref={scrollRef}
-        className="absolute inset-0 bg-white overflow-y-scroll no-scrollbar"
-        onWheel={handleUserInteraction}
-        onTouchStart={handleUserInteraction}
-        onMouseDown={handleUserInteraction}
-      >
-        {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
-        {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
-        <img 
-          src="/Bodywork%20Berlin%20-%20Mobile.webp" 
-          alt="Bodywork Berlin Mobile Page" 
-          className="w-full h-auto block" 
-        />
+      {/* Hardware Buttons für einen coolen, realistischen Smartphone-Look */}
+      <div className="absolute top-24 -left-1 w-1 h-10 bg-slate-800 rounded-l-md"></div>
+      <div className="absolute top-36 -left-1 w-1 h-10 bg-slate-800 rounded-l-md"></div>
+      <div className="absolute top-32 -right-1 w-1 h-14 bg-slate-800 rounded-r-md"></div>
+      
+      {/* Innerer Display-Bereich mit abgerundeten Ecken und feinem Glasrand */}
+      <div className="relative w-full h-full bg-slate-50 rounded-[2.5rem] overflow-hidden border-[3px] border-slate-950">
+        
+        {/* Cleanes Punch-Hole (wie Dynamic Island) anstelle der klobigen Notch */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full z-20 pointer-events-none flex items-center justify-end px-2">
+          {/* Kleine Kamera-Linse für Detail-Realismus */}
+          <div className="w-2.5 h-2.5 bg-slate-800 rounded-full border border-slate-700/50"></div>
+        </div>
+        
+        {/* Screen - scrollbar is perfectly hidden via CSS class */}
+        <div 
+          ref={scrollRef}
+          className="absolute inset-0 bg-white overflow-y-scroll no-scrollbar"
+          onWheel={handleUserInteraction}
+          onTouchStart={handleUserInteraction}
+          onMouseDown={handleUserInteraction}
+        >
+          {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
+          <img 
+            src="/Bodywork%20Berlin%20-%20Mobile.webp" 
+            alt="Platzhalter für langen Screenshot" 
+            className="w-full h-auto block pointer-events-none select-none" 
+          />
+        </div>
       </div>
     </div>
   );
