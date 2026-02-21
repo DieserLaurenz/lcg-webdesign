@@ -560,6 +560,7 @@ function AutoScrollMockup() {
   const scrollRef = useRef(null);
   const [isInteracting, setIsInteracting] = useState(false);
   const exactScrollPos = useRef(0);
+  const currentSpeed = useRef(0); // Zustand für sanftes Anfahren
 
   useEffect(() => {
     let animationFrameId;
@@ -573,16 +574,23 @@ function AutoScrollMockup() {
 
     const scrollStep = () => {
       if (scrollContainer && !isInteracting) {
-        // Wir rechnen mit der internen Variable weiter, damit der Browser 
-        // Kommastellen wie 0.4 nicht ignoriert.
-        exactScrollPos.current += 0.4; 
+        // Sanftes Anfahren (Easing): Geschwindigkeit schrittweise erhöhen bis 0.4
+        if (currentSpeed.current < 0.4) {
+          currentSpeed.current += 0.005; // Langsame Steigerung
+        }
+        
+        exactScrollPos.current += currentSpeed.current; 
         scrollContainer.scrollTop = exactScrollPos.current;
 
         // Wieder an den Anfang springen, wenn das Ende erreicht ist (mit 1px Puffer)
         if (scrollContainer.scrollTop >= scrollContainer.scrollHeight - scrollContainer.clientHeight - 1) {
           exactScrollPos.current = 0;
           scrollContainer.scrollTop = 0;
+          currentSpeed.current = 0; // Beim Reset auch wieder langsam anfangen
         }
+      } else {
+        // Wenn interagiert wird, Geschwindigkeit für das nächste Mal auf null setzen
+        currentSpeed.current = 0;
       }
       animationFrameId = requestAnimationFrame(scrollStep);
     };
@@ -608,8 +616,8 @@ function AutoScrollMockup() {
         {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
         {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
         <img 
-          src="https://placehold.co/280x1800/f8fafc/475569?text=Hier+deinen%0ALong+Screenshot%0Aeinf%C3%BCgen%0A%0A%E2%86%93%0A%0A(Scrollt%0Aautomatisch)" 
-          alt="Platzhalter für langen Screenshot" 
+          src="/Bodywork%20Berlin%20-%20Mobile.jpg" 
+          alt="Bodywork Berlin Mobile Page" 
           className="w-full h-auto block" 
         />
       </div>
