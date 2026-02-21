@@ -558,25 +558,38 @@ function AccordionItem({ question, answer, delay }) {
 
 function AutoScrollMockup() {
   const scrollRef = useRef(null);
-  const [isInteracting, setIsInteracting] = useState(false);
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const hasInteracted = useRef(false);
   const exactScrollPos = useRef(0);
-  const currentSpeed = useRef(0); // Zustand für sanftes Anfahren
+  const currentSpeed = useRef(0);
 
+  // 1. Intersection Observer: Erkennt, ob das Handy gerade sichtbar ist
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // Startet erst, wenn mind. 30% sichtbar sind
+    );
+
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // 2. Animations-Logik
   useEffect(() => {
     let animationFrameId;
     const scrollContainer = scrollRef.current;
 
-    // Wenn der Nutzer die Maus wegnimmt, synchronisieren wir unsere interne
-    // Kommazahl mit der Stelle, an der er das Bild gerade manuell losgelassen hat.
-    if (!isInteracting && scrollContainer) {
-      exactScrollPos.current = scrollContainer.scrollTop;
-    }
-
     const scrollStep = () => {
-      if (scrollContainer && !isInteracting) {
-        // Sanftes Anfahren (Easing): Geschwindigkeit schrittweise erhöhen bis 0.4
-        if (currentSpeed.current < 0.4) {
-          currentSpeed.current += 0.001; // Langsame Steigerung
+      // Wenn der Nutzer jemals selbst gescrollt hat, stoppe die Animation für immer
+      if (hasInteracted.current) return;
+
+      if (scrollContainer && isVisible) {
+        // Sanftes Anfahren (Easing): Geschwindigkeit extrem langsam aufbauen bis 0.35
+        if (currentSpeed.current < 0.35) {
+          currentSpeed.current += 0.002; // Jetzt noch sanfterer Anstieg
         }
         
         exactScrollPos.current += currentSpeed.current; 
@@ -586,21 +599,29 @@ function AutoScrollMockup() {
         if (scrollContainer.scrollTop >= scrollContainer.scrollHeight - scrollContainer.clientHeight - 1) {
           exactScrollPos.current = 0;
           scrollContainer.scrollTop = 0;
-          currentSpeed.current = 0; // Beim Reset auch wieder langsam anfangen
+          currentSpeed.current = 0; 
         }
       } else {
-        // Wenn interagiert wird, Geschwindigkeit für das nächste Mal auf null setzen
+        // Setze die Start-Geschwindigkeit zurück, wenn das Handy aus dem Bild gescrollt wurde
         currentSpeed.current = 0;
+        if (scrollContainer) {
+          exactScrollPos.current = scrollContainer.scrollTop;
+        }
       }
       animationFrameId = requestAnimationFrame(scrollStep);
     };
 
     animationFrameId = requestAnimationFrame(scrollStep);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isInteracting]);
+  }, [isVisible]);
+
+  // Handler: Markiert, dass der User aktiv eingegriffen hat
+  const handleUserInteraction = () => {
+    hasInteracted.current = true;
+  };
 
   return (
-    <div className="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[10px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-slate-900/50">
+    <div ref={containerRef} className="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[10px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-slate-900/50">
       {/* Notch */}
       <div className="absolute top-0 inset-x-0 h-6 bg-slate-900 rounded-b-3xl w-36 mx-auto z-20 pointer-events-none"></div>
       
@@ -608,10 +629,9 @@ function AutoScrollMockup() {
       <div 
         ref={scrollRef}
         className="absolute inset-0 bg-white overflow-y-scroll no-scrollbar"
-        onMouseEnter={() => setIsInteracting(true)}
-        onMouseLeave={() => setIsInteracting(false)}
-        onTouchStart={() => setIsInteracting(true)}
-        onTouchEnd={() => setIsInteracting(false)}
+        onWheel={handleUserInteraction}
+        onTouchStart={handleUserInteraction}
+        onMouseDown={handleUserInteraction}
       >
         {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
         {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
