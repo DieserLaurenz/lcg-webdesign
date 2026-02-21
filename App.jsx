@@ -653,7 +653,7 @@ function AutoScrollMockup() {
         {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
         {/* Ersetze einfach die URL in "src" mit dem Pfad zu deinem echten Screenshot */}
         <img 
-          src="/Bodywork%20Berlin%20-%20Mobile.jpg" 
+          src="/Bodywork%20Berlin%20-%20Mobile.webp" 
           alt="Bodywork Berlin Mobile Page" 
           className="w-full h-auto block" 
         />
