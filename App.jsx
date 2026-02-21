@@ -576,7 +576,7 @@ function AutoScrollMockup() {
       if (scrollContainer && !isInteracting) {
         // Sanftes Anfahren (Easing): Geschwindigkeit schrittweise erhöhen bis 0.4
         if (currentSpeed.current < 0.4) {
-          currentSpeed.current += 0.005; // Langsame Steigerung
+          currentSpeed.current += 0.001; // Langsame Steigerung
         }
         
         exactScrollPos.current += currentSpeed.current; 
