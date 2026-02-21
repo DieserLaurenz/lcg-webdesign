@@ -301,12 +301,13 @@ export default function AgencySite() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <Reveal direction="right">
               <div className="relative">
-                {/* Image Placeholder */}
-                <div className="aspect-[3/4] md:aspect-square bg-white rounded-sm border border-slate-200 flex flex-col items-center justify-center text-slate-400 relative z-10">
-                  <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-4">
-                    <span className="text-slate-500 font-serif text-2xl">Foto</span>
-                  </div>
-                  <p className="text-sm">[Platzhalter für professionelles Portrait]</p>
+                <div className="aspect-[3/4] md:aspect-square bg-white rounded-sm border border-slate-200 overflow-hidden relative z-10">
+                  <img
+                    src="/uber-mich.webp"
+                    alt="Portrait von Laurenz Gilbert"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 {/* Decorative element */}
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white border border-slate-200 rounded-sm -z-10 hidden md:block"></div>
