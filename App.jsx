@@ -353,36 +353,41 @@ export default function AgencySite() {
             {/* Package 1 */}
             <Reveal delay={100} direction="up" className="h-full">
               <div className="bg-slate-50 p-6 md:p-8 border border-slate-200 rounded-sm shadow-sm hover:shadow-md transition-shadow h-full flex flex-col relative">
-                <div className="mb-4">
-                  <h3 className="font-serif text-2xl text-slate-900 mb-1">Die Digitale Visitenkarte</h3>
-                  <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold">One-Pager</p>
-                  
-                  <AnimatedPricingBlock 
-                    oldPrice="ab 1.490 €" 
-                    newPrice="ab 1.190 €" 
-                    savings="Sie sparen 300 €" 
-                    delay={100}
-                  />
+                
+                {/* Oberer Inhaltsbereich - wächst flexibel, um den Button nach unten zu drücken */}
+                <div className="flex-grow flex flex-col relative z-10">
+                  <div className="mb-4">
+                    <h3 className="font-serif text-2xl text-slate-900 mb-1">Die Digitale Visitenkarte</h3>
+                    <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold">One-Pager</p>
+                    
+                    {/* Animation synchronisiert auf delay 100 */}
+                    <AnimatedPricingBlock 
+                      oldPrice="ab 1.490 €" 
+                      newPrice="ab 1.190 €" 
+                      savings="Sie sparen 300 €" 
+                      delay={100}
+                    />
+                  </div>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    Die perfekte, hochseriöse Lösung für kleine Kosmetikstudios, spezialisierte Therapeuten oder Neugründungen. Alle wichtigen Informationen kompakt, elegant und verkaufsstark auf einer Seite gebündelt.
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    <ListItem text="Individuelles Premium-Design (Kein Template)" />
+                    <ListItem text="Konsequente Mobile-First Umsetzung" />
+                    <ListItem text="Integration Online-Terminbuchung" />
+                    <ListItem text="Integration Google Maps / Anfahrt" />
+                    <ListItem text="Technisches SEO Fundament" />
+                    <ListItem text="Standardgemäße DSGVO-Vorbereitung" />
+                  </ul>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  Die perfekte, hochseriöse Lösung für kleine Kosmetikstudios, spezialisierte Therapeuten oder Neugründungen. Alle wichtigen Informationen kompakt, elegant und verkaufsstark auf einer Seite gebündelt.
-                </p>
-                <ul className="space-y-3 mb-8 flex-grow">
-                  <ListItem text="Individuelles Premium-Design (Kein Template)" />
-                  <ListItem text="Konsequente Mobile-First Umsetzung" />
-                  <ListItem text="Integration Online-Terminbuchung" />
-                  <ListItem text="Integration Google Maps / Anfahrt" />
-                  <ListItem text="Technisches SEO Fundament" />
-                  <ListItem text="Standardgemäße DSGVO-Vorbereitung" />
-                </ul>
-                <div className="flex flex-col gap-2.5">
+
+                {/* Unterer Bereich (Button & Timer) - ist knallhart unten verankert */}
+                <div className="mt-auto flex flex-col relative z-10 shrink-0">
                   <button onClick={() => scrollTo('kontakt')} className="w-full py-2.5 px-4 border-2 border-blue-900 bg-blue-900 text-white font-medium rounded-sm hover:bg-blue-800 transition-colors">
                     Details Anfragen
                   </button>
-                  <div className="flex items-center justify-center gap-2 text-xs text-emerald-700 font-medium bg-emerald-50 py-2 rounded-sm border border-emerald-100">
-                    <Timer size={14} className="text-emerald-600" />
-                    Limitiert: Nur für 2 Projekte diesen Monat
-                  </div>
+                  {/* Timer Badge synchronisiert auf delay 100 */}
+                  <AnimatedTimerBadge delay={100} />
                 </div>
               </div>
             </Reveal>
@@ -393,36 +398,42 @@ export default function AgencySite() {
                 <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider z-20">
                   Beliebteste Wahl
                 </div>
-                <div className="mb-4 relative z-10">
-                  <h3 className="font-serif text-2xl text-white mb-1">Umfassende Praxis-Website</h3>
-                  <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold">Multi-Pager</p>
-                  
-                  <AnimatedPricingBlock 
-                    oldPrice="ab 2.990 €" 
-                    newPrice="ab 2.490 €" 
-                    savings="Sie sparen 500 €" 
-                    delay={200}
-                    dark={true}
-                  />
+
+                {/* Oberer Inhaltsbereich - wächst flexibel, um den Button nach unten zu drücken */}
+                <div className="flex-grow flex flex-col relative z-10">
+                  <div className="mb-4">
+                    <h3 className="font-serif text-2xl text-white mb-1">Umfassende Praxis-Website</h3>
+                    <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold">Multi-Pager</p>
+                    
+                    {/* Animation absolut synchronisiert zu Karte 1 (delay 100 statt 200), damit das Layout nicht springt */}
+                    <AnimatedPricingBlock 
+                      oldPrice="ab 2.990 €" 
+                      newPrice="ab 2.490 €" 
+                      savings="Sie sparen 500 €" 
+                      delay={100}
+                      dark={true}
+                    />
+                  </div>
+                  <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                    Für etablierte Arztpraxen, größere Wellness-Einrichtungen und Salons mit umfangreichem Leistungsangebot. Strukturierte Unterseiten für jede Dienstleistung zur maximalen Informationsvermittlung.
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    <ListItem text="Alles aus der Digitalen Visitenkarte" dark />
+                    <ListItem text="Dedizierte Unterseiten pro Leistungsbereich" dark />
+                    <ListItem text="Erweitertes Team- & Praxis-Vorstellungsprofil" dark />
+                    <ListItem text="Erweiterte Vorbereitung für Lokales SEO" dark />
+                    <ListItem text="Schnellste Ladezeiten durch Astro.js Architektur" dark />
+                  </ul>
                 </div>
-                <p className="text-slate-300 text-sm leading-relaxed mb-6 relative z-10">
-                  Für etablierte Arztpraxen, größere Wellness-Einrichtungen und Salons mit umfangreichem Leistungsangebot. Strukturierte Unterseiten für jede Dienstleistung zur maximalen Informationsvermittlung.
-                </p>
-                <ul className="space-y-3 mb-8 flex-grow relative z-10">
-                  <ListItem text="Alles aus der Digitalen Visitenkarte" dark />
-                  <ListItem text="Dedizierte Unterseiten pro Leistungsbereich" dark />
-                  <ListItem text="Erweitertes Team- & Praxis-Vorstellungsprofil" dark />
-                  <ListItem text="Erweiterte Vorbereitung für Lokales SEO" dark />
-                  <ListItem text="Schnellste Ladezeiten durch Astro.js Architektur" dark />
-                </ul>
-                <div className="flex flex-col gap-2.5 relative z-10">
-                  <button onClick={() => scrollTo('kontakt')} className="w-full py-2.5 px-4 bg-blue-600 text-white font-medium rounded-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/50">
+
+                {/* Unterer Bereich (Button & Timer) - ist knallhart unten verankert */}
+                <div className="mt-auto flex flex-col relative z-10 shrink-0">
+                  {/* Hat nun auch "border-2" erhalten, um EXAKT so hoch zu sein wie der linke Button */}
+                  <button onClick={() => scrollTo('kontakt')} className="w-full py-2.5 px-4 border-2 border-blue-600 bg-blue-600 text-white font-medium rounded-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/50">
                     Details Anfragen
                   </button>
-                  <div className="flex items-center justify-center gap-2 text-xs text-emerald-400 font-medium bg-emerald-950/50 py-2 rounded-sm border border-emerald-800/50">
-                    <Timer size={14} className="text-emerald-500" />
-                    Limitiert: Nur für 2 Projekte diesen Monat
-                  </div>
+                  {/* Timer Badge synchronisiert auf delay 100 */}
+                  <AnimatedTimerBadge delay={100} dark={true} />
                 </div>
               </div>
             </Reveal>
@@ -609,7 +620,7 @@ function AnimatedPricingBlock({ oldPrice, newPrice, savings, dark = false, delay
       <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] mb-3' : 'grid-rows-[0fr] mb-0'}`}>
         <div className="overflow-hidden min-h-0 flex flex-col justify-end">
           <div className={`transition-all duration-500 ease-out transform ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} inline-block w-fit px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider rounded-sm ${dark ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-100 text-emerald-800'}`}>
-            Exklusives Referenzkunden-Angebot
+            Exklusives Neukunden-Angebot
           </div>
         </div>
       </div>
@@ -645,6 +656,41 @@ function AnimatedPricingBlock({ oldPrice, newPrice, savings, dark = false, delay
               zzgl. MwSt.
             </span>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AnimatedTimerBadge({ delay, dark = false }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isRevealed, setIsRevealed] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Timer ist nun 100% synchron zum Neukunden-Angebot oben.
+          // Das Layout öffnet sich bei 1600ms, der Text fadet bei 2100ms ein.
+          setTimeout(() => setIsExpanded(true), delay + 1600); 
+          setTimeout(() => setIsRevealed(true), delay + 2100); 
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [delay]);
+
+  return (
+    <div ref={ref} className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] mt-2.5' : 'grid-rows-[0fr] mt-0'}`}>
+      <div className="overflow-hidden min-h-0">
+        <div className={`transition-all duration-500 ease-out transform ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} flex items-center justify-center gap-2 text-xs font-medium py-2 rounded-sm border ${dark ? 'text-emerald-400 bg-emerald-950/50 border-emerald-800/50' : 'text-emerald-700 bg-emerald-50 border-emerald-100'}`}>
+          <Timer size={14} className={dark ? 'text-emerald-500' : 'text-emerald-600'} />
+          Limitiert: Nur für 2 Projekte diesen Monat
         </div>
       </div>
     </div>

@@ -353,9 +353,9 @@ export default function AgencySite() {
             {/* Package 1 */}
             <Reveal delay={100} direction="up" className="h-full">
               <div className="bg-slate-50 p-6 md:p-8 border border-slate-200 rounded-sm shadow-sm hover:shadow-md transition-shadow h-full flex flex-col relative">
-                <div className="mb-5">
-                  <h3 className="font-serif text-2xl text-slate-900 mb-2">Die Digitale Visitenkarte</h3>
-                  <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold mb-4">One-Pager</p>
+                <div className="mb-4">
+                  <h3 className="font-serif text-2xl text-slate-900 mb-1">Die Digitale Visitenkarte</h3>
+                  <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold">One-Pager</p>
                   
                   <AnimatedPricingBlock 
                     oldPrice="ab 1.490 €" 
@@ -393,9 +393,9 @@ export default function AgencySite() {
                 <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider z-20">
                   Beliebteste Wahl
                 </div>
-                <div className="mb-5 relative z-10">
-                  <h3 className="font-serif text-2xl text-white mb-2">Umfassende Praxis-Website</h3>
-                  <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold mb-4">Multi-Pager</p>
+                <div className="mb-4 relative z-10">
+                  <h3 className="font-serif text-2xl text-white mb-1">Umfassende Praxis-Website</h3>
+                  <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold">Multi-Pager</p>
                   
                   <AnimatedPricingBlock 
                     oldPrice="ab 2.990 €" 
@@ -583,9 +583,12 @@ function AnimatedPricingBlock({ oldPrice, newPrice, savings, dark = false, delay
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Exaktes Timing der Animationen relativ zum Auftauchen der Karte
-          setTimeout(() => setPhase('strike'), delay + 800);  // Strich wird gezogen
-          setTimeout(() => setPhase('reveal'), delay + 1200); // Neue Preise faden ein
+          // 1. Lass den Nutzer den großen Preis lesen. Dann Strich ziehen.
+          setTimeout(() => setPhase('strike'), delay + 800);  
+          // 2. Platz öffnen: Alter Preis schrumpft, unsichtbare Boxen öffnen das Layout nach unten.
+          setTimeout(() => setPhase('expand'), delay + 1600); 
+          // 3. Reveal: Der Platz ist jetzt 100% da. Text fadet sanft und unbeschnitten ein!
+          setTimeout(() => setPhase('reveal'), delay + 2100); 
           observer.unobserve(entry.target);
         }
       },
@@ -596,43 +599,52 @@ function AnimatedPricingBlock({ oldPrice, newPrice, savings, dark = false, delay
     return () => observer.disconnect();
   }, [delay]);
 
+  const isLarge = phase === 'initial' || phase === 'strike';
+  const isExpanded = phase === 'expand' || phase === 'reveal';
+  const isRevealed = phase === 'reveal';
+
   return (
-    <div ref={ref} className="flex flex-col mb-1">
-      {/* Promo Badge Container */}
-      <div className="h-7 mb-3 flex items-start overflow-visible">
-        <div className={`transition-all duration-500 ease-out transform ${phase === 'reveal' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className={`inline-block px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider rounded-sm ${dark ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-100 text-emerald-800'}`}>
+    <div ref={ref} className="flex flex-col w-full mt-5 mb-1">
+      {/* Top Promo Badge */}
+      <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] mb-3' : 'grid-rows-[0fr] mb-0'}`}>
+        <div className="overflow-hidden min-h-0 flex flex-col justify-end">
+          <div className={`transition-all duration-500 ease-out transform ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} inline-block w-fit px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider rounded-sm ${dark ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-100 text-emerald-800'}`}>
             Exklusives Referenzkunden-Angebot
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col">
-        {/* Old Price + Savings Badge Container */}
-        <div className="flex items-center gap-3 mb-1 h-7">
-          <span className={`relative text-lg font-medium ${dark ? 'text-slate-500' : 'text-slate-400'}`}>
+      {/* Old Price Row */}
+      <div className="flex items-center">
+         {/* Animiert die Font-Size sanft */}
+         <span className={`relative transition-all duration-[500ms] ease-in-out font-bold ${isLarge ? 'text-4xl' : 'text-lg'} ${isLarge ? (dark ? 'text-white' : 'text-slate-900') : (dark ? 'text-slate-500' : 'text-slate-400')}`}>
             {oldPrice}
             {/* Animierter roter Strich */}
             <span 
-              className="absolute top-[55%] left-[-5%] h-[2.5px] bg-red-500 transition-all duration-300 ease-out origin-left -rotate-2 rounded-full shadow-sm" 
-              style={{ width: (phase === 'strike' || phase === 'reveal') ? '110%' : '0%' }}
+              className="absolute top-[55%] left-[-5%] h-[0.12em] bg-red-500 transition-all duration-300 ease-out origin-left -rotate-2 rounded-full shadow-sm" 
+              style={{ width: phase !== 'initial' ? '110%' : '0%' }}
             ></span>
-          </span>
+         </span>
 
-          {/* Savings Badge */}
-          <span className={`px-2.5 py-0.5 text-xs font-bold rounded-sm transition-all duration-500 ease-out transform ${phase === 'reveal' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'} ${dark ? 'bg-red-500/20 border border-red-500/30 text-red-400' : 'bg-red-100 text-red-700'}`}>
-            {savings}
-          </span>
-        </div>
+         {/* Savings Badge - Platz öffnet sich mit isExpanded, Inhalt fadet mit isRevealed */}
+         <div className={`overflow-hidden transition-all duration-[500ms] ease-in-out flex items-center ${isExpanded ? 'max-w-[200px] ml-3' : 'max-w-0 ml-0'}`}>
+             <span className={`transition-all duration-500 ease-out transform ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'} whitespace-nowrap px-2.5 py-0.5 text-[0.65rem] font-bold rounded-sm ${dark ? 'bg-red-500/20 border border-red-500/30 text-red-400' : 'bg-red-100 text-red-700'}`}>
+               {savings}
+             </span>
+         </div>
+      </div>
 
-        {/* New Price Container */}
-        <div className={`flex items-baseline gap-1.5 h-10 -mt-1 transition-all duration-700 ease-out transform ${phase === 'reveal' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <span className={`text-4xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>
-            {newPrice}
-          </span>
-          <span className={`text-sm font-medium ${dark ? 'text-blue-300' : 'text-slate-500'}`}>
-            zzgl. MwSt.
-          </span>
+      {/* New Price - Container öffnet sich zuerst vollständig, dann fadet Text ein */}
+      <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] mt-1' : 'grid-rows-[0fr] mt-0'}`}>
+        <div className="overflow-hidden min-h-0 flex flex-col justify-start">
+          <div className={`flex items-baseline gap-1.5 py-1 transition-all duration-500 ease-out transform origin-left ${isRevealed ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}>
+            <span className={`text-4xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>
+              {newPrice}
+            </span>
+            <span className={`text-sm font-medium ${dark ? 'text-blue-300' : 'text-slate-500'}`}>
+              zzgl. MwSt.
+            </span>
+          </div>
         </div>
       </div>
     </div>
