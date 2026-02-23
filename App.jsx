@@ -352,32 +352,22 @@ export default function AgencySite() {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Package 1 */}
             <Reveal delay={100} direction="up" className="h-full">
-              <div className="bg-slate-50 p-8 md:p-10 border border-slate-200 rounded-sm shadow-sm hover:shadow-md transition-shadow h-full flex flex-col relative">
-                <div className="mb-6">
+              <div className="bg-slate-50 p-6 md:p-8 border border-slate-200 rounded-sm shadow-sm hover:shadow-md transition-shadow h-full flex flex-col relative">
+                <div className="mb-5">
                   <h3 className="font-serif text-2xl text-slate-900 mb-2">Die Digitale Visitenkarte</h3>
                   <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold mb-4">One-Pager</p>
                   
-                  {/* Werbendes Promo-Badge */}
-                  <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-[0.65rem] font-bold uppercase tracking-wider rounded-sm mb-3">
-                    Exklusives Referenzkunden-Angebot
-                  </div>
-                  
-                  {/* Durchgestrichener alter Preis, Ersparnis und neuer Aktionspreis */}
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-lg text-slate-400 line-through decoration-slate-300 decoration-2 font-medium">ab 1.490 €</span>
-                      <span className="px-2.5 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded-sm">Sie sparen 300 €</span>
-                    </div>
-                    <div className="flex items-baseline gap-1.5 -mt-1">
-                      <span className="text-4xl font-bold text-slate-900">ab 1.190 €</span>
-                      <span className="text-sm text-slate-500 font-medium">zzgl. MwSt.</span>
-                    </div>
-                  </div>
+                  <AnimatedPricingBlock 
+                    oldPrice="ab 1.490 €" 
+                    newPrice="ab 1.190 €" 
+                    savings="Sie sparen 300 €" 
+                    delay={100}
+                  />
                 </div>
-                <p className="text-slate-600 mb-8">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   Die perfekte, hochseriöse Lösung für kleine Kosmetikstudios, spezialisierte Therapeuten oder Neugründungen. Alle wichtigen Informationen kompakt, elegant und verkaufsstark auf einer Seite gebündelt.
                 </p>
-                <ul className="space-y-4 mb-10 flex-grow">
+                <ul className="space-y-3 mb-8 flex-grow">
                   <ListItem text="Individuelles Premium-Design (Kein Template)" />
                   <ListItem text="Konsequente Mobile-First Umsetzung" />
                   <ListItem text="Integration Online-Terminbuchung" />
@@ -385,11 +375,11 @@ export default function AgencySite() {
                   <ListItem text="Technisches SEO Fundament" />
                   <ListItem text="Standardgemäße DSGVO-Vorbereitung" />
                 </ul>
-                <div className="flex flex-col gap-3">
-                  <button onClick={() => scrollTo('kontakt')} className="w-full py-3 px-4 border-2 border-blue-900 bg-blue-900 text-white font-medium rounded-sm hover:bg-blue-800 transition-colors">
+                <div className="flex flex-col gap-2.5">
+                  <button onClick={() => scrollTo('kontakt')} className="w-full py-2.5 px-4 border-2 border-blue-900 bg-blue-900 text-white font-medium rounded-sm hover:bg-blue-800 transition-colors">
                     Details Anfragen
                   </button>
-                  <div className="flex items-center justify-center gap-2 text-xs text-emerald-700 font-medium bg-emerald-50 py-2.5 rounded-sm border border-emerald-100">
+                  <div className="flex items-center justify-center gap-2 text-xs text-emerald-700 font-medium bg-emerald-50 py-2 rounded-sm border border-emerald-100">
                     <Timer size={14} className="text-emerald-600" />
                     Limitiert: Nur für 2 Projekte diesen Monat
                   </div>
@@ -399,46 +389,37 @@ export default function AgencySite() {
 
             {/* Package 2 */}
             <Reveal delay={200} direction="up" className="h-full">
-              <div className="bg-[#0f172a] p-8 md:p-10 border border-slate-800 rounded-sm shadow-lg h-full flex flex-col relative overflow-hidden">
+              <div className="bg-[#0f172a] p-6 md:p-8 border border-slate-800 rounded-sm shadow-lg h-full flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider z-20">
                   Beliebteste Wahl
                 </div>
-                <div className="mb-6 relative z-10">
+                <div className="mb-5 relative z-10">
                   <h3 className="font-serif text-2xl text-white mb-2">Umfassende Praxis-Website</h3>
                   <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold mb-4">Multi-Pager</p>
                   
-                  {/* Werbendes Promo-Badge (Dunkel-Modus) */}
-                  <div className="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[0.65rem] font-bold uppercase tracking-wider rounded-sm mb-3 border border-emerald-500/20">
-                    Exklusives Referenzkunden-Angebot
-                  </div>
-                  
-                  {/* Durchgestrichener alter Preis, Ersparnis und neuer Aktionspreis */}
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-lg text-slate-500 line-through decoration-slate-600 decoration-2 font-medium">ab 2.990 €</span>
-                      <span className="px-2.5 py-0.5 bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-bold rounded-sm">Sie sparen 500 €</span>
-                    </div>
-                    <div className="flex items-baseline gap-1.5 -mt-1">
-                      <span className="text-4xl font-bold text-white">ab 2.490 €</span>
-                      <span className="text-sm text-blue-300 font-medium">zzgl. MwSt.</span>
-                    </div>
-                  </div>
+                  <AnimatedPricingBlock 
+                    oldPrice="ab 2.990 €" 
+                    newPrice="ab 2.490 €" 
+                    savings="Sie sparen 500 €" 
+                    delay={200}
+                    dark={true}
+                  />
                 </div>
-                <p className="text-slate-300 mb-8 relative z-10">
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 relative z-10">
                   Für etablierte Arztpraxen, größere Wellness-Einrichtungen und Salons mit umfangreichem Leistungsangebot. Strukturierte Unterseiten für jede Dienstleistung zur maximalen Informationsvermittlung.
                 </p>
-                <ul className="space-y-4 mb-10 flex-grow relative z-10">
+                <ul className="space-y-3 mb-8 flex-grow relative z-10">
                   <ListItem text="Alles aus der Digitalen Visitenkarte" dark />
                   <ListItem text="Dedizierte Unterseiten pro Leistungsbereich" dark />
                   <ListItem text="Erweitertes Team- & Praxis-Vorstellungsprofil" dark />
                   <ListItem text="Erweiterte Vorbereitung für Lokales SEO" dark />
                   <ListItem text="Schnellste Ladezeiten durch Astro.js Architektur" dark />
                 </ul>
-                <div className="flex flex-col gap-3 relative z-10">
-                  <button onClick={() => scrollTo('kontakt')} className="w-full py-3 px-4 bg-blue-600 text-white font-medium rounded-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/50">
+                <div className="flex flex-col gap-2.5 relative z-10">
+                  <button onClick={() => scrollTo('kontakt')} className="w-full py-2.5 px-4 bg-blue-600 text-white font-medium rounded-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/50">
                     Details Anfragen
                   </button>
-                  <div className="flex items-center justify-center gap-2 text-xs text-emerald-400 font-medium bg-emerald-950/50 py-2.5 rounded-sm border border-emerald-800/50">
+                  <div className="flex items-center justify-center gap-2 text-xs text-emerald-400 font-medium bg-emerald-950/50 py-2 rounded-sm border border-emerald-800/50">
                     <Timer size={14} className="text-emerald-500" />
                     Limitiert: Nur für 2 Projekte diesen Monat
                   </div>
@@ -554,9 +535,9 @@ function FeatureCard({ icon, title, description, delay }) {
 
 function ListItem({ text, dark = false }) {
   return (
-    <li className="flex items-start gap-3">
-      <CheckCircle size={20} className={`shrink-0 mt-0.5 ${dark ? 'text-blue-400' : 'text-blue-900'}`} />
-      <span className={dark ? 'text-slate-300' : 'text-slate-700'}>{text}</span>
+    <li className="flex items-start gap-2.5">
+      <CheckCircle size={18} className={`shrink-0 mt-0.5 ${dark ? 'text-blue-400' : 'text-blue-900'}`} />
+      <span className={`text-sm ${dark ? 'text-slate-300' : 'text-slate-700'}`}>{text}</span>
     </li>
   );
 }
@@ -591,6 +572,70 @@ function AccordionItem({ question, answer, delay }) {
         </div>
       </div>
     </Reveal>
+  );
+}
+
+function AnimatedPricingBlock({ oldPrice, newPrice, savings, dark = false, delay = 0 }) {
+  const [phase, setPhase] = useState('initial'); 
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Exaktes Timing der Animationen relativ zum Auftauchen der Karte
+          setTimeout(() => setPhase('strike'), delay + 800);  // Strich wird gezogen
+          setTimeout(() => setPhase('reveal'), delay + 1200); // Neue Preise faden ein
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [delay]);
+
+  return (
+    <div ref={ref} className="flex flex-col mb-1">
+      {/* Promo Badge Container */}
+      <div className="h-7 mb-3 flex items-start overflow-visible">
+        <div className={`transition-all duration-500 ease-out transform ${phase === 'reveal' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className={`inline-block px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider rounded-sm ${dark ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-100 text-emerald-800'}`}>
+            Exklusives Referenzkunden-Angebot
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col">
+        {/* Old Price + Savings Badge Container */}
+        <div className="flex items-center gap-3 mb-1 h-7">
+          <span className={`relative text-lg font-medium ${dark ? 'text-slate-500' : 'text-slate-400'}`}>
+            {oldPrice}
+            {/* Animierter roter Strich */}
+            <span 
+              className="absolute top-[55%] left-[-5%] h-[2.5px] bg-red-500 transition-all duration-300 ease-out origin-left -rotate-2 rounded-full shadow-sm" 
+              style={{ width: (phase === 'strike' || phase === 'reveal') ? '110%' : '0%' }}
+            ></span>
+          </span>
+
+          {/* Savings Badge */}
+          <span className={`px-2.5 py-0.5 text-xs font-bold rounded-sm transition-all duration-500 ease-out transform ${phase === 'reveal' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'} ${dark ? 'bg-red-500/20 border border-red-500/30 text-red-400' : 'bg-red-100 text-red-700'}`}>
+            {savings}
+          </span>
+        </div>
+
+        {/* New Price Container */}
+        <div className={`flex items-baseline gap-1.5 h-10 -mt-1 transition-all duration-700 ease-out transform ${phase === 'reveal' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <span className={`text-4xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>
+            {newPrice}
+          </span>
+          <span className={`text-sm font-medium ${dark ? 'text-blue-300' : 'text-slate-500'}`}>
+            zzgl. MwSt.
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }
 
