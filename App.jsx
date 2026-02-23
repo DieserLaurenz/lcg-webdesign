@@ -561,6 +561,7 @@ function AutoScrollMockup() {
   const scrollRef = useRef(null);
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
   const hasInteracted = useRef(false);
   const exactScrollPos = useRef(0);
   const currentSpeed = useRef(0);
@@ -579,20 +580,38 @@ function AutoScrollMockup() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateViewport = (event) => {
+      setIsMobileViewport(event.matches);
+    };
+
+    setIsMobileViewport(mediaQuery.matches);
+    mediaQuery.addEventListener("change", updateViewport);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateViewport);
+    };
+  }, []);
+
   // 2. Delay Logik für die 3 Sekunden Pause
   useEffect(() => {
     let timeoutId;
     if (isVisible) {
-      // Timer starten, wenn das Mockup sichtbar wird
-      timeoutId = setTimeout(() => {
+      if (isMobileViewport) {
         delayPassed.current = true;
-      }, 2000);
+      } else {
+        // Timer starten, wenn das Mockup sichtbar wird
+        timeoutId = setTimeout(() => {
+          delayPassed.current = true;
+        }, 2000);
+      }
     } else {
       // Timer zurücksetzen, wenn der Nutzer wieder wegschrollt
       delayPassed.current = false;
     }
     return () => clearTimeout(timeoutId);
-  }, [isVisible]);
+  }, [isVisible, isMobileViewport]);
 
   // 3. Animations-Logik
   useEffect(() => {
