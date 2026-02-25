@@ -7,18 +7,10 @@ const Reveal = ({ children, delay = 0, className = "", direction = "up" }) => {
   const ref = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    const id = requestAnimationFrame(() => {
+      setIsVisible(true);
+    });
+    return () => cancelAnimationFrame(id);
   }, []);
 
   const getTranslateClass = () => {
@@ -192,7 +184,7 @@ export default function AGB() {
                   <div className="space-y-4">
                     <p>Der Auftragnehmer haftet bei Vorsatz und grober Fahrlässigkeit unbeschränkt. Bei leichter Fahrlässigkeit haftet der Auftragnehmer nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten), beschränkt auf den vertragstypisch vorhersehbaren Schaden.</p>
                     <p>Der Auftragnehmer übernimmt keine Haftung für Ausfälle, Datenverluste, Sperrungen oder etwaige Kosten, die durch die Nutzung der Drittanbieter (z. B. Cloudflare, GitHub) entstehen.</p>
-                    <p className="bg-slate-50 p-5 border-l-4 border-slate-400 text-sm leading-relaxed text-slate-700 font-medium">
+                    <p>
                       Die rechtliche Verantwortung für die Inhalte der Website, insbesondere das Impressum, die Datenschutzerklärung und rechtskonforme Cookie-Banner, liegt allein beim Auftraggeber. Der Auftragnehmer führt keine Rechtsberatung durch.
                     </p>
                   </div>
