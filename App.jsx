@@ -356,18 +356,14 @@ export default function AgencySite() {
                 
                 {/* Oberer Inhaltsbereich - wächst flexibel, um den Button nach unten zu drücken */}
                 <div className="flex-grow flex flex-col relative z-10">
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <h3 className="font-serif text-2xl text-slate-900 mb-1">Die Digitale Visitenkarte</h3>
-                    <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold">One-Pager</p>
+                    <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold mb-4">One-Pager</p>
                     
-                    {/* Durch die ID "card1" wissen oberer und unterer Block, dass sie zusammengehören */}
-                    <AnimatedPricingBlock 
-                      id="card1"
-                      oldPrice="ab 1.490 €" 
-                      newPrice="ab 1.190 €" 
-                      savings="Sie sparen 300 €" 
-                      delay={100}
-                    />
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold text-slate-900">ab 1.290 €</span>
+                      <span className="text-sm text-slate-500 font-medium">zzgl. MwSt.</span>
+                    </div>
                   </div>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6">
                     Die perfekte, hochseriöse Lösung für kleine Kosmetikstudios, spezialisierte Therapeuten oder Neugründungen. Alle wichtigen Informationen kompakt, elegant und verkaufsstark auf einer Seite gebündelt.
@@ -382,13 +378,11 @@ export default function AgencySite() {
                   </ul>
                 </div>
 
-                {/* Unterer Bereich (Button & Timer) - ist knallhart unten verankert */}
+                {/* Unterer Bereich (Button) - ist knallhart unten verankert */}
                 <div className="mt-auto flex flex-col relative z-10 shrink-0">
                   <button onClick={() => scrollTo('kontakt')} className="w-full py-2.5 px-4 border-2 border-blue-900 bg-blue-900 text-white font-medium rounded-sm hover:bg-blue-800 transition-colors">
                     Details Anfragen
                   </button>
-                  {/* Horcht auf das Signal von "card1" */}
-                  <AnimatedTimerBadge id="card1" delay={100} />
                 </div>
               </div>
             </Reveal>
@@ -402,19 +396,14 @@ export default function AgencySite() {
 
                 {/* Oberer Inhaltsbereich - wächst flexibel, um den Button nach unten zu drücken */}
                 <div className="flex-grow flex flex-col relative z-10">
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <h3 className="font-serif text-2xl text-white mb-1">Umfassende Praxis-Website</h3>
-                    <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold">Multi-Pager</p>
+                    <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold mb-4">Multi-Pager</p>
                     
-                    {/* Durch die ID "card2" wissen oberer und unterer Block, dass sie zusammengehören */}
-                    <AnimatedPricingBlock 
-                      id="card2"
-                      oldPrice="ab 2.990 €" 
-                      newPrice="ab 2.490 €" 
-                      savings="Sie sparen 500 €" 
-                      delay={100}
-                      dark={true}
-                    />
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold text-white">ab 2.290 €</span>
+                      <span className="text-sm text-blue-300 font-medium">zzgl. MwSt.</span>
+                    </div>
                   </div>
                   <p className="text-slate-300 text-sm leading-relaxed mb-6">
                     Für etablierte Arztpraxen, größere Wellness-Einrichtungen und Salons mit umfangreichem Leistungsangebot. Strukturierte Unterseiten für jede Dienstleistung zur maximalen Informationsvermittlung.
@@ -428,14 +417,11 @@ export default function AgencySite() {
                   </ul>
                 </div>
 
-                {/* Unterer Bereich (Button & Timer) - ist knallhart unten verankert */}
+                {/* Unterer Bereich (Button) - ist knallhart unten verankert */}
                 <div className="mt-auto flex flex-col relative z-10 shrink-0">
-                  {/* Hat nun auch "border-2" erhalten, um EXAKT so hoch zu sein wie der linke Button */}
                   <button onClick={() => scrollTo('kontakt')} className="w-full py-2.5 px-4 border-2 border-blue-600 bg-blue-600 text-white font-medium rounded-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/50">
                     Details Anfragen
                   </button>
-                  {/* Horcht auf das Signal von "card2" */}
-                  <AnimatedTimerBadge id="card2" delay={100} dark={true} />
                 </div>
               </div>
             </Reveal>
@@ -585,119 +571,6 @@ function AccordionItem({ question, answer, delay }) {
         </div>
       </div>
     </Reveal>
-  );
-}
-
-function AnimatedPricingBlock({ oldPrice, newPrice, savings, dark = false, delay = 0, id }) {
-  const [phase, setPhase] = useState('initial'); 
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Sendet ein Signal an das Timer-Badge, das mit derselben ID verknüpft ist
-          if (id) {
-            window.dispatchEvent(new CustomEvent(`pricing-trigger-${id}`));
-          }
-
-          // 1. Lass den Nutzer den großen Preis lesen. Dann Strich ziehen.
-          setTimeout(() => setPhase('strike'), delay + 800);  
-          // 2. Platz öffnen: Alter Preis schrumpft, unsichtbare Boxen öffnen das Layout nach unten.
-          setTimeout(() => setPhase('expand'), delay + 1600); 
-          // 3. Reveal: Der Platz ist jetzt 100% da. Text fadet sanft und unbeschnitten ein!
-          setTimeout(() => setPhase('reveal'), delay + 2100); 
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [delay, id]);
-
-  const isLarge = phase === 'initial' || phase === 'strike';
-  const isExpanded = phase === 'expand' || phase === 'reveal';
-  const isRevealed = phase === 'reveal';
-
-  return (
-    <div ref={ref} className="flex flex-col w-full mt-5 mb-1">
-      {/* Top Promo Badge */}
-      <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] mb-3' : 'grid-rows-[0fr] mb-0'}`}>
-        <div className="overflow-hidden min-h-0 flex flex-col justify-end">
-          <div className={`transition-all duration-500 ease-out transform ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} inline-block w-fit px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider rounded-sm ${dark ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-100 text-emerald-800'}`}>
-            Exklusives Neukunden-Angebot
-          </div>
-        </div>
-      </div>
-
-      {/* Old Price Row */}
-      <div className="flex items-center">
-         {/* Animiert die Font-Size sanft */}
-         <span className={`relative transition-all duration-[500ms] ease-in-out font-bold ${isLarge ? 'text-4xl' : 'text-lg'} ${isLarge ? (dark ? 'text-white' : 'text-slate-900') : (dark ? 'text-slate-500' : 'text-slate-400')}`}>
-            {oldPrice}
-            {/* Animierter roter Strich */}
-            <span 
-              className="absolute top-[55%] left-[-5%] h-[0.12em] bg-red-500 transition-all duration-300 ease-out origin-left -rotate-2 rounded-full shadow-sm" 
-              style={{ width: phase !== 'initial' ? '110%' : '0%' }}
-            ></span>
-         </span>
-
-         {/* Savings Badge - Platz öffnet sich mit isExpanded, Inhalt fadet mit isRevealed */}
-         <div className={`overflow-hidden transition-all duration-[500ms] ease-in-out flex items-center ${isExpanded ? 'max-w-[200px] ml-3' : 'max-w-0 ml-0'}`}>
-             <span className={`transition-all duration-500 ease-out transform ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'} whitespace-nowrap px-2.5 py-0.5 text-[0.65rem] font-bold rounded-sm ${dark ? 'bg-red-500/20 border border-red-500/30 text-red-400' : 'bg-red-100 text-red-700'}`}>
-               {savings}
-             </span>
-         </div>
-      </div>
-
-      {/* New Price - Container öffnet sich zuerst vollständig, dann fadet Text ein */}
-      <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] mt-1' : 'grid-rows-[0fr] mt-0'}`}>
-        <div className="overflow-hidden min-h-0 flex flex-col justify-start">
-          <div className={`flex items-baseline gap-1.5 py-1 transition-all duration-500 ease-out transform origin-left ${isRevealed ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'}`}>
-            <span className={`text-4xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>
-              {newPrice}
-            </span>
-            <span className={`text-sm font-medium ${dark ? 'text-blue-300' : 'text-slate-500'}`}>
-              zzgl. MwSt.
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AnimatedTimerBadge({ delay, dark = false, id }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isRevealed, setIsRevealed] = useState(false);
-
-  useEffect(() => {
-    if (!id) return; // Sicherstellen, dass eine ID existiert
-
-    const eventName = `pricing-trigger-${id}`;
-    
-    // Dieser Code wird exakt in dem Moment ausgeführt, in dem auch der obere Preisblock feuert
-    const handler = () => {
-      // Millisekundengenau dieselben Timings wie oben beim Neukunden-Angebot!
-      setTimeout(() => setIsExpanded(true), delay + 1600); 
-      setTimeout(() => setIsRevealed(true), delay + 2100); 
-    };
-
-    window.addEventListener(eventName, handler);
-    return () => window.removeEventListener(eventName, handler);
-  }, [delay, id]);
-
-  return (
-    <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] mt-2.5' : 'grid-rows-[0fr] mt-0'}`}>
-      <div className="overflow-hidden min-h-0">
-        <div className={`transition-all duration-500 ease-out transform ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} flex items-center justify-center gap-2 text-xs font-medium py-2 rounded-sm border ${dark ? 'text-emerald-400 bg-emerald-950/50 border-emerald-800/50' : 'text-emerald-700 bg-emerald-50 border-emerald-100'}`}>
-          <Timer size={14} className={dark ? 'text-emerald-500' : 'text-emerald-600'} />
-          Limitiert: Nur für 2 Projekte diesen Monat
-        </div>
-      </div>
-    </div>
   );
 }
 
