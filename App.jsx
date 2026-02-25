@@ -507,7 +507,7 @@ export default function AgencySite() {
             </div>
             <div className="flex gap-6">
               <a href="/impressum" className="hover:text-white transition-colors">Impressum</a>
-              <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
+              <a href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</a>
               <a href="#" className="hover:text-white transition-colors">AGB</a>
             </div>
           </div>
