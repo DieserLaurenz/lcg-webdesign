@@ -1,6 +1,58 @@
 ---
 import AgencySite from "../../App.jsx";
 import "../styles/global.css";
+
+const pageTitle = "Webdesign für Ärzte & Praxen in Berlin | LCG Webdesign";
+const pageDescription =
+  "Professionelles Webdesign für Ärzte, Physiotherapeuten & Studios in Berlin. Modern, rechtssicher & SEO-optimiert. Jetzt kostenlose Erstberatung vereinbaren!";
+const canonicalUrl = "https://lcg-webdesign.de/";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lcg-webdesign.de/#organization",
+      name: "LCG Webdesign",
+      url: "https://lcg-webdesign.de/",
+      email: "kontakt@lcg-webdesign.de",
+      telephone: "+49 176 55156501",
+      founder: {
+        "@type": "Person",
+        name: "Laurenz Cornelius Gilbert",
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Argentinische Allee 93",
+        postalCode: "14163",
+        addressLocality: "Berlin",
+        addressCountry: "DE",
+      },
+    },
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://lcg-webdesign.de/#localbusiness",
+      name: "LCG Webdesign",
+      url: "https://lcg-webdesign.de/",
+      image:
+        "https://lcg-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp",
+      email: "kontakt@lcg-webdesign.de",
+      telephone: "+49 176 55156501",
+      areaServed: {
+        "@type": "City",
+        name: "Berlin",
+      },
+      priceRange: "€€",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Argentinische Allee 93",
+        postalCode: "14163",
+        addressLocality: "Berlin",
+        addressCountry: "DE",
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -8,7 +60,20 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LCG Webdesign</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="LCG Webdesign" />
+    <meta
+      property="og:image"
+      content="https://lcg-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <AgencySite client:load />

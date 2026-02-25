@@ -1,6 +1,11 @@
 ---
 import DatenschutzPage from "../components/DatenschutzPage.jsx";
 import "../styles/global.css";
+
+const pageTitle = "Datenschutzerklärung | LCG Webdesign";
+const pageDescription =
+  "Datenschutzerklärung von LCG Webdesign mit Informationen zur Verarbeitung personenbezogener Daten.";
+const canonicalUrl = "https://lcg-webdesign.de/datenschutz/";
 ---
 
 <!doctype html>
@@ -8,7 +13,15 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Datenschutz | LCG Webdesign</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="LCG Webdesign" />
+    <meta name="twitter:card" content="summary" />
   </head>
   <body>
     <DatenschutzPage client:load />

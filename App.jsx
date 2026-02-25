@@ -303,8 +303,8 @@ export default function AgencySite() {
               <div className="relative">
                 {/* Professional Portrait */}
                 <img 
-                  src="/uber-mich.webp" 
-                  alt="Laurenz Gilbert - Webdesigner" 
+                  src="/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp" 
+                  alt="Webdesigner Laurenz Gilbert für Praxen und Salons in Berlin" 
                   className="aspect-[3/4] md:aspect-square object-cover w-full bg-slate-200 rounded-sm border border-slate-200 relative z-10 shadow-sm"
                 />
                 {/* Decorative element */}
@@ -474,8 +474,8 @@ export default function AgencySite() {
                 Als spezialisierter Webdesigner für <strong className="text-slate-300 font-semibold">Physiotherapeuten, Arztpraxen, Kosmetikstudios und Massagesalons</strong> verstehe ich Ihre Anforderungen genau. 
                 Vereinbaren Sie ein unverbindliches Erstgespräch und lassen Sie uns besprechen, wie ich Ihre digitale Präsenz auf ein Premium-Niveau hebe.
               </p>
-              <a href="mailto:hallo@lcg-webdesign.de" className="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors text-lg">
-                hallo@lcg-webdesign.de
+              <a href="mailto:kontakt@lcg-webdesign.de" className="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors text-lg">
+                kontakt@lcg-webdesign.de
               </a>
             </div>
             
@@ -681,8 +681,8 @@ function AutoScrollMockup() {
         >
           {/* HIER KOMMT DEIN ECHTER LANGER SCREENSHOT REIN: */}
           <img 
-            src="/Bodywork%20Berlin%20-%20Mobile.webp" 
-            alt="Bodywork Berlin Mobile Screenshot" 
+            src="/webdesign-berlin-bodywork-praxis-beispiel-mobile.webp" 
+            alt="Webdesign Beispiel einer Praxis-Website in Berlin auf einem Mobilgerät" 
             className="w-full h-auto block pointer-events-none select-none" 
           />
         </div>

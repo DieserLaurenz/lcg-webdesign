@@ -1,6 +1,11 @@
 ---
 import AGBPage from "../components/AGBPage.jsx";
 import "../styles/global.css";
+
+const pageTitle = "AGB | LCG Webdesign";
+const pageDescription =
+  "Allgemeine Geschäftsbedingungen (AGB) von LCG Webdesign für Leistungen im Bereich Webdesign und Entwicklung.";
+const canonicalUrl = "https://lcg-webdesign.de/agb/";
 ---
 
 <!doctype html>
@@ -8,7 +13,15 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AGB | LCG Webdesign</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="LCG Webdesign" />
+    <meta name="twitter:card" content="summary" />
   </head>
   <body>
     <AGBPage client:load />
