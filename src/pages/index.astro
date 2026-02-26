@@ -4,22 +4,45 @@ import "../styles/global.css";
 
 const pageTitle = "Webdesign für Ärzte & Praxen in Berlin | LCG Webdesign";
 const pageDescription =
-  "Professionelles Webdesign für Ärzte, Physiotherapeuten & Studios in Berlin. Modern, rechtssicher & SEO-optimiert. Jetzt kostenlose Erstberatung vereinbaren!";
+  "Professionelles Webdesign für Ärzte, Physiotherapeuten & Studios in Berlin. Modern, performant & SEO-optimiert. Jetzt kostenlose Erstberatung vereinbaren!";
 const canonicalUrl = "https://lcg-webdesign.de/";
+const profileImageUrl =
+  "https://lcg-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp";
 
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://lcg-webdesign.de/#website",
+      url: "https://lcg-webdesign.de/",
+      name: "LCG Webdesign",
+      inLanguage: "de-DE",
+      publisher: {
+        "@id": "https://lcg-webdesign.de/#organization",
+      },
+    },
+    {
       "@type": "Organization",
       "@id": "https://lcg-webdesign.de/#organization",
       name: "LCG Webdesign",
       url: "https://lcg-webdesign.de/",
+      sameAs: ["https://g.page/r/CQUQY71XvWNJEAE"],
+      logo: profileImageUrl,
+      description: pageDescription,
       email: "kontakt@lcg-webdesign.de",
       telephone: "+49 176 55156501",
       founder: {
         "@type": "Person",
         name: "Laurenz Cornelius Gilbert",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        telephone: "+49 176 55156501",
+        email: "kontakt@lcg-webdesign.de",
+        areaServed: "DE",
+        availableLanguage: ["de", "en"],
       },
       address: {
         "@type": "PostalAddress",
@@ -34,15 +57,23 @@ const structuredData = {
       "@id": "https://lcg-webdesign.de/#localbusiness",
       name: "LCG Webdesign",
       url: "https://lcg-webdesign.de/",
-      image:
-        "https://lcg-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp",
+      image: profileImageUrl,
+      logo: profileImageUrl,
+      description: pageDescription,
       email: "kontakt@lcg-webdesign.de",
       telephone: "+49 176 55156501",
       areaServed: {
         "@type": "City",
         name: "Berlin",
       },
-      priceRange: "€€",
+      availableLanguage: ["de", "en"],
+      serviceType: [
+        "Webdesign fuer Aerzte",
+        "Webdesign fuer Physiotherapie-Praxen",
+        "Webdesign fuer Salons und Studios",
+        "Technisches SEO",
+      ],
+      priceRange: "EUR",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Argentinische Allee 93",
@@ -70,7 +101,7 @@ const structuredData = {
     <meta property="og:site_name" content="LCG Webdesign" />
     <meta
       property="og:image"
-      content="https://lcg-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp"
+      content={profileImageUrl}
     />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
