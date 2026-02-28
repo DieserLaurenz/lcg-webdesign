@@ -1,0 +1,62 @@
+Allgemeine Geschäftsbedingungen (AGB) – LCG Webdesign
+§ 1 Geltungsbereich
+
+Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, Lieferungen und sonstigen Leistungen von Laurenz Gilbert, LCG Webdesign (nachfolgend „Auftragnehmer“), gegenüber ihren Kunden (nachfolgend „Auftraggeber“).
+
+Das Angebot richtet sich ausschließlich an Unternehmer im Sinne des § 14 BGB, juristische Personen des öffentlichen Rechts oder öffentlich-rechtliche Sondervermögen (B2B). Ein Vertragsabschluss mit Verbrauchern (§ 13 BGB) ist ausgeschlossen.
+
+Abweichende AGB des Auftraggebers werden nicht Vertragsbestandteil, es sei denn, der Auftragnehmer stimmt ihrer Geltung ausdrücklich schriftlich zu.
+
+§ 2 Vertragsgegenstand und Leistungen
+
+Gegenstand des Vertrages ist die Entwicklung von individuellen Webseiten auf Basis moderner Web-Technologien (z. B. Astro.js, React) sowie die Einrichtung eines Content-Management-Systems (z. B. Keystatic).
+
+Der genaue Leistungsumfang ergibt sich aus dem jeweiligen individuellen Angebot.
+
+Der Auftragnehmer übernimmt die technische On-Page-Optimierung (SEO) nach aktuellen Standards. Der Auftragnehmer schuldet jedoch keinen bestimmten Erfolg (z. B. eine spezifische Platzierung in den Suchergebnissen bei Google), da dieser von Algorithmen der Suchmaschinenbetreiber abhängt.
+
+§ 3 Mitwirkungspflichten des Auftraggebers & Hosting
+
+Das Hosting der Website sowie die Code-Verwaltung erfolgen über Drittanbieter (z. B. Cloudflare Pages, GitHub). Der Auftraggeber verpflichtet sich, die hierfür notwendigen Konten auf eigenen Namen und eigene Rechnung anzulegen. Vertragspartner dieser Drittanbieter wird ausschließlich der Auftraggeber.
+
+Zur Gewährleistung der Entwicklung sowie vertraglich vereinbarter Wartungs- und Support-Leistungen räumt der Auftraggeber dem Auftragnehmer einen administrativen Zugang bzw. Mitwirkenden-Zugang („Collaborator“) zu diesen Konten ein.
+
+Der Auftraggeber stellt dem Auftragnehmer alle für die Erstellung der Website erforderlichen Inhalte (Texte, Bilder, Logos) in digitaler Form rechtzeitig zur Verfügung. Für die rechtliche Zulässigkeit (insb. Urheber- und Markenrechte) dieser Inhalte ist allein der Auftraggeber verantwortlich.
+
+§ 4 Vergütung und Zahlungsbedingungen
+
+Sofern im Angebot nicht anders vereinbart, ist die vereinbarte Gesamtvergütung für die Erstellung der Website vollständig im Voraus (Vorkasse) fällig.
+
+Die Rechnungsstellung erfolgt unmittelbar nach Vertragsabschluss. Der Auftragnehmer beginnt mit den vertraglich vereinbarten Entwicklungsarbeiten erst nach vollständigem Zahlungseingang.
+
+Alle genannten Preise verstehen sich netto zuzüglich der jeweils geltenden gesetzlichen Umsatzsteuer.
+
+§ 5 Abnahme (Werkvertragliche Leistungen)
+
+Nach Fertigstellung der Website stellt der Auftragnehmer diese dem Auftraggeber auf einer Testumgebung (Staging-Domain) oder der finalen Domain zur Prüfung zur Verfügung und fordert den Auftraggeber zur Abnahme auf.
+
+Die Abnahme hat innerhalb von 14 Tagen nach Aufforderung zu erfolgen.
+
+Die Website gilt als stillschweigend abgenommen, wenn der Auftraggeber nicht innerhalb dieser 14-Tage-Frist wesentliche Mängel schriftlich rügt oder wenn er die Website produktiv nutzt (z. B. durch aktive Bewerbung der URL).
+
+§ 6 Nutzungsrechte und Open-Source-Software
+
+Mit vollständiger Bezahlung der vereinbarten Vergütung räumt der Auftragnehmer dem Auftraggeber das ausschließliche, räumliche, zeitliche und inhaltlich unbeschränkte Nutzungsrecht an dem individuell erstellten Programmcode und Design ein. Der Auftraggeber erhält das Recht, den Code nach Belieben zu verändern und zu nutzen.
+
+Soweit im Rahmen der Entwicklung Open-Source-Software (z. B. Astro.js, React, Keystatic) verwendet wird, unterliegt diese den jeweiligen Open-Source-Lizenzen. Die Einräumung der Nutzungsrechte bezieht sich ausschließlich auf den individuell durch den Auftragnehmer erstellten Code.
+
+§ 7 Haftung und rechtliche Verantwortung
+
+Der Auftragnehmer haftet bei Vorsatz und grober Fahrlässigkeit unbeschränkt. Bei leichter Fahrlässigkeit haftet der Auftragnehmer nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten), beschränkt auf den vertragstypisch vorhersehbaren Schaden.
+
+Der Auftragnehmer übernimmt keine Haftung für Ausfälle, Datenverluste, Sperrungen oder etwaige Kosten, die durch die Nutzung der Drittanbieter (z. B. Cloudflare, GitHub) entstehen.
+
+Die rechtliche Verantwortung für die Inhalte der Website, insbesondere das Impressum, die Datenschutzerklärung und rechtskonforme Cookie-Banner, liegt allein beim Auftraggeber. Der Auftragnehmer führt keine Rechtsberatung durch.
+
+§ 8 Schlussbestimmungen
+
+Es gilt das Recht der Bundesrepublik Deutschland.
+
+Gerichtsstand für alle Streitigkeiten aus diesem Vertrag ist der Sitz des Auftragnehmers (Berlin), sofern der Auftraggeber Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist.
+
+Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt der Vertrag im Übrigen wirksam.
