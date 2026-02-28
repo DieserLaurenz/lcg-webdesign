@@ -307,8 +307,8 @@ export default function App() {
               <Reveal direction="right">
                 <div className="relative">
                   <img 
-                    src="/uber-mich.webp" 
-                    alt="Laurenz Gilbert - Webdesigner" 
+                    src="/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp" 
+                    alt="Webdesigner Laurenz Gilbert für Praxen und Salons in Berlin" 
                     className="aspect-[3/4] md:aspect-square object-cover w-full bg-slate-200 rounded-sm border border-slate-200 relative z-10 shadow-sm"
                   />
                   <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white border border-slate-200 rounded-sm -z-10 hidden md:block"></div>
@@ -657,8 +657,8 @@ function AutoScrollMockup() {
           onMouseDown={handleUserInteraction}
         >
           <img 
-            src="/Bodywork%20Berlin%20-%20Mobile.webp" 
-            alt="Bodywork Berlin Mobile Screenshot" 
+            src="/webdesign-berlin-bodywork-praxis-beispiel-mobile.webp" 
+            alt="Webdesign Beispiel einer Praxis-Website in Berlin auf einem Mobilgerät" 
             className="w-full h-auto block pointer-events-none select-none" 
           />
         </div>
