@@ -14,11 +14,16 @@ import {
   ExternalLink,
   BarChart3,
   Timer,
-  Mail
+  Mail,
+  Search
 } from 'lucide-react';
 
 // --- CUSTOM HOOKS & COMPONENTS FOR ANIMATION ---
 
+/**
+ * Reveal-Komponente für Scroll-Animationen.
+ * Nutzt den Intersection Observer, um Elemente beim Scrollen einzublenden.
+ */
 const Reveal = ({ children, delay = 0, className = "", direction = "up" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -67,7 +72,7 @@ const Reveal = ({ children, delay = 0, className = "", direction = "up" }) => {
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Smooth scroll handler for anchor links
+  // Sanfter Scroll-Handler für Anker-Links
   const scrollTo = (id) => {
     setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
@@ -79,7 +84,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
       
-      {/* --- INJECT CUSTOM FONTS & KEYFRAMES --- */}
+      {/* --- INJECT CUSTOM STYLES --- */}
       <style dangerouslySetInnerHTML={{__html: `
         .no-scrollbar::-webkit-scrollbar {
           display: none;
@@ -108,7 +113,7 @@ export default function App() {
             </div>
           </button>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menü */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <button onClick={() => scrollTo('philosophie')} className="hover:text-blue-900 transition-colors">Philosophie</button>
             <button onClick={() => scrollTo('referenzen')} className="hover:text-blue-900 transition-colors">Referenzen</button>
@@ -120,7 +125,7 @@ export default function App() {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobiles Menü Toggle */}
           <button 
             className="md:hidden text-slate-900 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-sm"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -131,7 +136,7 @@ export default function App() {
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Mobiles Menü Dropdown */}
         <div className={`md:hidden bg-white border-b border-slate-200 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="px-6 py-4 flex flex-col gap-4 text-center">
             <button onClick={() => scrollTo('philosophie')} className="text-slate-600 py-2">Philosophie</button>
@@ -160,7 +165,7 @@ export default function App() {
             <Reveal delay={100}>
               <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
                 Als Dienstleister im Gesundheits- und Wellnessbereich ist Ihre Website der erste Eindruck. 
-                Ich entwickle hochperformante, maßgeschneiderte Internetauftritte – kompromisslos optimiert für Smartphones und lokale Sichtbarkeit.
+                Ich entwickle für Sie hochperformante, maßgeschneiderte Internetauftritte – kompromisslos optimiert für Smartphones und lokale Sichtbarkeit.
               </p>
             </Reveal>
 
@@ -186,50 +191,53 @@ export default function App() {
                   Warum Handarbeit den Unterschied macht
                 </h2>
                 <p className="text-slate-600 leading-relaxed">
-                  Ich setze bewusst auf individuelle Entwicklung statt auf starre Baukastensysteme. 
-                  Moderne Web-Technologien wie Astro.js und React ermöglichen es mir, Seiten zu erstellen, 
-                  die durch minimale Ladezeiten und sauberen, effizienten Code überzeugen. 
-                  Damit schaffe ich für Sie ein hervorragendes technisches Fundament, um sich bei Google und gegenüber dem Wettbewerb klar zu positionieren.
+                  Ich setze bewusst auf individuelle Entwicklung statt auf starre Baukastensysteme. Moderne Web-Technologien wie Astro.js und React ermöglichen es mir, Seiten zu erstellen, die durch minimale Ladezeiten und sauberen Code überzeugen. Damit schaffe ich für Sie ein hervorragendes technisches Fundament, um sich bei Google und gegenüber dem Wettbewerb klar zu positionieren.
                 </p>
               </Reveal>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* 1. Performance */}
               <FeatureCard 
                 delay={100}
-                icon={<Smartphone size={28} className="text-blue-900" />}
-                title="Konsequent Mobile-First"
-                description="Ein Großteil Ihrer potenziellen Kunden sucht heute über das Smartphone. Meine Designs werden primär für mobile Endgeräte konzipiert („Mobile-First-Prinzip“), passen sich aber ebenso nahtlos und professionell an große Bildschirme an, um auf jedem Gerät einen bleibenden Eindruck zu hinterlassen."
-              />
-              <FeatureCard 
-                delay={200}
                 icon={<Zap size={28} className="text-blue-900" />}
                 title="High-End-Performance"
-                description="Ladezeiten entscheiden maßgeblich darüber, ob ein Besucher abspringt oder zum Kunden wird. Dank modernster Astro-Architektur laden meine Seiten blitzschnell ohne unnötigen Ballast. Interaktive Elemente werden nur geladen, wenn nötig – ein starker Hebel für mehr Anfragen und eine bessere Google-Platzierung."
+                description="Ladezeiten entscheiden über den Erfolg Ihrer Website. Während viele Baukastensysteme systembedingt oft ungenutzten Code („Overhead“) mitladen, sorgt die moderne Astro-Architektur bei mir für maximale Effizienz. Das Ergebnis: Blitzschnelle Ladezeiten ohne Ballast, eine geringere Absprungrate und ein starker Hebel für Ihre Google-Platzierung."
               />
+              {/* 2. Modulare Maßarbeit */}
               <FeatureCard 
-                delay={300}
+                delay={200}
                 icon={<Code2 size={28} className="text-blue-900" />}
                 title="Modulare Maßarbeit"
-                description="Statt Sie in starre Baukasten-Templates zu zwängen, programmiere ich Ihre Seite individuell mit modernsten Frameworks. Dabei nutze ich die Flexibilität von React für interaktive Funktionen, eingebettet in die performante Astro-Architektur. So erhalten Sie ein maßgeschneidertes Premium-Design, das exakt zu Ihren Visionen passt."
+                description="Statt starre Baukasten-Templates zu nutzen, programmiere ich Ihre Seite individuell mit React. Sie erhalten ein maßgeschneidertes Premium-Design mit nahezu keinen technischen Grenzen, das ich exakt auf Ihre Visionen und Praxisprozesse zuschneide."
               />
+              {/* 3. Unabhängigkeit */}
               <FeatureCard 
-                delay={400}
+                delay={300}
                 icon={<ShieldCheck size={28} className="text-blue-900" />}
                 title="Volle Unabhängigkeit"
-                description="Bei Baukästen mieten Sie Ihre Seite oft nur und sind an die Plattform gebunden. Bei mir erhalten Sie umfassende Nutzungsrechte an Ihrem Code. Sie haben die volle Kontrolle, kein Vendor-Lock-in und können Ihre Website völlig flexibel hosten, skalieren und anpassen."
+                description="Ich biete Ihnen volle Unabhängigkeit: Keine Miete, kein Vendor-Lock-in. Ich räume Ihnen die räumlich, zeitlich und inhaltlich unbeschränkten Nutzungsrechte ein. Sie behalten die volle Kontrolle und können Ihre Website völlig flexibel hosten, skalieren und anpassen."
               />
+              {/* 4. SEO Optimierung */}
+              <FeatureCard 
+                delay={400}
+                icon={<Search size={28} className="text-blue-900" />}
+                title="Gezielte technische SEO-Optimierung"
+                description="Während Baukasten-Systeme bei der Suchmaschinenoptimierung oft an technische Grenzen stoßen, ermöglicht individueller Code die präzise Steuerung aller entscheidenden Signale und strukturierten Daten. So schaffe ich ein exzellentes technisches Fundament nach aktuellen Standards, um die Sichtbarkeit Ihrer Praxis in der regionalen Suche gezielt zu stärken."
+              />
+              {/* 5. Nahtlose Integration */}
               <FeatureCard 
                 delay={500}
-                icon={<MapPin size={28} className="text-blue-900" />}
-                title="Starke lokale Sichtbarkeit"
-                description="Ich bereite Ihre Seite technisch nach aktuellen Standards für Suchmaschinen vor. Durch die Optimierung technischer Signale und strukturierter Daten schaffe ich eine solide Basis, um die Sichtbarkeit Ihrer Praxis bei Google zu erhöhen. Das Fundament, um regional besser gefunden zu werden."
-              />
-              <FeatureCard 
-                delay={600}
                 icon={<Calendar size={28} className="text-blue-900" />}
                 title="Nahtlose Integrationen"
-                description="Ob Doctolib, Jameda oder Treatwell – ich binde Ihre bestehenden Systeme gezielt ein, damit Ihre Prozesse digital ineinandergreifen. Und weil wir auf maßgeschneiderten Code setzen, bleibt Ihr System jederzeit erweiterbar und wächst flexibel mit Ihren Anforderungen mit."
+                description="Ob Doctolib, Jameda oder Treatwell – ich binde Ihre bestehenden Systeme gezielt ein. Da ich auf maßgeschneiderten Code setze, bleibt Ihre Website nachhaltig flexibel erweiterbar und wächst mit Ihren Anforderungen mit."
+              />
+              {/* 6. Konsequent Mobile-First */}
+              <FeatureCard 
+                delay={600}
+                icon={<Smartphone size={28} className="text-blue-900" />}
+                title="Konsequent Mobile-First"
+                description="Die meisten Kunden suchen heute mobil. Ich entwickle konsequent nach dem Mobile-First-Prinzip: Ihre Seite funktioniert auf dem Smartphone optimal und passt sich nahtlos an große Bildschirme an – für einen professionellen Eindruck auf jedem Gerät."
               />
             </div>
           </div>
@@ -258,7 +266,7 @@ export default function App() {
                   
                   <h3 className="font-serif text-3xl text-slate-900 mb-4">Bodywork Berlin</h3>
                   <p className="text-slate-600 mb-8 leading-relaxed">
-                    Für Bodywork Berlin wurde eine vollständig neue, digitale Präsenz geschaffen. Ziel war es, die Terminbuchung zu digitalisieren und die Praxis durch exzellentes lokales SEO und kompromisslose Performance als Premium-Dienstleister in der Region zu positionieren.
+                    Für Bodywork Berlin habe ich eine vollständig neue, digitale Präsenz geschaffen. Mein Ziel war es, die Terminbuchung zu digitalisieren und die Praxis durch exzellentes lokales SEO als Premium-Dienstleister in der Region zu positionieren.
                   </p>
 
                   <div className="space-y-5 mb-10">
@@ -278,7 +286,7 @@ export default function App() {
                       </div>
                       <div>
                         <p className="text-slate-900 font-semibold">&lt; 0.5s Ladezeit</p>
-                        <p className="text-sm text-slate-500">Dank moderner Code-Architektur</p>
+                        <p className="text-sm text-slate-500">Dank meiner modernen Code-Architektur</p>
                       </div>
                     </div>
                   </div>
@@ -308,7 +316,7 @@ export default function App() {
                 <div className="relative">
                   <img 
                     src="/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp" 
-                    alt="Webdesigner Laurenz Gilbert für Praxen und Salons in Berlin" 
+                    alt="Laurenz Gilbert - Webdesigner" 
                     className="aspect-[3/4] md:aspect-square object-cover w-full bg-slate-200 rounded-sm border border-slate-200 relative z-10 shadow-sm"
                   />
                   <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white border border-slate-200 rounded-sm -z-10 hidden md:block"></div>
@@ -318,20 +326,20 @@ export default function App() {
               <Reveal direction="left" delay={100}>
                 <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Ihr Partner für digitale Seriosität</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  Guten Tag, mein Name ist Laurenz Gilbert. Mein Studium der Wirtschaftsinformatik an der Universität Potsdam habe ich mit einem 1er-Schnitt abgeschlossen. So verbinde ich als 24-jähriger IT-Experte modernstes akademisches Know-how mit einem klaren Verständnis für Ihre geschäftlichen Anforderungen.
+                  Guten Tag, mein Name ist Laurenz Gilbert. Mein Studium der Wirtschaftsinformatik an der Universität Potsdam habe ich mit einem 1er-Schnitt abgeschlossen. So verbinde ich als IT-Experte modernstes akademisches Know-how mit einem klaren Verständnis für Ihre geschäftlichen Anforderungen.
                 </p>
                 <p className="text-slate-600 mb-8 leading-relaxed">
-                  Durch meine Erfahrungen in der Unternehmensberatung bei Deloitte und meine aktuelle Tätigkeit am renommierten Hasso-Plattner-Institut (HPI) weiß ich, worauf es bei professionellen IT-Lösungen ankommt. Diese Expertise nutze ich parallel, um Ärzten, Therapeuten und Studios präzise, handprogrammierte Premium-Webseiten zu entwickeln, die durch exzellente Performance und mobile Bedienbarkeit messbar zur Neukundengewinnung beitragen.
+                  Durch meine Erfahrungen in der Unternehmensberatung bei Deloitte und meine aktuelle Tätigkeit am renommierten Hasso-Plattner-Institut (HPI) weiß ich, worauf es bei professionellen IT-Lösungen ankommt. Diese Expertise nutze ich parallel, um Ärzten, Therapeuten und Studios präzise, handprogrammierte Premium-Webseiten zu entwickeln, die durch exzellente Performance messbar zur Neukundengewinnung beitragen.
                 </p>
                 
                 <div className="grid grid-cols-2 gap-6 pt-6 border-t border-slate-200">
                   <div>
                     <h3 className="font-serif text-slate-900 font-medium mb-1">Fundierte Expertise</h3>
-                    <p className="text-sm text-slate-500">Studium Wirtschaftsinformatik (Uni Potsdam, 1er-Schnitt). Praxis bei Deloitte & HPI.</p>
+                    <p className="text-sm text-slate-500">Ich biete Ihnen Wissen aus Studium (Uni Potsdam) und Praxis bei Deloitte & HPI.</p>
                   </div>
                   <div>
                     <h3 className="font-serif text-slate-900 font-medium mb-1">Modernste Technik</h3>
-                    <p className="text-sm text-slate-500">Programmierung auf Agentur-Niveau (Astro & React).</p>
+                    <p className="text-sm text-slate-500">Ich programmiere für Sie auf Agentur-Niveau mit Astro & React.</p>
                   </div>
                 </div>
               </Reveal>
@@ -346,7 +354,7 @@ export default function App() {
               <div className="text-center max-w-2xl mx-auto mb-16">
                 <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Investitionen in Ihre digitale Praxis</h2>
                 <p className="text-slate-600">
-                  Transparente Lösungen, exakt zugeschnitten auf die Größe und Anforderungen Ihres Unternehmens. Jedes Projekt wird von mir persönlich mit höchster technischer Sorgfalt umgesetzt.
+                  Ich biete Ihnen transparente Lösungen, exakt zugeschnitten auf die Größe und Anforderungen Ihres Unternehmens. Jedes Projekt wird von mir persönlich mit höchster technischer Sorgfalt umgesetzt.
                 </p>
               </div>
             </Reveal>
@@ -364,7 +372,7 @@ export default function App() {
                       </div>
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      Die perfekte, hochseriöse Lösung für kleine Kosmetikstudios, spezialisierte Therapeuten oder Neugründungen. Alle wichtigen Informationen kompakt, elegant und verkaufsstark auf einer Seite gebündelt.
+                      Die perfekte Lösung für spezialisierte Therapeuten oder Neugründungen. Ich bündele alle wichtigen Informationen kompakt, elegant und verkaufsstark auf einer einzigen, hochoptimierten Seite.
                     </p>
                     <ul className="space-y-3 mb-8">
                       <ListItem text="Individuelles Premium-Design (Kein Template)" />
@@ -398,7 +406,7 @@ export default function App() {
                       </div>
                     </div>
                     <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                      Für etablierte Arztpraxen, größere Wellness-Einrichtungen und Salons mit umfangreichem Leistungsangebot. Strukturierte Unterseiten für jede Dienstleistung zur maximalen Informationsvermittlung.
+                      Für etablierte Arztpraxen und Salons mit umfangreichem Leistungsangebot. Ich erstelle strukturierte Unterseiten für jede Dienstleistung, um Ihre Patienten optimal zu informieren.
                     </p>
                     <ul className="space-y-3 mb-8">
                       <ListItem text="Alles aus der Digitalen Visitenkarte" dark />
@@ -425,29 +433,29 @@ export default function App() {
             <Reveal>
               <div className="text-center mb-16">
                 <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Häufig gestellte Fragen</h2>
-                <p className="text-slate-600">Transparente Antworten auf die wichtigsten organisatorischen Aspekte.</p>
+                <p className="text-slate-600">Ich liefere Ihnen transparente Antworten auf die wichtigsten organisatorischen Aspekte.</p>
               </div>
             </Reveal>
 
             <div className="space-y-4">
               <AccordionItem 
                 question="Warum nutzen Sie keine Baukastensysteme?"
-                answer="Standard-Lösungen sind oft überladen mit unnötigem Code, was sie langsam macht. Eine handprogrammierte Seite ist extrem performant, bietet exakte Kontrolle über das Design und sendet positive Signale an Suchmaschinen wie Google. Zudem bin ich bei der Umsetzung nicht an die Limitierungen von Drittanbietern gebunden."
+                answer="Standard-Lösungen sind oft überladen mit unnötigem Code, was sie langsam macht. Eine von mir handprogrammierte Seite ist extrem performant, bietet mir exakte Kontrolle über das Design und sendet positive Signale an Google. Zudem bin ich bei der Umsetzung nicht an die Limitierungen von Drittanbietern gebunden."
                 delay={100}
               />
               <AccordionItem 
                 question="Ist die Website rechtssicher und DSGVO-konform?"
-                answer="Die technische Integration von Impressum, Datenschutzerklärung und rechtskonformen Cookie-Bannern gehört bei mir zum absoluten Standard. Ich bereite die technische Infrastruktur so vor, dass die Vorgaben der DSGVO erfüllt werden (Hinweis: Dies ersetzt keine juristische Einzelfallprüfung)."
+                answer="Die technische Integration von Impressum, Datenschutzerklärung und rechtssicheren Elementen gehört bei mir zum absoluten Standard. Ich bereite die technische Infrastruktur so vor, dass die Vorgaben der DSGVO erfüllt werden können (Hinweis: Dies ersetzt keine juristische Einzelfallprüfung)."
                 delay={200}
               />
               <AccordionItem 
                 question="Wie lange dauert die Erstellung meiner neuen Praxis-Website?"
-                answer="Für einen One-Pager plane ich in der Regel 2 bis 3 Wochen ab Erhalt aller Materialien (Texte, Bilder) ein. Bei einem umfangreicheren Multi-Pager sollten Sie etwa 4 bis 6 Wochen für Konzept, Design, Programmierung und Abstimmung einplanen."
+                answer="Für einen One-Pager plane ich in der Regel 2 bis 3 Wochen ab Erhalt aller Materialien ein. Bei einem umfangreicheren Multi-Pager sollten Sie etwa 4 bis 6 Wochen für Konzept, Design, Programmierung und Abstimmung mit mir einplanen."
                 delay={300}
               />
               <AccordionItem 
                 question="Kümmern Sie sich auch um Wartung und Updates?"
-                answer="Ja. Da ich auf moderne Webarchitekturen setze, sind meine Seiten von Grund auf sicherer und wartungsärmer als klassische CMS-Systeme. Dennoch biete ich auf Wunsch transparente Pflegepakete an, damit Sie sich vollständig auf Ihre Praxis oder Ihr Studio konzentrieren können."
+                answer="Ja. Da ich auf moderne Webarchitekturen setze, sind meine Seiten von Grund auf sicherer und wartungsärmer als klassische CMS-Systeme. Dennoch biete ich Ihnen auf Wunsch transparente Pflegepakete an, damit Sie sich vollständig auf Ihre Arbeit konzentrieren können."
                 delay={400}
               />
             </div>
@@ -462,7 +470,7 @@ export default function App() {
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">Bereit für Ihren digitalen Aufstieg?</h2>
               <p className="text-slate-400 mb-8 max-w-md leading-relaxed">
-                Als spezialisierter Webdesigner für <strong className="text-slate-300 font-semibold">Physiotherapeuten, Arztpraxen, Kosmetikstudios und Massagesalons</strong> verstehe ich Ihre Anforderungen genau. 
+                Als spezialisierter Webdesigner für Physiotherapeuten, Arztpraxen und Kosmetikstudios verstehe ich Ihre Anforderungen genau. 
                 Vereinbaren Sie ein unverbindliches Erstgespräch und lassen Sie uns besprechen, wie ich Ihre digitale Präsenz auf ein Premium-Niveau hebe.
               </p>
               <a href="mailto:kontakt@lcg-webdesign.de" className="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors text-lg">
@@ -475,7 +483,7 @@ export default function App() {
               <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
               <h3 className="font-serif text-2xl text-white mb-3">Schreiben Sie mir direkt</h3>
               <p className="text-slate-400 mb-8 text-sm leading-relaxed">
-                Klicken Sie auf den Button, um direkt eine E-Mail mit einer vorbereiteten Vorlage in Ihrem E-Mail-Programm zu öffnen. Ich antworte in der Regel innerhalb von 24 Stunden.
+                Klicken Sie auf den Button, um direkt eine E-Mail mit einer vorbereiteten Vorlage in Ihrem E-Mail-Programm zu öffnen. Ich antworte Ihnen in der Regel innerhalb von 24 Stunden.
               </p>
               
               <a 
@@ -498,7 +506,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-slate-500">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <Code2 size={16} />
-              <span>Handcrafted by LCG Webdesign</span>
+              <span>Handcrafted by Laurenz Gilbert</span>
             </div>
             <div className="flex gap-6">
               <a href="/impressum" className="hover:text-white transition-colors">Impressum</a>
@@ -658,7 +666,7 @@ function AutoScrollMockup() {
         >
           <img 
             src="/webdesign-berlin-bodywork-praxis-beispiel-mobile.webp" 
-            alt="Webdesign Beispiel einer Praxis-Website in Berlin auf einem Mobilgerät" 
+            alt="Bodywork Berlin Mobile Screenshot" 
             className="w-full h-auto block pointer-events-none select-none" 
           />
         </div>
