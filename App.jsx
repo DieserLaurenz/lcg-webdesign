@@ -261,12 +261,12 @@ export default function App() {
                 <Reveal delay={100} direction="right">
                   <div className="flex gap-3 mb-6">
                     <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full">Physiotherapie & Massage</span>
-                    <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full">Premium-Website</span>
+                    <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full">One-Pager</span>
                   </div>
                   
                   <h3 className="font-serif text-3xl text-slate-900 mb-4">Bodywork Berlin</h3>
                   <p className="text-slate-600 mb-8 leading-relaxed">
-                    Für Bodywork Berlin habe ich eine vollständig neue, digitale Präsenz geschaffen. Mein Ziel war es, die Terminbuchung zu digitalisieren und die Praxis durch exzellentes lokales SEO als Premium-Dienstleister in der Region zu positionieren.
+                    Für Bodywork Berlin wurde ein umfassendes Redesign realisiert. Ziel war es, die veraltete Präsenz zu modernisieren, die Performance spürbar zu optimieren und die Seite durch ein SEO-optimiertes &quot;Mobile First&quot;-Design professionell in Szene zu setzen, individuell und präzise nach den Wünschen der Praxis.
                   </p>
 
                   <div className="space-y-5 mb-10">
@@ -291,7 +291,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  <a href="https://bodywork.pages.dev/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-900 font-medium hover:text-blue-700 transition-colors group">
+                  <a href="https://www.bodywork-berlin.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-900 font-medium hover:text-blue-700 transition-colors group">
                     Live-Seite ansehen 
                     <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
