@@ -200,6 +200,14 @@ export default function AGB() {
                   </div>
                 </section>
 
+                {/* § 9 Referenznennung */}
+                <section>
+                  <h2 className="font-serif text-2xl text-slate-900 mb-6 pb-2 border-b border-slate-100">§ 9 Referenznennung</h2>
+                  <div className="space-y-4">
+                    <p>Der Auftragnehmer ist berechtigt, den Auftraggeber auf der eigenen Website oder in anderen Werbemedien (z. B. Social Media, Portfolio-Präsentationen) als Referenzkunden namentlich zu nennen und in diesem Zusammenhang das Logo des Auftraggebers sowie Screenshots der erstellten Website zu vervielfältigen und zu veröffentlichen. Der Auftraggeber kann diese Einwilligung jederzeit für die Zukunft schriftlich oder per E-Mail widerrufen, sofern ein berechtigtes Interesse besteht.</p>
+                  </div>
+                </section>
+
               </div>
             </div>
           </Reveal>
