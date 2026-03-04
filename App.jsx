@@ -695,15 +695,11 @@ function AutoScrollMockup() {
   }, []);
 
   useEffect(() => {
-    let timeoutId;
     if (isVisible) {
-      timeoutId = setTimeout(() => {
-        delayPassed.current = true;
-      }, 3000);
+      delayPassed.current = true;
     } else {
       delayPassed.current = false;
     }
-    return () => clearTimeout(timeoutId);
   }, [isVisible]);
 
   useEffect(() => {
