@@ -402,17 +402,15 @@ export default function App() {
                       </div>
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      Die perfekte Lösung für spezialisierte Therapeuten oder Neugründungen. Alle wichtigen Informationen auf einer einzigen, hochoptimierten Seite.
+                      Die ideale Lösung für spezialisierte Therapeuten oder Neugründungen. Ich bündele alle relevanten Informationen auf einer einzigen, hochoptimierten Seite, die Ihre Expertise kompakt und absolut überzeugend präsentiert.
                     </p>
                     <ul className="space-y-3 mb-8">
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">1 hochoptimierte Hauptseite</strong> (zzgl. Rechtstexte)</>} />
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">Kompakte Leistungsübersicht</strong> (flüssig & schnell)</>} />
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">Technisches SEO-Fundament</strong> für die lokale Suche</>} />
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">Buchungs-Integration</strong> (Doctolib, Jameda etc.)</>} />
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">Kontakt & Google Maps</strong> für direkte Anfragen</>} />
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">0 € laufende Hosting-Kosten</strong> (moderne Cloud)</>} />
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">1 Korrekturschleife</strong> für optisches Feintuning</>} />
-                      <ListItem text={<><strong className="text-slate-900 font-semibold">30 Tage</strong> Post-Launch-Support (für Bugfixes)</>} />
+                      <ListItem text={<><strong className="text-slate-900 font-semibold">Eine informative Hauptseite</strong> (zzgl. Seiten für Ihre Rechtstexte)</>} />
+                      <ListItem text={<><strong className="text-slate-900 font-semibold">Integriertes CMS</strong> (Texte & Bilder selbst ändern)</>} />
+                      <ListItem text={<><strong className="text-slate-900 font-semibold">Technisches SEO-Fundament</strong> für Ihre Google-Platzierung</>} />
+                      <ListItem text={<><strong className="text-slate-900 font-semibold">Buchungs-Integration</strong> (Doctolib, Jameda, Treatwell, etc.)</>} />
+                      <ListItem text={<><strong className="text-slate-900 font-semibold">Kontaktformular & Google Maps</strong> für effizientere Anfragen</>} />
+                      <ListItem text={<><strong className="text-slate-900 font-semibold">Keine laufenden Hosting-Kosten</strong> (modernes Cloudsystem)</>} />
                     </ul>
                   </div>
                   <div className="mt-auto flex flex-col relative z-10 shrink-0">
@@ -439,17 +437,15 @@ export default function App() {
                       </div>
                     </div>
                     <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                      Für etablierte Arztpraxen und Salons mit umfangreichem Leistungsangebot. Strukturierte Unterseiten für jede Dienstleistung.
+                      Für etablierte Praxen und Studios mit umfangreichem Angebot. Ich entwickle eine strukturierte Website mit dedizierten Unterseiten für jede Leistung, um Patienten optimal zu informieren und Ihre Sichtbarkeit nachhaltig zu stärken.
                     </p>
                     <ul className="space-y-3 mb-8">
-                      <ListItem dark text={<><strong className="text-white font-semibold">Alles aus der Digitalen Visitenkarte</strong>, plus:</>} />
+                      <ListItem dark text={<><strong className="text-white font-semibold">Alles aus der Digitalen Visitenkarte</strong>, zusätzlich:</>} />
                       <ListItem dark text={<><strong className="text-white font-semibold">Bis zu 8 Unterseiten</strong> (für Ihre Leistungen)</>} />
                       <ListItem dark text={<><strong className="text-white font-semibold">Tiefgreifendes On-Page-SEO</strong> pro Unterseite</>} />
                       <ListItem dark text={<><strong className="text-white font-semibold">Ausführliches Team- & Praxisprofil</strong></>} />
                       <ListItem dark text={<><strong className="text-white font-semibold">Google Business Profil:</strong> Setup & Beratung</>} />
-                      <ListItem dark text={<><strong className="text-white font-semibold">Mehrsprachigkeit:</strong> Englische Version auf Wunsch</>} />
-                      <ListItem dark text={<><strong className="text-white font-semibold">2 Korrekturschleifen</strong> für maximale Präzision</>} />
-                      <ListItem dark text={<><strong className="text-white font-semibold">60 Tage</strong> Post-Launch-Support (für Bugfixes)</>} />
+                      <ListItem dark text={<><strong className="text-white font-semibold">Optional:</strong> Webseite auch auf Englisch verfügbar machen</>} />
                     </ul>
                   </div>
                   <div className="mt-auto flex flex-col relative z-10 shrink-0">
@@ -511,6 +507,11 @@ export default function App() {
                   </div>
                 </Reveal>
               </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-500 text-center md:text-left flex flex-col gap-2">
+              <p>Alle Angebote auf dieser Webseite richten sich ausschließlich an Gewerbetreibende, Freiberufler sowie juristische Personen des öffentlichen Rechts oder öffentlich-rechtliche Sondervermögen (B2B). Alle Preise verstehen sich zzgl. der gesetzlichen Mehrwertsteuer.</p>
+              <p>Die Marken Doctolib, Jameda und Treatwell sind Eigentum ihrer jeweiligen Inhaber. Die Nennung dient lediglich der Beschreibung der technischen Integrationsmöglichkeiten.</p>
             </div>
 
           </div>
