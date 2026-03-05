@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Code2, ArrowLeft } from 'lucide-react';
 
 // --- CUSTOM HOOKS & COMPONENTS FOR ANIMATION ---
