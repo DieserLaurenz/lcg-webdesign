@@ -147,6 +147,16 @@ export default function Impressum() {
                   </p>
                 </section>
 
+                {/* Verantwortlich für den Inhalt */}
+                <section>
+                  <h2 className="font-serif text-xl text-slate-900 mb-3">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+                  <p>
+                    Laurenz Cornelius Gilbert<br />
+                    Argentinische Allee 93<br />
+                    14163 Berlin
+                  </p>
+                </section>
+
                 {/* Streitschlichtung */}
                 <section>
                   <h2 className="font-serif text-xl text-slate-900 mb-3">Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
