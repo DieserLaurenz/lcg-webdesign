@@ -100,13 +100,15 @@ export default function App() {
             onClick={() => window.scrollTo(0, 0)}
             aria-label="Zur Startseite"
           >
-            <div className="flex flex-col items-start justify-center">
-              <span className="font-serif text-[1.65rem] font-medium tracking-wide text-slate-900 leading-none group-hover:text-blue-900 transition-colors">
-                Gilbert
-              </span>
-              <span className="text-[0.65rem] font-sans font-medium uppercase tracking-[0.3em] text-slate-500 leading-none mt-1.5 ml-[0.1rem]">
-                Webdesign
-              </span>
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col items-start justify-center">
+                <span className="font-serif text-[1.5rem] font-light tracking-[0.05em] text-slate-900 leading-none group-hover:text-blue-900 transition-colors">
+                  Gilbert
+                </span>
+                <span className="text-[0.55rem] font-sans font-medium uppercase tracking-[0.4em] text-slate-400 leading-none mt-1.5 ml-[0.1rem]">
+                  Webdesign
+                </span>
+              </div>
             </div>
           </button>
 
@@ -628,9 +630,15 @@ export default function App() {
 
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-slate-400 mb-8">
             <div className="flex flex-col items-center md:items-start gap-2 mb-6 md:mb-0">
-              <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
-                <span className="font-serif text-xl font-medium tracking-wide text-white leading-none">Gilbert</span>
-                <span className="text-[0.6rem] font-sans font-medium uppercase tracking-[0.3em] text-slate-400 leading-none mt-1">Webdesign</span>
+              <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
+                <div className="flex flex-col items-start justify-center">
+                  <span className="font-serif text-xl font-light tracking-[0.05em] text-white leading-none">
+                    Gilbert
+                  </span>
+                  <span className="text-[0.55rem] font-sans font-medium uppercase tracking-[0.4em] text-slate-400 leading-none mt-1 ml-[0.05rem]">
+                    Webdesign
+                  </span>
+                </div>
               </div>
               <div className="flex items-center gap-2 text-slate-500 text-xs">
                 <Code2 size={14} />
