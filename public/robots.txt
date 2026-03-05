@@ -29,5 +29,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://lcg-webdesign.de/sitemap.xml
-
+Sitemap: https://lcg-webdesign.de/sitemap-index.xml
