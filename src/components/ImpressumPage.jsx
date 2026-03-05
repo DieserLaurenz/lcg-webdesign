@@ -123,7 +123,8 @@ export default function Impressum() {
                 {/* Name & Anschrift */}
                 <section>
                   <p>
-                    Laurenz Cornelius Gilbert<br />
+                    Gilbert Webdesign<br />
+                    (Inh. Laurenz Cornelius Gilbert)<br />
                     Argentinische Allee 93<br />
                     14163 Berlin
                   </p>
