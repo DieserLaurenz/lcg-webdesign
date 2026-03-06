@@ -730,20 +730,22 @@ export default function App() {
                 </div>
               ) : (
                 <form className="space-y-4 mb-8" onSubmit={handleFormSubmit}>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/40 border border-slate-700/50 p-4 rounded-sm mb-2 gap-4">
-                    <div className="text-left">
-                      <span className="text-slate-200 text-sm font-medium block">Eingaben zwischenspeichern</span>
-                      <span className="text-slate-400 text-xs mt-0.5 block">Speichert Ihren Fortschritt lokal auf diesem Gerät.</span>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer shrink-0">
-                      <input
-                        type="checkbox"
-                        className="sr-only peer"
-                        checked={saveFormOnDevice}
-                        onChange={handleSavePreferenceChange}
-                        disabled={formStatus === 'submitting'}
-                      />
-                      <div className="w-11 h-6 bg-slate-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-200 after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500 disabled:opacity-50"></div>
+                  <div className="flex items-center justify-end mb-6">
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <span className="text-slate-500 text-xs font-medium group-hover:text-slate-300 transition-colors">
+                        Entwurf lokal speichern
+                      </span>
+                      <div className="relative flex items-center">
+                        <input
+                          type="checkbox"
+                          className="sr-only peer"
+                          checked={saveFormOnDevice}
+                          onChange={handleSavePreferenceChange}
+                          disabled={formStatus === 'submitting'}
+                        />
+                        <div className="w-8 h-4 bg-slate-800/80 rounded-full peer-checked:bg-blue-600 transition-colors duration-300 border border-slate-600/50 peer-checked:border-blue-500 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500/50 disabled:opacity-50"></div>
+                        <div className="absolute left-[2px] w-3 h-3 bg-slate-400 rounded-full transition-all duration-300 peer-checked:translate-x-4 peer-checked:bg-white disabled:opacity-50"></div>
+                      </div>
                     </label>
                   </div>
 
