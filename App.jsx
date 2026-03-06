@@ -893,7 +893,7 @@ export default function App() {
                       className="mt-0.5 w-4 h-4 rounded-sm border-slate-600 bg-slate-900/50 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900 disabled:opacity-50 cursor-pointer shrink-0"
                     />
                     <span className="text-slate-400 text-xs leading-relaxed">
-                      Ich habe die <a href="/datenschutz" className="text-blue-400 hover:text-blue-300 underline transition-colors" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a> zur Kenntnis genommen und stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.
+                      Ich habe die <a href="/datenschutz" className="text-blue-400 hover:text-blue-300 underline transition-colors" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a> zur Kenntnis genommen.
                     </span>
                   </label>
 
