@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+        serif: ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       },
     },
   },
