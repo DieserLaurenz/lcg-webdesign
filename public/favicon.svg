@@ -1,15 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Gilbert Webdesign">
-  <rect width="64" height="64" rx="10" fill="#0f172a" />
+  <rect width="64" height="64" rx="12" fill="#0f172a" />
   <text
     x="32"
-    y="36"
+    y="46"
     text-anchor="middle"
     fill="#ffffff"
-    font-family="Georgia, Times New Roman, serif"
-    font-size="24"
-    font-weight="700"
-    letter-spacing="0.5"
-  >
-    Gilbert
-  </text>
+    font-family="Playfair Display, Georgia, serif"
+    font-size="42"
+    font-weight="500"
+    letter-spacing="-1"
+  >G</text>
 </svg>
