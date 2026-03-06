@@ -884,6 +884,19 @@ export default function App() {
                     <p>Bitte geben Sie in diesem Formular <strong>keine sensiblen Gesundheitsdaten</strong> (wie Diagnosen oder Behandlungsdetails)&nbsp;an.</p>
                   </div>
 
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      name="unternehmerBestaetigt"
+                      required
+                      disabled={formStatus === 'submitting'}
+                      className="mt-0.5 w-4 h-4 rounded-sm border-slate-600 bg-slate-900/50 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900 disabled:opacity-50 cursor-pointer shrink-0"
+                    />
+                    <span className="text-slate-400 text-xs leading-relaxed">
+                      Ich handle als Unternehmer im Sinne des <strong>§ 14 BGB</strong> und nicht als Verbraucher.
+                    </span>
+                  </label>
+
                   <label className="flex items-start gap-3 cursor-pointer group pb-2">
                     <input
                       type="checkbox"
