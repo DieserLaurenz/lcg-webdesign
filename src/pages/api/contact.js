@@ -1,8 +1,11 @@
 export const prerender = false;
 
-export async function POST({ request }) {
+export async function POST({ request, locals }) {
   try {
     const data = await request.json();
+
+    // Cloudflare runtime env
+    const RESEND_API_KEY = locals.runtime?.env?.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
 
     // Validierung
     if (!data.name || !data.email || !data.anliegen) {
@@ -55,7 +58,7 @@ export async function POST({ request }) {
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${import.meta.env.RESEND_API_KEY}`,
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
