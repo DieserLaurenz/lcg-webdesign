@@ -1,6 +1,10 @@
 ---
-import AgencySite from "../../App.jsx";
 import "../styles/global.css";
+import { faqData } from "../data/faqData.js";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeStaticSections from "../components/home/HomeStaticSections.jsx";
+import FAQSection from "../components/home/FAQSection.jsx";
+import ContactSection from "../components/home/ContactSection.jsx";
 
 const pageTitle = "Webdesign für Ärzte & Praxen in Berlin | Gilbert Webdesign";
 const pageDescription =
@@ -8,41 +12,6 @@ const pageDescription =
 const canonicalUrl = "https://gilbert-webdesign.de/";
 const profileImageUrl =
   "https://gilbert-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp";
-
-const faqData = [
-  {
-    question: "Was kostet eine professionelle Website für meine Praxis oder mein Studio?",
-    answer: "Eine kompakte Digitale Visitenkarte (One-Pager) kostet 1.290 € netto (zzgl. MwSt.). Eine umfassende Praxis-Website mit mehreren Unterseiten kostet 2.290 € netto (zzgl. MwSt.). Alle Preise richten sich ausschließlich an Gewerbetreibende (B2B)."
-  },
-  {
-    question: "Wie läuft ein Website-Projekt mit Ihnen konkret ab?",
-    answer: "Nach einem unverbindlichen Erstgespräch erhalten Sie ein individuelles Angebot. Bei Auftragserteilung starten wir mit 50 % Anzahlung. Sie liefern mir Texte, Bilder und Ihr Logo. Ich entwickle Ihre Website und stelle sie auf einer Testumgebung bereit. Nach Ihrer Freigabe und Zahlung der zweiten Rate geht die Seite live."
-  },
-  {
-    question: "Wie lange dauert die Erstellung einer neuen Praxis-Website?",
-    answer: "Für einen One-Pager plane ich in der Regel 2 bis 3 Wochen ab Erhalt aller Materialien. Bei einer umfangreicheren Multi-Page-Website sollten Sie etwa 4 bis 6 Wochen einplanen."
-  },
-  {
-    question: "Wem gehört die fertige Website und wo wird sie gehostet?",
-    answer: "Die Website gehört Ihnen. Mit vollständiger Bezahlung erhalten Sie die unbeschränkten Nutzungsrechte am gesamten Code und Design. Das Hosting läuft über Ihren eigenen Account bei Cloudflare Pages."
-  },
-  {
-    question: "Garantieren Sie ein Google-Ranking?",
-    answer: "Ich übernehme die technische On-Page-Optimierung nach aktuellen Standards. Eine Platzierungsgarantie gebe ich bewusst nicht – das wäre unseriös, da Rankings von Google-Algorithmen abhängen, die niemand kontrolliert."
-  },
-  {
-    question: "Ist meine neue Website technisch DSGVO-konform?",
-    answer: "Ich setze das technische Fundament für DSGVO-Konformität um: SSL-Verschlüsselung, lokales Hosting von Schriftarten und vorbereitete Seiten für Impressum sowie Datenschutzerklärung. Die rechtlichen Texte selbst müssen Sie von einem spezialisierten Anwalt erstellen lassen."
-  },
-  {
-    question: "Können Patienten direkt über meine Website Termine buchen?",
-    answer: "Ja. Ich verknüpfe Ihre Website mit Ihrem bestehenden Buchungssystem – etwa Doctolib, Jameda oder Treatwell. Patienten gelangen mit einem Klick zur Terminbuchung."
-  },
-  {
-    question: "Gibt es laufende Kosten nach der Fertigstellung?",
-    answer: "Nein, es gibt keine verpflichtenden laufenden Kosten an mich. Das Hosting über Cloudflare Pages ist für die meisten Praxen kostenlos. Optional biete ich einen technischen Support für 59 € netto pro Monat an."
-  }
-];
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -133,34 +102,15 @@ const structuredData = {
 };
 ---
 
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="Gilbert Webdesign" />
-    <meta
-      property="og:image"
-      content={profileImageUrl}
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  </head>
-  <body>
-    <AgencySite client:load />
-  </body>
-</html>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  ogImage={profileImageUrl}
+  twitterCard="summary_large_image"
+  structuredData={structuredData}
+>
+  <HomeStaticSections />
+  <FAQSection client:visible />
+  <ContactSection client:visible />
+</BaseLayout>

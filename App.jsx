@@ -20,6 +20,7 @@ import {
   Briefcase,
   Cpu
 } from 'lucide-react';
+import { faqData } from './src/data/faqData.js';
 
 // --- CUSTOM HOOKS & COMPONENTS FOR ANIMATION ---
 
@@ -81,14 +82,19 @@ export default function App() {
     interessiert_an: '',
     website: '',
     tools: '',
-    anliegen: ''
+    anliegen: '',
+    unternehmerBestaetigt: false,
+    datenschutzAkzeptiert: false
   });
   const [saveFormOnDevice, setSaveFormOnDevice] = useState(false);
+  const [hasSavedFormPreference, setHasSavedFormPreference] = useState(false);
   const [formStatus, setFormStatus] = useState('idle'); // idle, submitting, success, error
   // Einwilligung und ggf. gespeicherte Formulardaten laden
   useEffect(() => {
     const savedPreference = localStorage.getItem(FORM_STORAGE_OPT_IN_KEY);
+    const hasStoredPreference = savedPreference !== null;
     const hasOptedIn = savedPreference === 'true';
+    setHasSavedFormPreference(hasStoredPreference);
     setSaveFormOnDevice(hasOptedIn);
 
     if (!hasOptedIn) {
@@ -107,11 +113,12 @@ export default function App() {
   }, []);
   // Einwilligung für lokale Zwischenspeicherung merken
   useEffect(() => {
+    if (!hasSavedFormPreference) return;
     localStorage.setItem(FORM_STORAGE_OPT_IN_KEY, saveFormOnDevice ? 'true' : 'false');
     if (!saveFormOnDevice) {
       localStorage.removeItem(FORM_STORAGE_KEY);
     }
-  }, [saveFormOnDevice]);
+  }, [saveFormOnDevice, hasSavedFormPreference]);
 
   // Formulardaten nur nach aktivem Opt-in speichern
   useEffect(() => {
@@ -121,13 +128,15 @@ export default function App() {
   const [formError, setFormError] = useState('');
 
   const handleFormChange = (e) => {
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
   const handleSavePreferenceChange = (e) => {
+    setHasSavedFormPreference(true);
     setSaveFormOnDevice(e.target.checked);
   };
 
@@ -151,6 +160,8 @@ export default function App() {
           website: formData.website,
           tools: formData.tools,
           anliegen: formData.anliegen,
+          unternehmerBestaetigt: formData.unternehmerBestaetigt,
+          datenschutzAkzeptiert: formData.datenschutzAkzeptiert,
         }),
       });
 
@@ -158,7 +169,18 @@ export default function App() {
 
       if (result.success) {
         setFormStatus('success');
-        setFormData({ name: '', email: '', telefon: '', rueckrufzeit: '', interessiert_an: '', website: '', tools: '', anliegen: '' });
+        setFormData({
+          name: '',
+          email: '',
+          telefon: '',
+          rueckrufzeit: '',
+          interessiert_an: '',
+          website: '',
+          tools: '',
+          anliegen: '',
+          unternehmerBestaetigt: false,
+          datenschutzAkzeptiert: false
+        });
         localStorage.removeItem(FORM_STORAGE_KEY);
       } else {
         throw new Error(result.message || 'Fehler beim Senden');
@@ -639,56 +661,14 @@ export default function App() {
             </Reveal>
 
             <div className="space-y-4">
-              <AccordionItem
-                question="Was kostet eine professionelle Website für meine Praxis oder mein Studio?"
-                answer="Eine kompakte Digitale Visitenkarte (One-Pager) kostet 1.290 € netto (zzgl. MwSt.). Eine umfassende Praxis-Website mit mehreren Unterseiten, erweiterter SEO-Optimierung und Google Business Profil-Einrichtung kostet 2.290 € netto (zzgl. MwSt.). Die genauen Leistungen und der finale Preis ergeben sich aus einem individuellen Angebot nach unserem Erstgespräch. Alle Preise richten sich ausschließlich an Gewerbetreibende (B2B)."
-                delay={100}
-              />
-              <AccordionItem
-                question="Wie läuft ein Website-Projekt mit Ihnen konkret ab?"
-                answer="Nach einem unverbindlichen Erstgespräch erhalten Sie ein individuelles Angebot. Bei Auftragserteilung starten wir mit 50 % Anzahlung. Sie liefern mir Texte, Bilder und Ihr Logo. Ich entwickle Ihre Website und stelle sie auf einer Testumgebung bereit. Nach Ihrer Freigabe und Zahlung der zweiten Rate geht die Seite live. Die Abnahme erfolgt innerhalb von 14 Tagen nach Fertigstellung."
-                delay={200}
-              />
-              <AccordionItem
-                question="Wie lange dauert die Erstellung einer neuen Praxis-Website?"
-                answer="Für einen One-Pager plane ich in der Regel 2 bis 3 Wochen ab Erhalt aller Materialien. Bei einer umfangreicheren Multi-Page-Website sollten Sie etwa 4 bis 6 Wochen für Konzept, Design, Entwicklung und Abstimmungsschleifen einplanen. Die tatsächliche Dauer hängt davon ab, wie schnell Sie Texte und Bildmaterial bereitstellen können."
-                delay={300}
-              />
-              <AccordionItem
-                question="Wem gehört die fertige Website und wo wird sie gehostet?"
-                answer="Mit vollständiger Bezahlung erhalten Sie zeitlich und räumlich unbeschränkte Nutzungsrechte an den individuell für Sie erstellten Arbeitsergebnissen (Code und Design). Bereits vorbestehende bzw. generische technische Bausteine verbleiben bei mir; Sie erhalten daran ein dauerhaftes Nutzungsrecht, soweit es für den Betrieb Ihrer Website erforderlich ist. Das Hosting läuft über Ihren eigenen Account bei Cloudflare Pages – Sie sind der Vertragspartner, nicht ich. Das bedeutet volle Kontrolle, keine versteckten Abo-Kosten und völlige Unabhängigkeit von meiner Person."
-                delay={400}
-              />
-              <AccordionItem
-                question="Kann ich Texte und Bilder auf meiner Website später selbst ändern?"
-                answer="Ja. Ich integriere ein benutzerfreundliches Content-Management-System (CMS) wie Keystatic. Darüber können Sie ohne Programmierkenntnisse Texte anpassen, Öffnungszeiten aktualisieren, Teammitglieder hinzufügen oder Bilder austauschen. Falls Sie bei der Bedienung Unterstützung benötigen, können Sie optional meinen technischen Support hinzubuchen."
-                delay={500}
-              />
-              <AccordionItem
-                question="Was beinhaltet die SEO-Optimierung und garantieren Sie ein Google-Ranking?"
-                answer="Ich übernehme die technische On-Page-Optimierung nach aktuellen Standards: schnelle Ladezeiten, sauberer Code, Mobile-First-Design, strukturierte Daten (Schema.org) und Local-SEO-Grundlagen für Ihre Region. Eine Platzierungsgarantie gebe ich bewusst nicht – das wäre unseriös, da Rankings von Google-Algorithmen abhängen, die niemand kontrolliert."
-                delay={600}
-              />
-              <AccordionItem
-                question="Ist meine neue Website technisch DSGVO-konform?"
-                answer="Ich setze die technischen Voraussetzungen für DSGVO-konformes Arbeiten um: SSL-Verschlüsselung für sichere Datenübertragung (besonders beim Kontaktformular), lokales Hosting von Schriftarten und vorbereitete Seiten für Impressum sowie Datenschutzerklärung. Falls erforderlich, integriere ich zusätzlich einen Cookie-Banner. Die rechtlichen Texte selbst müssen Sie von einem spezialisierten Anwalt oder Dienst erstellen lassen. Als Webdesigner darf und kann ich keine Rechtsberatung leisten."
-                delay={700}
-              />
-              <AccordionItem
-                question="Können Patienten direkt über meine Website Termine buchen?"
-                answer="Ja. Ich verknüpfe Ihre Website mit Ihrem bestehenden Buchungssystem – etwa Doctolib, Jameda oder Treatwell. Patienten gelangen mit einem Klick zur Terminbuchung, ohne lange suchen zu müssen. Sie behalten Ihr gewohntes System, und die Weiterleitung fügt sich optisch nahtlos in das Gesamtdesign ein. Zusätzlich erhalten Sie ein Kontaktformular, über das Patienten Anfragen direkt an Sie senden können."
-                delay={800}
-              />
-              <AccordionItem
-                question="Was passiert nach der Fertigstellung? Gibt es laufende Kosten?"
-                answer="Nein, es gibt keine verpflichtenden laufenden Kosten an mich. Das Hosting über Cloudflare Pages ist im Free-Plan in vielen Fällen ohne zusätzliche Gebühren möglich; je nach Funktionsumfang und Nutzung können beim Anbieter Kosten entstehen. Sie können Ihre Website vollständig selbst verwalten. Optional biete ich einen technischen Support für 59 € netto pro Monat (zzgl. MwSt.) an: inklusive technischer Support & Beratung zu Hosting, Domain und CMS (bis zu 30 Minuten/Monat) sowie 1 optische Änderung pro Monat (max. 30 Minuten). Gesamt inklusive: bis zu 60 Minuten pro Monat. Weitere Leistungen rechne ich nach Aufwand mit 95 € netto/Stunde ab. Das Rundum-Sorglos-Paket ist ohne Mindestlaufzeit mit einer Frist von 14 Tagen zum Ende des Abrechnungsmonats kündbar."
-                delay={900}
-              />
-              <AccordionItem
-                question="Warum entwickeln Sie individuell statt mit einem Baukastensystem?"
-                answer="Individuelle Entwicklung mit modernen Technologien wie Astro.js bietet entscheidende Vorteile: minimaler Code für maximale Ladegeschwindigkeit, keine monatlichen Lizenzgebühren und volle Designfreiheit ohne Template-Einschränkungen. Sie erhalten zeitlich und räumlich unbeschränkte Nutzungsrechte an den individuell für Sie erstellten Arbeitsergebnissen (Code und Design). Bereits vorbestehende bzw. generische technische Bausteine verbleiben bei mir; Sie erhalten daran ein dauerhaftes Nutzungsrecht, soweit es für den Betrieb Ihrer Website erforderlich ist."
-                delay={1000}
-              />
+              {faqData.map((faq, index) => (
+                <AccordionItem
+                  key={faq.question}
+                  question={faq.question}
+                  answer={faq.answer}
+                  delay={(index + 1) * 100}
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -719,7 +699,7 @@ export default function App() {
                   </div>
                   <h3 className="text-white font-medium text-lg mb-2">Vielen Dank für Ihre Anfrage!</h3>
                   <p className="text-slate-400 text-sm">
-                    Ich melde mich innerhalb von 24 Stunden (werktags) bei Ihnen.
+                    Ich melde mich in der Regel innerhalb von 24 Stunden (werktags) bei Ihnen.
                   </p>
                   <button
                     onClick={() => setFormStatus('idle')}
@@ -888,6 +868,8 @@ export default function App() {
                     <input
                       type="checkbox"
                       name="unternehmerBestaetigt"
+                      checked={formData.unternehmerBestaetigt}
+                      onChange={handleFormChange}
                       required
                       disabled={formStatus === 'submitting'}
                       className="mt-0.5 w-4 h-4 rounded-sm border-slate-600 bg-slate-900/50 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900 disabled:opacity-50 cursor-pointer shrink-0"
@@ -901,6 +883,8 @@ export default function App() {
                     <input
                       type="checkbox"
                       name="datenschutzAkzeptiert"
+                      checked={formData.datenschutzAkzeptiert}
+                      onChange={handleFormChange}
                       required
                       disabled={formStatus === 'submitting'}
                       className="mt-0.5 w-4 h-4 rounded-sm border-slate-600 bg-slate-900/50 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900 disabled:opacity-50 cursor-pointer shrink-0"
@@ -935,7 +919,7 @@ export default function App() {
                   <div className="text-center mt-4">
                     <p className="text-slate-400 text-xs flex items-center justify-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                      Antwort innerhalb von 24h werktags
+                      Antwort in der Regel innerhalb von 24h werktags
                     </p>
                   </div>
                 </form>
