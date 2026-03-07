@@ -12,7 +12,7 @@ export default function HeroSection() {
 
         <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
           Als Dienstleister im Gesundheits- und Wellnessbereich ist Ihre Website der erste Eindruck.
-          Ich entwickle für Sie hochperformante, maßgeschneiderte Internetauftritte, kompromisslos optimiert für Smartphones und lokale Sichtbarkeit.
+          Ich entwickle für Sie hochperformante, maßgeschneiderte Internetauftritte, kompromisslos optimiert für Smartphones und lokale Sichtbarkeit in Berlin, Potsdam und Umland.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

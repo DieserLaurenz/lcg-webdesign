@@ -11,9 +11,9 @@ import PricingSection from "../components/home/PricingSection.jsx";
 import FAQSection from "../components/home/FAQSection.jsx";
 import ContactSection from "../components/home/ContactSection.jsx";
 
-const pageTitle = "Webdesign für Ärzte & Praxen in Berlin | Gilbert Webdesign";
+const pageTitle = "Webdesign für Ärzte & Praxen in Berlin, Potsdam & Umland | Gilbert Webdesign";
 const pageDescription =
-  "Professionelles Webdesign für Ärzte, Physiotherapeuten & Studios in Berlin. Modern, performant & SEO-optimiert. Jetzt kostenlose Erstberatung vereinbaren!";
+  "Professionelles Webdesign für Ärzte, Physiotherapeuten & Studios in Berlin, Potsdam und Umland. Modern, performant & SEO-optimiert. Jetzt kostenlose Erstberatung vereinbaren!";
 const canonicalUrl = "https://gilbert-webdesign.de/";
 const profileImageUrl =
   "https://gilbert-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp";
@@ -128,10 +128,17 @@ const structuredData = {
       description: pageDescription,
       email: "kontakt@gilbert-webdesign.de",
       telephone: "+49 176 55156501",
-      areaServed: {
-        "@type": "City",
-        name: "Berlin",
-      },
+      areaServed: [
+        {
+          "@type": "City",
+          name: "Berlin",
+        },
+        {
+          "@type": "City",
+          name: "Potsdam",
+        },
+        "Umland",
+      ],
       availableLanguage: ["de", "en"],
       serviceType: [
         "Webdesign für Ärzte",
@@ -174,7 +181,7 @@ const structuredData = {
       provider: {
         "@id": organizationId,
       },
-      areaServed: "Berlin",
+      areaServed: ["Berlin", "Potsdam", "Umland"],
       audience: {
         "@type": "BusinessAudience",
         audienceType: "Arztpraxen, Physiotherapie-Praxen und Studios",
@@ -204,7 +211,7 @@ const structuredData = {
       provider: {
         "@id": organizationId,
       },
-      areaServed: "Berlin",
+      areaServed: ["Berlin", "Potsdam", "Umland"],
       audience: {
         "@type": "BusinessAudience",
         audienceType: "Arztpraxen, Physiotherapie-Praxen und Studios",
@@ -236,7 +243,7 @@ const structuredData = {
   description={pageDescription}
   canonicalUrl={canonicalUrl}
   ogImage={profileImageUrl}
-  ogImageAlt="Laurenz Gilbert von Gilbert Webdesign in Berlin"
+  ogImageAlt="Laurenz Gilbert von Gilbert Webdesign für Berlin, Potsdam und Umland"
   twitterCard="summary_large_image"
   structuredData={structuredData}
 >

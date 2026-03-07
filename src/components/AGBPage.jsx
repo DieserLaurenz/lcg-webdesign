@@ -49,7 +49,7 @@ export default function LegalPage() {
                 <section>
                   <h2 className="font-serif text-2xl text-slate-900 mb-6 pb-2 border-b border-slate-100">§ 4 Mitwirkungspflichten des Auftraggebers & Hosting</h2>
                   <div className="space-y-4">
-                    <p>Das Hosting der Website sowie die Code-Verwaltung erfolgen über Drittanbieter (z. B. Cloudflare Pages, GitHub). Der Auftraggeber verpflichtet sich, die hierfür notwendigen Konten auf eigenen Namen und eigene Rechnung anzulegen. Vertragspartner dieser Drittanbieter wird ausschließlich der Auftraggeber.</p>
+                    <p>Das Hosting der Website, die Code-Verwaltung sowie sonstige technische Infrastruktur können über Drittanbieter (z. B. Cloudflare Pages, GitHub oder vergleichbare Dienste) erfolgen. Der Auftraggeber verpflichtet sich, die hierfür notwendigen Konten, soweit vertraglich vereinbart, auf eigenen Namen und eigene Rechnung anzulegen. Vertragspartner dieser Drittanbieter wird grundsätzlich der Auftraggeber.</p>
                     <p>Zur Gewährleistung der Entwicklung sowie vertraglich vereinbarter Wartungs- und Support-Leistungen räumt der Auftraggeber dem Auftragnehmer einen administrativen Zugang bzw. Mitwirkenden-Zugang („Collaborator“) zu diesen Konten ein.</p>
                     <p>Der Auftraggeber stellt dem Auftragnehmer alle für die Erstellung der Website erforderlichen Inhalte (Texte, Bilder, Logos) in digitaler Form rechtzeitig zur Verfügung. Für die rechtliche Zulässigkeit (insb. Urheber- und Markenrechte) dieser Inhalte ist allein der Auftraggeber verantwortlich.</p>
                   </div>
@@ -102,7 +102,7 @@ export default function LegalPage() {
                 <section>
                   <h2 className="font-serif text-2xl text-slate-900 mb-6 pb-2 border-b border-slate-100">§ 9 Referenznennung</h2>
                   <div className="space-y-4">
-                    <p>Der Auftraggeber räumt dem Auftragnehmer ein einfaches, räumlich unbeschränktes Recht ein, den Auftraggeber auf der eigenen Website sowie in eigenen Werbemedien (z. B. Social Media, Portfolio-Präsentationen) als Referenzkunden zu nennen und in diesem Zusammenhang den Namen des Auftraggebers, dessen Logo und Screenshots der erstellten Website zu verwenden.</p>
+                    <p>Der Auftragnehmer ist berechtigt, den Auftraggeber auf der eigenen Website sowie in eigenen Werbemedien (z. B. Social Media, Portfolio-Präsentationen) als Referenzkunden zu nennen und in diesem Zusammenhang den Namen des Auftraggebers, dessen Logo und Screenshots der erstellten Website zu verwenden, sofern dem keine berechtigten Interessen des Auftraggebers, insbesondere Vertraulichkeits- oder Geheimhaltungsinteressen, entgegenstehen.</p>
                     <p>Der Auftraggeber kann der Referenznutzung jederzeit mit Wirkung für die Zukunft in Textform (z. B. per E-Mail) widersprechen. Ab Zugang des Widerspruchs wird der Auftragnehmer die weitere Nutzung innerhalb einer angemessenen Frist einstellen.</p>
                   </div>
                 </section>

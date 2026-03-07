@@ -28,7 +28,7 @@ export async function POST({ request, locals }) {
 
     if (!RESEND_API_KEY) {
       return new Response(
-        JSON.stringify({ success: false, message: 'Server-Konfiguration unvollstaendig. Bitte spaeter erneut versuchen.' }),
+        JSON.stringify({ success: false, message: 'Server-Konfiguration unvollständig. Bitte später erneut versuchen.' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -56,14 +56,14 @@ export async function POST({ request, locals }) {
 
     if (!EMAIL_REGEX.test(normalizedData.email)) {
       return new Response(
-        JSON.stringify({ success: false, message: 'Bitte geben Sie eine gueltige E-Mail-Adresse an.' }),
+        JSON.stringify({ success: false, message: 'Bitte geben Sie eine gültige E-Mail-Adresse an.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
     if (!normalizedData.unternehmerBestaetigt || !normalizedData.datenschutzAkzeptiert) {
       return new Response(
-        JSON.stringify({ success: false, message: 'Bitte bestaetigen Sie B2B-Status und Datenschutzhinweise.' }),
+        JSON.stringify({ success: false, message: 'Bitte bestätigen Sie B2B-Status und Datenschutzhinweise.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -97,7 +97,7 @@ export async function POST({ request, locals }) {
           <td style="padding: 10px; border-bottom: 1px solid #eee;">${safe.telefon || 'Nicht angegeben'}</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Beste Rueckrufzeit:</td>
+          <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Beste Rückrufzeit:</td>
           <td style="padding: 10px; border-bottom: 1px solid #eee;">${safe.rueckrufzeit || 'Nicht angegeben'}</td>
         </tr>
         <tr>
@@ -113,11 +113,11 @@ export async function POST({ request, locals }) {
           <td style="padding: 10px; border-bottom: 1px solid #eee;">${safe.tools || 'Nicht angegeben'}</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">B2B-Bestaetigung:</td>
+          <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">B2B-Bestätigung:</td>
           <td style="padding: 10px; border-bottom: 1px solid #eee;">Ja</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Datenschutz bestaetigt:</td>
+          <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Datenschutz bestätigt:</td>
           <td style="padding: 10px; border-bottom: 1px solid #eee;">Ja</td>
         </tr>
         <tr>
@@ -131,7 +131,7 @@ export async function POST({ request, locals }) {
       </table>
     `;
 
-    // E-Mail ueber Resend senden
+    // E-Mail über Resend senden
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -161,7 +161,7 @@ export async function POST({ request, locals }) {
   } catch (error) {
     console.error('Contact form error:', error);
     return new Response(
-      JSON.stringify({ success: false, message: 'Es gab ein Problem beim Senden. Bitte versuchen Sie es spaeter erneut.' }),
+      JSON.stringify({ success: false, message: 'Es gab ein Problem beim Senden. Bitte versuchen Sie es später erneut.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

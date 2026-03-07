@@ -9,7 +9,7 @@ export default function PricingSection() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Investitionen in Ihre digitale Praxis</h2>
           <p className="text-slate-600">
-            Transparente Lösungen, exakt zugeschnitten auf die Groesse und Anforderungen Ihres Unternehmens.
+            Transparente Lösungen, exakt zugeschnitten auf die Größe und Anforderungen Ihres Unternehmens.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function PricingSection() {
                 <ListItem text={<><strong className="text-slate-900 font-semibold">Technisches SEO-Fundament</strong> für die lokale Suche</>} />
                 <ListItem text={<><strong className="text-slate-900 font-semibold">Buchungs-Integration</strong> (Doctolib, Jameda, Treatwell, etc.)</>} />
                 <ListItem text={<><strong className="text-slate-900 font-semibold">Kontaktformular & Google Maps</strong> für effizientere Anfragen</>} />
-                <ListItem text={<><strong className="text-slate-900 font-semibold">In der Regel keine laufenden Hosting-Kosten</strong> (modernes Cloudsystem)</>} />
+                <ListItem text={<><strong className="text-slate-900 font-semibold">Für das Hosting selbst entstehen in vielen Fällen keine laufenden Kosten</strong> (modernes Cloudsystem)</>} />
               </ul>
             </div>
             <div className="mt-auto flex flex-col relative z-10 shrink-0">
@@ -45,7 +45,7 @@ export default function PricingSection() {
 
           <div className="bg-[#0f172a] p-6 md:p-8 border border-slate-800 rounded-sm shadow-lg h-full flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider z-20">
-              Beliebteste Wahl
+              Häufig gewählt
             </div>
             <div className="flex-grow flex flex-col relative z-10">
               <div className="mb-6">

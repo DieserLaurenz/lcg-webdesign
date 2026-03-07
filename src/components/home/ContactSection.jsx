@@ -133,7 +133,7 @@ export default function ContactSection() {
             </div>
             <h2 className="font-serif text-2xl md:text-4xl text-white mb-4">Bereit für Ihren digitalen Aufstieg?</h2>
             <p className="text-slate-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Lassen Sie uns unverbindlich besprechen, wie wir Ihre Patientenanfragen messbar steigern.
+              Lassen Sie uns unverbindlich besprechen, wie wir Ihre digitale Sichtbarkeit und Ihre Anfragen verbessern können.
             </p>
           </div>
 

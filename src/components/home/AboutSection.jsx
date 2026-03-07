@@ -19,7 +19,7 @@ export default function AboutSection() {
             <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Ihr Partner für digitale Seriosität und messbaren Erfolg</h2>
             <div className="space-y-6 text-slate-600 leading-relaxed">
               <p>
-                Guten Tag, mein Name ist Laurenz Gilbert. Als Wirtschaftsinformatiker (B.Sc., Universitaet Potsdam) mit einem Abschluss von 1,7 und Masterstudent an der TU Berlin verbinde ich tiefgreifendes akademisches Know-how mit praktischer Anwendungsorientierung.
+                Guten Tag, mein Name ist Laurenz Gilbert. Als Wirtschaftsinformatiker (B.Sc., Universität Potsdam) mit einem Abschluss von 1,7 und Masterstudent an der TU Berlin verbinde ich tiefgreifendes akademisches Know-how mit praktischer Anwendungsorientierung.
               </p>
               <p>
                 Meine Erfahrungen im Technologie-Umfeld bei Deloitte sowie der erfolgreiche Aufbau meines eigenen E-Commerce-Unternehmens haben mir gezeigt, worauf es bei professionellen und wirtschaftlich rentablen IT-Lösungen ankommt.
@@ -38,7 +38,7 @@ export default function AboutSection() {
             </div>
             <div>
               <h3 className="font-serif text-slate-900 font-medium mb-1">Fundierte Expertise</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">Wissen aus Uni Potsdam und TU Berlin, ergaenzt um Erfahrung aus Praxis und IT-Projekten.</p>
+              <p className="text-sm text-slate-500 leading-relaxed">Wissen aus Uni Potsdam und TU Berlin, ergänzt um Erfahrung aus Praxis und IT-Projekten.</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -46,7 +46,7 @@ export default function AboutSection() {
               <Briefcase size={20} />
             </div>
             <div>
-              <h3 className="font-serif text-slate-900 font-medium mb-1">Branchenverstaendnis</h3>
+              <h3 className="font-serif text-slate-900 font-medium mb-1">Branchenverständnis</h3>
               <p className="text-sm text-slate-500 leading-relaxed">Direkte Einblicke in Praxisabläufe und unternehmerische Erfahrung für realistische Lösungen.</p>
             </div>
           </div>

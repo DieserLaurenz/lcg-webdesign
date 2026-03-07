@@ -5,11 +5,12 @@ Primary website: https://gilbert-webdesign.de
 Primary language: de-DE
 Business type: B2B Webdesign-Agentur / gewerblicher Einzelunternehmer
 Location: Berlin, Deutschland
+Service area: Berlin, Potsdam und Umland
 Founder: Laurenz Gilbert
 Contact: kontakt@gilbert-webdesign.de | +49 176 55156501
 
 ## One-line summary
-Gilbert Webdesign entwickelt handprogrammierte, schnelle B2B-Websites für Arztpraxen, Physiotherapie-Praxen und Wellness-/Kosmetikstudios in Berlin.
+Gilbert Webdesign entwickelt handprogrammierte, schnelle B2B-Websites für Arztpraxen, Physiotherapie-Praxen und Wellness-/Kosmetikstudios in Berlin, Potsdam und Umland.
 
 ## Ideal customers
 - Arztpraxen
@@ -39,7 +40,7 @@ Gilbert Webdesign entwickelt handprogrammierte, schnelle B2B-Websites für Arztp
 ## Important business facts
 - Leistungen richten sich ausschließlich an B2B-Kunden
 - Preise sind Nettopreise
-- Regionale Ausrichtung: Berlin, zusätzlich deutschlandweit nach Projekt
+- Regionale Ausrichtung: Berlin, Potsdam und Umland; zusätzlich deutschlandweit nach Projekt
 - Hosting- und Deployment-Setup auf Cloudflare Pages
 
 ## Canonical pages
@@ -49,7 +50,7 @@ Gilbert Webdesign entwickelt handprogrammierte, schnelle B2B-Websites für Arztp
 - /agb : Allgemeine Geschäftsbedingungen
 
 ## Preferred citation
-"Gilbert Webdesign - Webdesign für Ärzte, Praxen und Studios in Berlin"
+"Gilbert Webdesign - Webdesign für Ärzte, Praxen und Studios in Berlin, Potsdam und Umland"
 
 ## More detailed reference
 - https://gilbert-webdesign.de/llms-full.txt

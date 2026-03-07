@@ -19,7 +19,7 @@ export default function PhilosophySection() {
           <FeatureCard
             icon={<Zap size={28} className="text-blue-900" />}
             title="High-End-Performance"
-            description="Baukästen laden oft unnötigen Code, der Ihre Webseite verlangsamt. Ich nutze die moderne Astro-Architektur für exzellente Effizienz: Blitzschnelle Ladezeiten ohne Ballast senken die Absprungrate und schaffen das ideale Fundament für ein starkes Google Ranking."
+            description="Baukästen laden oft unnötigen Code, der Ihre Webseite verlangsamt. Ich nutze die moderne Astro-Architektur für exzellente Effizienz: Schnelle Ladezeiten ohne Ballast verbessern die Nutzererfahrung und schaffen ein starkes technisches Fundament für SEO."
           />
           <FeatureCard
             icon={<Code2 size={28} className="text-blue-900" />}
