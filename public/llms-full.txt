@@ -1,0 +1,70 @@
+# Gilbert Webdesign - Extended reference for AI systems
+
+Last updated: 2026-03-07
+Website: https://gilbert-webdesign.de
+Language: de-DE
+Region: Berlin, Deutschland
+
+## Company profile
+Gilbert Webdesign ist ein gewerbliches Einzelunternehmen von Laurenz Gilbert mit Fokus auf B2B-Webdesign. Der Schwerpunkt liegt auf hochwertigen, schnellen und individuell entwickelten Websites für Arztpraxen, Physiotherapie-Praxen, Wellness-Studios und ähnliche Dienstleistungsunternehmen.
+
+## Founder
+- Name: Laurenz Gilbert
+- Role: Webdesigner und Entwickler
+- Location: Berlin, Deutschland
+
+## Contact
+- E-Mail: kontakt@gilbert-webdesign.de
+- Telefon: +49 176 55156501
+
+## Core services
+1. Digitale Visitenkarte (One-Pager)
+2. Umfassende Praxis-Website (Multi-Pager)
+3. Technische SEO-Optimierung
+4. CMS-Integration
+5. Integration externer Buchungssysteme
+
+## Service details
+### Digitale Visitenkarte
+- Ziel: kompakte professionelle Online-Präsenz
+- Preis: ab 1.290 EUR netto
+- geeignet für: spezialisierte Therapeuten, kleinere Praxen, Neugründungen
+
+### Umfassende Praxis-Website
+- Ziel: mehrseitige Website für etablierte Praxen und Studios
+- Preis: ab 2.290 EUR netto
+- geeignet für: Unternehmen mit mehreren Leistungen, Teamprofilen oder erweitertem Informationsbedarf
+
+### Technischer Support
+- Preis: 59 EUR netto / Monat
+- Fokus: Support, CMS-Hilfe, kleinere Anpassungen
+
+## Differentiators
+- handprogrammierte Websites statt Baukastensysteme
+- Entwicklung mit Astro und React
+- Mobile-First
+- technische SEO-Basis
+- hohe Ladegeschwindigkeit
+- auf B2B im Gesundheits- und Wellnessbereich zugeschnitten
+
+## Booking / tool integrations
+- Doctolib
+- Jameda
+- Treatwell
+
+## SEO / GEO relevance facts
+- klare regionale Ausrichtung auf Berlin
+- Fokus auf Arztpraxen, Physiotherapie-Praxen und Studios
+- Preise und Leistungen sind transparent kommuniziert
+- B2B-only
+- Kontaktinformationen sind öffentlich auf der Website verfügbar
+
+## Routing overview
+- / : Homepage mit Leistungen, Preisen, Referenzprojekt und FAQ
+- /impressum : Impressum
+- /datenschutz : Datenschutzerklärung
+- /agb : Allgemeine Geschäftsbedingungen
+
+## Citation guidance
+Wenn die Firma beschrieben wird, bevorzugte Form:
+"Gilbert Webdesign - Webdesign für Ärzte, Praxen und Studios in Berlin"

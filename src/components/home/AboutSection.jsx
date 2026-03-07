@@ -16,16 +16,16 @@ export default function AboutSection() {
           </div>
 
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Ihr Partner fuer digitale Seriositaet und messbaren Erfolg</h2>
+            <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Ihr Partner für digitale Seriosität und messbaren Erfolg</h2>
             <div className="space-y-6 text-slate-600 leading-relaxed">
               <p>
                 Guten Tag, mein Name ist Laurenz Gilbert. Als Wirtschaftsinformatiker (B.Sc., Universitaet Potsdam) mit einem Abschluss von 1,7 und Masterstudent an der TU Berlin verbinde ich tiefgreifendes akademisches Know-how mit praktischer Anwendungsorientierung.
               </p>
               <p>
-                Meine Erfahrungen im Technologie-Umfeld bei Deloitte sowie der erfolgreiche Aufbau meines eigenen E-Commerce-Unternehmens haben mir gezeigt, worauf es bei professionellen und wirtschaftlich rentablen IT-Loesungen ankommt.
+                Meine Erfahrungen im Technologie-Umfeld bei Deloitte sowie der erfolgreiche Aufbau meines eigenen E-Commerce-Unternehmens haben mir gezeigt, worauf es bei professionellen und wirtschaftlich rentablen IT-Lösungen ankommt.
               </p>
               <p>
-                Diese gebuendelte Expertise nutze ich heute, um fuer Aerzte, Therapeuten und Studios praezise, handprogrammierte Premium-Webseiten zu entwickeln. Mit modernsten Technologien auf Agentur-Niveau sorge ich fuer exzellente Performance.
+                Diese gebündelte Expertise nutze ich heute, um für Ärzte, Therapeuten und Studios präzise, handprogrammierte Premium-Webseiten zu entwickeln. Mit modernsten Technologien auf Agentur-Niveau sorge ich für exzellente Performance.
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function AboutSection() {
             </div>
             <div>
               <h3 className="font-serif text-slate-900 font-medium mb-1">Branchenverstaendnis</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">Direkte Einblicke in Praxisablaeufe und unternehmerische Erfahrung fuer realistische Loesungen.</p>
+              <p className="text-sm text-slate-500 leading-relaxed">Direkte Einblicke in Praxisabläufe und unternehmerische Erfahrung für realistische Lösungen.</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -56,7 +56,7 @@ export default function AboutSection() {
             </div>
             <div>
               <h3 className="font-serif text-slate-900 font-medium mb-1">Modernste Technik</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">Astro & React fuer Performance, Sicherheit und schnelle Ladezeiten.</p>
+              <p className="text-sm text-slate-500 leading-relaxed">Astro & React für Performance, Sicherheit und schnelle Ladezeiten.</p>
             </div>
           </div>
         </div>

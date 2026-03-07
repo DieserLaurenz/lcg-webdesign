@@ -11,7 +11,7 @@ export default function PhilosophySection() {
             Warum Handarbeit den Unterschied macht
           </h2>
           <p className="text-slate-600 leading-relaxed">
-            Ich setze bewusst auf individuelle Entwicklung statt auf starre Baukastensysteme. Moderne Web-Technologien wie Astro.js und React ermoeglichen es mir, Seiten zu erstellen, die durch minimale Ladezeiten und sauberen Code ueberzeugen. Damit schaffe ich fuer Sie ein hervorragendes technisches Fundament, um sich bei Google und gegenueber dem Wettbewerb klar zu positionieren.
+            Ich setze bewusst auf individuelle Entwicklung statt auf starre Baukastensysteme. Moderne Web-Technologien wie Astro.js und React ermöglichen es mir, Seiten zu erstellen, die durch minimale Ladezeiten und sauberen Code überzeugen. Damit schaffe ich für Sie ein hervorragendes technisches Fundament, um sich bei Google und gegenüber dem Wettbewerb klar zu positionieren.
           </p>
         </div>
 
@@ -19,32 +19,32 @@ export default function PhilosophySection() {
           <FeatureCard
             icon={<Zap size={28} className="text-blue-900" />}
             title="High-End-Performance"
-            description="Baukaesten laden oft unnoetigen Code, der Ihre Webseite verlangsamt. Ich nutze die moderne Astro-Architektur fuer exzellente Effizienz: Blitzschnelle Ladezeiten ohne Ballast senken die Absprungrate und schaffen das ideale Fundament fuer ein starkes Google Ranking."
+            description="Baukästen laden oft unnötigen Code, der Ihre Webseite verlangsamt. Ich nutze die moderne Astro-Architektur für exzellente Effizienz: Blitzschnelle Ladezeiten ohne Ballast senken die Absprungrate und schaffen das ideale Fundament für ein starkes Google Ranking."
           />
           <FeatureCard
             icon={<Code2 size={28} className="text-blue-900" />}
-            title="Modulare Massarbeit"
-            description="Statt an starre Templates gebunden zu sein programmiere ich Ihre Seite individuell mit dem React-Framework. Sie erhalten ein einzigartiges und professionelles Website-Design mit groesstmoeglicher technischer Flexibilitaet, das sich exakt an Ihre Praxisprozesse anpasst."
+            title="Modulare Maßarbeit"
+            description="Statt an starre Templates gebunden zu sein programmiere ich Ihre Seite individuell mit dem React-Framework. Sie erhalten ein einzigartiges und professionelles Website-Design mit größtmöglicher technischer Flexibilität, das sich exakt an Ihre Praxisprozesse anpasst."
           />
           <FeatureCard
             icon={<ShieldCheck size={28} className="text-blue-900" />}
-            title="Volle Unabhaengigkeit"
-            description="Keine monatliche Miete, kein Vendor-Lock-in. Ich raeume Ihnen zeitlich und raeumlich unbegrenzte Nutzungsrechte am individuell fuer Sie erstellten Code ein. So behalten Sie dauerhaft die volle Kontrolle ueber Hosting, Skalierung und kuenftige Anpassungen."
+            title="Volle Unabhängigkeit"
+            description="Keine monatliche Miete, kein Vendor-Lock-in. Ich räume Ihnen zeitlich und räumlich unbegrenzte Nutzungsrechte am individuell für Sie erstellten Code ein. So behalten Sie dauerhaft die volle Kontrolle über Hosting, Skalierung und künftige Anpassungen."
           />
           <FeatureCard
             icon={<Search size={28} className="text-blue-900" />}
             title="Gezielte SEO-Optimierung"
-            description="Baukaestensysteme stossen bei der Suchmaschinenoptimierung oft an Grenzen. Meine Strategie erlaubt die hochpraezise Steuerung relevanter technischer On-Page-Faktoren und schafft so ein exzellentes Fundament fuer Ihre regionale Sichtbarkeit bei Google."
+            description="Baukästensysteme stoßen bei der Suchmaschinenoptimierung oft an Grenzen. Meine Strategie erlaubt die hochpräzise Steuerung relevanter technischer On-Page-Faktoren und schafft so ein exzellentes Fundament für Ihre regionale Sichtbarkeit bei Google."
           />
           <FeatureCard
             icon={<Calendar size={28} className="text-blue-900" />}
             title="Nahtlose Integration"
-            description="Ob Doctolib, Jameda oder Treatwell, ich verknuepfe Ihre Website mit Ihren bestehenden Buchungssystemen, sodass Patienten mit einem Klick zur Terminbuchung gelangen. Dank massgeschneidertem Code bleibt Ihre Website dauerhaft flexibel erweiterbar."
+            description="Ob Doctolib, Jameda oder Treatwell, ich verknüpfe Ihre Website mit Ihren bestehenden Buchungssystemen, sodass Patienten mit einem Klick zur Terminbuchung gelangen. Dank maßgeschneidertem Code bleibt Ihre Website dauerhaft flexibel erweiterbar."
           />
           <FeatureCard
             icon={<Smartphone size={28} className="text-blue-900" />}
             title="Konsequent Mobile-First"
-            description="Ihre Patienten suchen heute ueberwiegend mobil. Ich entwickle konsequent primaer fuer Smartphones: Ihre Website wird fuer mobile Endgeraete optimiert und passt sich flexibel und fluessig allen Bildschirmgroessen an."
+            description="Ihre Patienten suchen heute überwiegend mobil. Ich entwickle konsequent primär für Smartphones: Ihre Website wird für mobile Endgeräte optimiert und passt sich flexibel und flüssig allen Bildschirmgrößen an."
           />
         </div>
       </div>

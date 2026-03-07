@@ -1,7 +1,7 @@
 {
   "name": "Gilbert Webdesign",
   "short_name": "Gilbert",
-  "description": "Webdesign fuer Aerzte, Praxen und Studios in Berlin.",
+  "description": "Webdesign für Ärzte, Praxen und Studios in Berlin.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -9,7 +9,7 @@ export default function PricingSection() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Investitionen in Ihre digitale Praxis</h2>
           <p className="text-slate-600">
-            Transparente Loesungen, exakt zugeschnitten auf die Groesse und Anforderungen Ihres Unternehmens.
+            Transparente Lösungen, exakt zugeschnitten auf die Groesse und Anforderungen Ihres Unternehmens.
           </p>
         </div>
 
@@ -25,14 +25,14 @@ export default function PricingSection() {
                 </div>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Die ideale Loesung fuer spezialisierte Therapeuten oder Neugruendungen.
+                Die ideale Lösung für spezialisierte Therapeuten oder Neugründungen.
               </p>
               <ul className="space-y-3 mb-8">
-                <ListItem text={<><strong className="text-slate-900 font-semibold">Eine informative Hauptseite</strong> (zzgl. Seiten fuer Ihre Rechtstexte)</>} />
-                <ListItem text={<><strong className="text-slate-900 font-semibold">Integriertes CMS</strong> (Texte & Bilder selbst aendern)</>} />
-                <ListItem text={<><strong className="text-slate-900 font-semibold">Technisches SEO-Fundament</strong> fuer die lokale Suche</>} />
+                <ListItem text={<><strong className="text-slate-900 font-semibold">Eine informative Hauptseite</strong> (zzgl. Seiten für Ihre Rechtstexte)</>} />
+                <ListItem text={<><strong className="text-slate-900 font-semibold">Integriertes CMS</strong> (Texte & Bilder selbst ändern)</>} />
+                <ListItem text={<><strong className="text-slate-900 font-semibold">Technisches SEO-Fundament</strong> für die lokale Suche</>} />
                 <ListItem text={<><strong className="text-slate-900 font-semibold">Buchungs-Integration</strong> (Doctolib, Jameda, Treatwell, etc.)</>} />
-                <ListItem text={<><strong className="text-slate-900 font-semibold">Kontaktformular & Google Maps</strong> fuer effizientere Anfragen</>} />
+                <ListItem text={<><strong className="text-slate-900 font-semibold">Kontaktformular & Google Maps</strong> für effizientere Anfragen</>} />
                 <ListItem text={<><strong className="text-slate-900 font-semibold">In der Regel keine laufenden Hosting-Kosten</strong> (modernes Cloudsystem)</>} />
               </ul>
             </div>
@@ -57,15 +57,15 @@ export default function PricingSection() {
                 </div>
               </div>
               <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Fuer etablierte Praxen und Studios mit umfangreichem Angebot.
+                Für etablierte Praxen und Studios mit umfangreichem Angebot.
               </p>
               <ul className="space-y-3 mb-8">
-                <ListItem dark text={<><strong className="text-white font-semibold">Alles aus der Digitalen Visitenkarte</strong>, zusaetzlich:</>} />
-                <ListItem dark text={<><strong className="text-white font-semibold">Bis zu 8 Unterseiten</strong> (fuer Ihre Leistungen)</>} />
+                <ListItem dark text={<><strong className="text-white font-semibold">Alles aus der Digitalen Visitenkarte</strong>, zusätzlich:</>} />
+                <ListItem dark text={<><strong className="text-white font-semibold">Bis zu 8 Unterseiten</strong> (für Ihre Leistungen)</>} />
                 <ListItem dark text={<><strong className="text-white font-semibold">Tiefgreifendes On-Page-SEO</strong> pro Unterseite</>} />
-                <ListItem dark text={<><strong className="text-white font-semibold">Ausfuehrliches Team- & Praxisprofil</strong></>} />
+                <ListItem dark text={<><strong className="text-white font-semibold">Ausführliches Team- & Praxisprofil</strong></>} />
                 <ListItem dark text={<><strong className="text-white font-semibold">Google Business Profil:</strong> Setup & Beratung</>} />
-                <ListItem dark text={<><strong className="text-white font-semibold">Optional:</strong> Webseite auch auf Englisch verfuegbar</>} />
+                <ListItem dark text={<><strong className="text-white font-semibold">Optional:</strong> Webseite auch auf Englisch verfügbar</>} />
               </ul>
             </div>
             <div className="mt-auto flex flex-col relative z-10 shrink-0">
@@ -79,7 +79,7 @@ export default function PricingSection() {
         <div className="max-w-4xl mx-auto mt-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-slate-400 text-xs md:text-sm">
           <div className="flex items-center gap-2">
             <ShieldCheck size={14} className="text-blue-900/40" />
-            <span>Alle Preise richten sich ausschliesslich an B2B-Kunden (Praxen, Unternehmen, Freiberufler).</span>
+            <span>Alle Preise richten sich ausschließlich an B2B-Kunden (Praxen, Unternehmen, Freiberufler).</span>
           </div>
         </div>
       </div>

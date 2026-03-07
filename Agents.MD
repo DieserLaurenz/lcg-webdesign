@@ -1,8 +1,8 @@
 # Gilbert Webdesign - Agent Context
 
-## Projektueberblick
+## Projektüberblick
 
-**Gilbert Webdesign** ist eine professionelle Marketing-/Portfolio-Website fuer eine freiberufliche Webdesign-Agentur. Die Website richtet sich an B2B-Kunden im Gesundheits- und Wellness-Bereich (Arztpraxen, Physiotherapie, Wellness-Studios) in Berlin.
+**Gilbert Webdesign** ist eine professionelle Marketing-/Portfolio-Website für ein gewerbliches Einzelunternehmen im Bereich Webdesign. Die Website richtet sich an B2B-Kunden im Gesundheits- und Wellness-Bereich (Arztpraxen, Physiotherapie, Wellness-Studios) in Berlin.
 
 **Inhaber:** Laurenz Gilbert  
 **Domain:** gilbert-webdesign.de  
@@ -86,9 +86,9 @@ gilbert-webdesign.de/
 ## Architektur
 
 ### Homepage
-Die Startseite wird ueber [src/pages/index.astro] komponiert und verwendet:
+Die Startseite wird über [src/pages/index.astro] komponiert und verwendet:
 
-- `BaseLayout` fuer Meta-Tags, Canonical, Open Graph und strukturierte Daten
+- `BaseLayout` für Meta-Tags, Canonical, Open Graph und strukturierte Daten
 - einzelne JSX-Komponenten pro Homepage-Section
 - `FAQSection` als React-Insel mit `client:visible`
 - `ContactSection` als React-Insel mit `client:visible`
@@ -96,23 +96,23 @@ Die Startseite wird ueber [src/pages/index.astro] komponiert und verwendet:
 ### Homepage-Workflow
 Die Homepage ist bewusst in kleine JSX-Dateien pro Section aufgeteilt. Der Hauptgrund ist nicht nur Code-Organisation, sondern auch die Bearbeitbarkeit durch LLMs wie Gemini und Codex.
 
-- kleine Dateien sind leichter gezielt zu aendern
-- eine Section soll moeglichst nur einen klaren Verantwortungsbereich haben
-- auch aktuell statische Sections duerfen als `.jsx` bestehen bleiben, wenn sie spaeter erweitert werden koennten
+- kleine Dateien sind leichter gezielt zu ändern
+- eine Section soll möglichst nur einen klaren Verantwortungsbereich haben
+- auch aktuell statische Sections dürfen als `.jsx` bestehen bleiben, wenn sie später erweitert werden könnten
 - statische JSX-Komponenten sollen **ohne** `client:*` verwendet werden
 - `client:load`, `client:visible` oder andere Hydration-Direktiven nur dann einsetzen, wenn eine Section echten Client-State, Events oder Browser-APIs braucht
-- neue Homepage-Bereiche bevorzugt als eigene Datei in `src/components/home/` anlegen statt bestehende grosse Dateien weiter aufzublaehen
+- neue Homepage-Bereiche bevorzugt als eigene Datei in `src/components/home/` anlegen statt bestehende grosse Dateien weiter aufzublähen
 
 ### Rechtliche Seiten
-Die Seiten `/impressum`, `/datenschutz` und `/agb` sind Astro-Seiten, die jeweils eine statisch gerenderte React-Komponente innerhalb von `BaseLayout` rendern. Gemeinsame Navigation, Ruecklink und Footer liegen in `LegalPageShell.jsx`.
+Die Seiten `/impressum`, `/datenschutz` und `/agb` sind Astro-Seiten, die jeweils eine statisch gerenderte React-Komponente innerhalb von `BaseLayout` rendern. Gemeinsame Navigation, Rücklink und Footer liegen in `LegalPageShell.jsx`.
 
 ### Kontaktformular
 Die API-Route [src/pages/api/contact.js] verarbeitet Formularanfragen serverseitig:
 
 - `export const prerender = false`
 - Validierung und Normalisierung der Eingaben
-- HTML-Escaping fuer Mailinhalt
-- Versand ueber Resend API
+- HTML-Escaping für Mailinhalt
+- Versand über Resend API
 - Antwort als JSON
 
 ### Content-Daten
@@ -126,7 +126,7 @@ FAQ-Inhalte liegen zentral in [src/data/faqData.js]. Rechtstexte werden aktuell 
 SEO-Einstiegspunkt der Homepage. Hier werden Title, Description, Canonical-URL, OG-Bild und JSON-LD definiert.
 
 ### `src/layouts/BaseLayout.astro`
-Zentrale Layout-Datei fuer:
+Zentrale Layout-Datei für:
 
 - `<title>` und Meta-Description
 - Canonical-Tag
@@ -141,29 +141,29 @@ Die statischen Hauptbereiche der Homepage sind in kleine JSX-Dateien aufgeteilt:
 - Hero
 - Philosophie
 - Referenzprojekt
-- Ueber-mich-Bereich
+- Über-mich-Bereich
 - Leistungen
 
 Diese Aufteilung ist absichtlich LLM-freundlich. Wenn neue Inhalte oder neue Logik hinzukommen, sollte bevorzugt die betroffene Section-Datei angepasst werden statt mehrere Homepage-Bereiche in einer Datei zu mischen.
 
 ### `src/components/home/FAQSection.jsx`
-Accordion fuer den FAQ-Bereich. Bezieht die Inhalte aus `faqData.js`.
+Accordion für den FAQ-Bereich. Bezieht die Inhalte aus `faqData.js`.
 
 ### `src/components/home/ContactSection.jsx`
 Footer und Kontaktformular mit:
 
-- LocalStorage-Opt-in fuer Formularentwurf
-- nativem `select` fuer das Anfragefeld
-- Formularstatus fuer `idle`, `submitting`, `success`, `error`
+- LocalStorage-Opt-in für Formularentwurf
+- nativem `select` für das Anfragefeld
+- Formularstatus für `idle`, `submitting`, `success`, `error`
 - POST auf `/api/contact`
 
 ### `src/components/LegalPageShell.jsx`
-Gemeinsame statische Huelle fuer Impressum, Datenschutz und AGB:
+Gemeinsame statische Hülle für Impressum, Datenschutz und AGB:
 
 - einheitliche Navigation
-- Ruecklink zur Startseite
+- Rücklink zur Startseite
 - konsistenter Footer
-- kein clientseitiges Hydration-JavaScript fuer die Rechtstext-Seiten
+- kein clientseitiges Hydration-JavaScript für die Rechtstext-Seiten
 
 ---
 
@@ -173,7 +173,7 @@ Gemeinsame statische Huelle fuer Impressum, Datenschutz und AGB:
 |-------|-------|--------------|
 | `/` | `src/pages/index.astro` | Homepage |
 | `/impressum` | `src/pages/impressum.astro` | Impressum |
-| `/datenschutz` | `src/pages/datenschutz.astro` | Datenschutzerklaerung |
+| `/datenschutz` | `src/pages/datenschutz.astro` | Datenschutzerklärung |
 | `/agb` | `src/pages/agb.astro` | AGB |
 | `/api/contact` | `src/pages/api/contact.js` | Formular-Endpoint |
 
@@ -218,31 +218,31 @@ npm run preview
 ## SEO & Performance
 
 - Strukturierte Daten auf der Startseite: `FAQPage`, `WebSite`, `Organization`, `LocalBusiness`
-- Sitemap wird ueber `@astrojs/sitemap` generiert
+- Sitemap wird über `@astrojs/sitemap` generiert
 - `robots.txt` und `llms.txt` liegen in `public/`
-- WebP-Bilder fuer schnelle Ladezeiten
+- WebP-Bilder für schnelle Ladezeiten
 - FAQ- und Kontaktbereich werden nur bei Sichtbarkeit hydratisiert
 
 ---
 
 ## Stilrichtlinien & Design-System
 
-Das Design ist auf eine serioese B2B-Zielgruppe ausgerichtet: modern, aufgeraeumt, minimalistisch und vertrauenserweckend.
+Das Design ist auf eine seriöse B2B-Zielgruppe ausgerichtet: modern, aufgeräumt, minimalistisch und vertrauenerweckend.
 
 - **Farbpalette:**
-  - Slate-Toene fuer Hintergruende, Copy und Borders
-  - Tiefes Blau fuer Buttons, Links, Akzente und Icon-Flaechen
+  - Slate-Töne für Hintergründe, Copy und Borders
+  - Tiefes Blau für Buttons, Links, Akzente und Icon-Flächen
 - **Typografie:**
-  - `font-serif` fuer Headlines
-  - `font-sans` fuer Fliesstext
+  - `font-serif` für Headlines
+  - `font-sans` für Fließtext
 - **Formensprache & Layout:**
   - Kleine Rundungen (`rounded-sm`)
-  - Grosszuegiger Weissraum
+  - Großzügiger Weißraum
   - Subtile Borders und Schatten
 - **Interaktion:**
-  - Zurueckhaltende Hover-Effekte
+  - Zurückhaltende Hover-Effekte
   - Mobile-First-Layout
-  - Blur-Navigation und klare CTA-Fuehrung
+  - Blur-Navigation und klare CTA-Führung
 - **Inhaltlicher Ton:**
   - Professionell
   - Direkt
@@ -251,16 +251,16 @@ Das Design ist auf eine serioese B2B-Zielgruppe ausgerichtet: modern, aufgeraeum
 
 ---
 
-## Hinweise fuer Agents
+## Hinweise für Agents
 
-1. **Homepage-Aenderungen passieren in der Regel in `src/components/home/*` und `src/pages/index.astro`.**
-2. **Auch statische Homepage-Sections duerfen als `.jsx` angelegt bleiben, wenn das die kuenftige Bearbeitung mit LLMs vereinfacht.**
-3. **Statische JSX-Sections sollen keine Hooks und keine `client:*`-Direktiven bekommen, solange sie keine echte Interaktivitaet brauchen.**
-4. **SEO-/Meta-Aenderungen gehoeren in `src/layouts/BaseLayout.astro` oder `src/pages/index.astro`.**
+1. **Homepage-Änderungen passieren in der Regel in `src/components/home/*` und `src/pages/index.astro`.**
+2. **Auch statische Homepage-Sections dürfen als `.jsx` angelegt bleiben, wenn das die künftige Bearbeitung mit LLMs vereinfacht.**
+3. **Statische JSX-Sections sollen keine Hooks und keine `client:*`-Direktiven bekommen, solange sie keine echte Interaktivität brauchen.**
+4. **SEO-/Meta-Änderungen gehören in `src/layouts/BaseLayout.astro` oder `src/pages/index.astro`.**
 5. **FAQ-Inhalte werden in `src/data/faqData.js` gepflegt.**
-6. **Das Kontaktformular haengt an `src/pages/api/contact.js` und benoetigt `RESEND_API_KEY`.**
+6. **Das Kontaktformular hängt an `src/pages/api/contact.js` und benötigt `RESEND_API_KEY`.**
 7. **Rechtliche Texte liegen aktuell in den React-Komponenten unter `src/components/`, nicht in Root-`.txt`-Dateien.**
-8. **Die Rechtstext-Seiten laufen ueber `LegalPageShell.jsx` plus die jeweiligen Content-Komponenten und sollen ohne Client-Hydration bleiben, solange kein echter Interaktionsbedarf entsteht.**
-9. **Bilder gehoeren in `public/` und sollten bevorzugt als WebP eingebunden werden.**
+8. **Die Rechtstext-Seiten laufen über `LegalPageShell.jsx` plus die jeweiligen Content-Komponenten und sollen ohne Client-Hydration bleiben, solange kein echter Interaktionsbedarf entsteht.**
+9. **Bilder gehören in `public/` und sollten bevorzugt als WebP eingebunden werden.**
 10. **Website-Texte bleiben auf Deutsch und klar im B2B-Kontext.**
 11. **Alle Preise sind Nettopreise.**

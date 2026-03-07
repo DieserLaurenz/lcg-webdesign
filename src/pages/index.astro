@@ -17,13 +17,23 @@ const pageDescription =
 const canonicalUrl = "https://gilbert-webdesign.de/";
 const profileImageUrl =
   "https://gilbert-webdesign.de/webdesigner-berlin-praxen-salons-laurenz-gilbert.webp";
+const organizationId = "https://gilbert-webdesign.de/#organization";
+const personId = "https://gilbert-webdesign.de/#person";
+const websiteId = "https://gilbert-webdesign.de/#website";
+const localBusinessId = "https://gilbert-webdesign.de/#localbusiness";
+const faqPageId = "https://gilbert-webdesign.de/#faq";
+const offerCatalogId = "https://gilbert-webdesign.de/#offer-catalog";
+const onePagerOfferId = "https://gilbert-webdesign.de/#offer-onepager";
+const multiPageOfferId = "https://gilbert-webdesign.de/#offer-multipage";
+const onePagerServiceId = "https://gilbert-webdesign.de/#service-onepager";
+const multiPageServiceId = "https://gilbert-webdesign.de/#service-multipage";
 
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "FAQPage",
-      "@id": "https://gilbert-webdesign.de/#faq",
+      "@id": faqPageId,
       mainEntity: faqData.map(faq => ({
         "@type": "Question",
         name: faq.question,
@@ -35,27 +45,30 @@ const structuredData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://gilbert-webdesign.de/#website",
+      "@id": websiteId,
       url: "https://gilbert-webdesign.de/",
       name: "Gilbert Webdesign",
       inLanguage: "de-DE",
       publisher: {
-        "@id": "https://gilbert-webdesign.de/#organization",
+        "@id": organizationId,
       },
     },
     {
       "@type": "Organization",
-      "@id": "https://gilbert-webdesign.de/#organization",
+      "@id": organizationId,
       name: "Gilbert Webdesign",
       url: "https://gilbert-webdesign.de/",
-      sameAs: ["https://g.page/r/CQUQY71XvWNJEAE"],
+      sameAs: [
+        "https://g.page/r/CQUQY71XvWNJEAE",
+        "https://www.linkedin.com/in/laurenz-gilbert-687181242/",
+        "https://github.com/DieserLaurenz",
+      ],
       logo: profileImageUrl,
       description: pageDescription,
       email: "kontakt@gilbert-webdesign.de",
       telephone: "+49 176 55156501",
       founder: {
-        "@type": "Person",
-        name: "Laurenz Cornelius Gilbert",
+        "@id": personId,
       },
       contactPoint: {
         "@type": "ContactPoint",
@@ -72,10 +85,42 @@ const structuredData = {
         addressLocality: "Berlin",
         addressCountry: "DE",
       },
+      makesOffer: [
+        { "@id": onePagerOfferId },
+        { "@id": multiPageOfferId },
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Laurenz Cornelius Gilbert",
+      jobTitle: "Webdesigner und Entwickler",
+      url: "https://gilbert-webdesign.de/",
+      image: profileImageUrl,
+      email: "kontakt@gilbert-webdesign.de",
+      telephone: "+49 176 55156501",
+      worksFor: {
+        "@id": organizationId,
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Argentinische Allee 93",
+        postalCode: "14163",
+        addressLocality: "Berlin",
+        addressCountry: "DE",
+      },
+      knowsAbout: [
+        "Webdesign für Ärzte",
+        "Webdesign für Physiotherapie-Praxen",
+        "Webdesign für Wellness-Studios",
+        "Technisches SEO",
+        "Astro",
+        "React",
+      ],
     },
     {
       "@type": ["LocalBusiness", "ProfessionalService"],
-      "@id": "https://gilbert-webdesign.de/#localbusiness",
+      "@id": localBusinessId,
       name: "Gilbert Webdesign",
       url: "https://gilbert-webdesign.de/",
       image: profileImageUrl,
@@ -89,12 +134,12 @@ const structuredData = {
       },
       availableLanguage: ["de", "en"],
       serviceType: [
-        "Webdesign fuer Aerzte",
-        "Webdesign fuer Physiotherapie-Praxen",
-        "Webdesign fuer Salons und Studios",
+        "Webdesign für Ärzte",
+        "Webdesign für Physiotherapie-Praxen",
+        "Webdesign für Salons und Studios",
         "Technisches SEO",
       ],
-      priceRange: "EUR",
+      priceRange: "€1.290 - €2.290",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Argentinische Allee 93",
@@ -102,6 +147,85 @@ const structuredData = {
         addressLocality: "Berlin",
         addressCountry: "DE",
       },
+      founder: {
+        "@id": personId,
+      },
+      hasOfferCatalog: {
+        "@id": offerCatalogId,
+      },
+      makesOffer: [
+        { "@id": onePagerOfferId },
+        { "@id": multiPageOfferId },
+      ],
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": offerCatalogId,
+      name: "Leistungspakete",
+      itemListElement: [
+        { "@id": onePagerOfferId },
+        { "@id": multiPageOfferId },
+      ],
+    },
+    {
+      "@type": "Service",
+      "@id": onePagerServiceId,
+      name: "Digitale Visitenkarte (One-Pager)",
+      provider: {
+        "@id": organizationId,
+      },
+      areaServed: "Berlin",
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Arztpraxen, Physiotherapie-Praxen und Studios",
+      },
+      serviceType: "One-Pager Webdesign",
+      offers: {
+        "@id": onePagerOfferId,
+      },
+    },
+    {
+      "@type": "Offer",
+      "@id": onePagerOfferId,
+      itemOffered: {
+        "@id": onePagerServiceId,
+      },
+      price: "1290",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: "https://gilbert-webdesign.de/#leistungen",
+      category: "B2B Webdesign",
+      eligibleCustomerType: "https://schema.org/BusinessAudience",
+    },
+    {
+      "@type": "Service",
+      "@id": multiPageServiceId,
+      name: "Umfassende Praxis-Website (Multi-Pager)",
+      provider: {
+        "@id": organizationId,
+      },
+      areaServed: "Berlin",
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Arztpraxen, Physiotherapie-Praxen und Studios",
+      },
+      serviceType: "Multi-Page Webdesign",
+      offers: {
+        "@id": multiPageOfferId,
+      },
+    },
+    {
+      "@type": "Offer",
+      "@id": multiPageOfferId,
+      itemOffered: {
+        "@id": multiPageServiceId,
+      },
+      price: "2290",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: "https://gilbert-webdesign.de/#leistungen",
+      category: "B2B Webdesign",
+      eligibleCustomerType: "https://schema.org/BusinessAudience",
     },
   ],
 };
@@ -112,6 +236,7 @@ const structuredData = {
   description={pageDescription}
   canonicalUrl={canonicalUrl}
   ogImage={profileImageUrl}
+  ogImageAlt="Laurenz Gilbert von Gilbert Webdesign in Berlin"
   twitterCard="summary_large_image"
   structuredData={structuredData}
 >

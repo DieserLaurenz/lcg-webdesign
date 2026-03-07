@@ -7,10 +7,10 @@ export default function ReferencesSection() {
     <section id="referenzen" className="py-24 bg-slate-100 border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-blue-900 font-semibold tracking-wider uppercase text-sm mb-2 block">Ausgewaehltes Projekt</span>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Ergebnisse, die fuer sich sprechen</h2>
+          <span className="text-blue-900 font-semibold tracking-wider uppercase text-sm mb-2 block">Ausgewähltes Projekt</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Ergebnisse, die für sich sprechen</h2>
           <p className="text-slate-600">
-            Ein Einblick in meine juengste Arbeit. Hochperformant, fokussiert auf Neukundengewinnung und kompromisslos im Design.
+            Ein Einblick in meine jüngste Arbeit. Hochperformant, fokussiert auf Neukundengewinnung und kompromisslos im Design.
           </p>
         </div>
 
@@ -23,7 +23,7 @@ export default function ReferencesSection() {
 
             <h3 className="font-serif text-3xl text-slate-900 mb-4">Bodywork Berlin</h3>
             <p className="text-slate-600 mb-8 leading-relaxed">
-              Fuer Bodywork Berlin wurde ein umfassendes Redesign realisiert. Ziel war es, die veraltete Praesenz zu modernisieren, die Performance spuerbar zu optimieren und die Seite durch ein SEO-optimiertes Mobile-First-Design professionell in Szene zu setzen.
+              Für Bodywork Berlin wurde ein umfassendes Redesign realisiert. Ziel war es, die veraltete Präsenz zu modernisieren, die Performance spürbar zu optimieren und die Seite durch ein SEO-optimiertes Mobile-First-Design professionell in Szene zu setzen.
             </p>
 
             <div className="space-y-6 mb-10">
@@ -60,7 +60,7 @@ export default function ReferencesSection() {
 
             <div className="pt-5 border-t border-slate-100">
               <p className="text-[0.65rem] text-slate-400 leading-relaxed">
-                * <a href="https://pagespeed.web.dev/analysis/https-bodywork-berlin-com/ii18pa7v1f?form_factor=desktop" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500 transition-colors">Gemessen zum Launch</a>. Hinweis: Bei mobilen Leistungstests schwanken die Werte minimal, da Google standardmaessig eine langsame 4G-Verbindung simuliert.
+                * <a href="https://pagespeed.web.dev/analysis/https-bodywork-berlin-com/ii18pa7v1f?form_factor=desktop" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500 transition-colors">Gemessen zum Launch</a>. Hinweis: Bei mobilen Leistungstests schwanken die Werte minimal, da Google standardmäßig eine langsame 4G-Verbindung simuliert.
               </p>
             </div>
           </div>

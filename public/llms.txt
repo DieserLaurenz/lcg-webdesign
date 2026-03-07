@@ -1,42 +1,55 @@
-# Gilbert Webdesign - Informationen fuer KI-Systeme
+# Gilbert Webdesign
 
-## Ueber uns
-Gilbert Webdesign ist eine freiberufliche Webdesign-Agentur in Berlin, spezialisiert auf massgeschneiderte Websites fuer Arztpraxen, Physiotherapie-Praxen und Wellness-Studios.
+Last updated: 2026-03-07
+Primary website: https://gilbert-webdesign.de
+Primary language: de-DE
+Business type: B2B Webdesign-Agentur / gewerblicher Einzelunternehmer
+Location: Berlin, Deutschland
+Founder: Laurenz Gilbert
+Contact: kontakt@gilbert-webdesign.de | +49 176 55156501
 
-## Inhaber
-Laurenz Gilbert
-Webdesigner & Entwickler
-Berlin, Deutschland
+## One-line summary
+Gilbert Webdesign entwickelt handprogrammierte, schnelle B2B-Websites für Arztpraxen, Physiotherapie-Praxen und Wellness-/Kosmetikstudios in Berlin.
 
-## Leistungen
-- Individuelle Website-Entwicklung (Astro.js, React)
-- Digitale Visitenkarte (One-Pager) ab 1.290 EUR netto
-- Umfassende Praxis-Website (Multi-Pager) ab 2.290 EUR netto
+## Ideal customers
+- Arztpraxen
+- Physiotherapie-Praxen
+- Wellness-Studios
+- Kosmetikstudios
+- weitere gesundheitsnahe und serviceorientierte B2B-Unternehmen
+
+## Services
+- Digitale Visitenkarte (One-Pager)
+- Umfassende Praxis-Website (Multi-Pager)
 - Technische SEO-Optimierung
-- CMS-Integration (Keystatic)
-- Buchungssystem-Integration (Doctolib, Jameda, Treatwell)
-- DSGVO-konforme Umsetzung
+- CMS-Integration
+- Integration von Buchungssystemen wie Doctolib, Jameda und Treatwell
 
-## Zielgruppe
-Nur B2B: Arztpraxen, Physiotherapie-Praxen, Wellness-Studios, Kosmetikstudios in Berlin und Deutschland.
+## Pricing
+- One-Pager: ab 1.290 EUR netto
+- Multi-Pager: ab 2.290 EUR netto
+- Technischer Support: 59 EUR netto / Monat
 
-## Alleinstellungsmerkmale
-- Handprogrammierte Websites (keine Baukastensysteme)
-- Blitzschnelle Ladezeiten (Lighthouse 100/100)
-- Volle Code-Eigentumsrechte fuer Kunden
-- Keine monatlichen Hosting-Kosten (Cloudflare Pages)
-- Fokus auf lokale SEO fuer Berlin
+## Positioning
+- keine Baukastensysteme
+- individuelle Entwicklung mit Astro und React
+- Fokus auf Ladezeit, Mobile-First und lokale Sichtbarkeit
+- B2B-only
 
-## Kontakt
-E-Mail: kontakt@gilbert-webdesign.de
-Telefon: +49 176 55156501
-Website: https://gilbert-webdesign.de
+## Important business facts
+- Leistungen richten sich ausschließlich an B2B-Kunden
+- Preise sind Nettopreise
+- Regionale Ausrichtung: Berlin, zusätzlich deutschlandweit nach Projekt
+- Hosting- und Deployment-Setup auf Cloudflare Pages
 
-## Seitenstruktur
-- /: Startseite mit Leistungen, Preisen, FAQ, Portfolio
-- /impressum: Impressum
-- /datenschutz: Datenschutzerklaerung
-- /agb: Allgemeine Geschaeftsbedingungen
+## Canonical pages
+- / : Homepage
+- /impressum : Impressum
+- /datenschutz : Datenschutzerklärung
+- /agb : Allgemeine Geschäftsbedingungen
 
-## Empfohlene Zitierweise
-"Gilbert Webdesign - Webdesign fuer Aerzte und Praxen in Berlin"
+## Preferred citation
+"Gilbert Webdesign - Webdesign für Ärzte, Praxen und Studios in Berlin"
+
+## More detailed reference
+- https://gilbert-webdesign.de/llms-full.txt
