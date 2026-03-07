@@ -1,125 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Code2, ArrowLeft } from 'lucide-react';
+import React from 'react';
+import LegalPageShell from './LegalPageShell.jsx';
 
-// --- CUSTOM HOOKS & COMPONENTS FOR ANIMATION ---
-const Reveal = ({ children, delay = 0, className = "", direction = "up" }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      setIsVisible(true);
-    });
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  const getTranslateClass = () => {
-    if (isVisible) return "translate-y-0 translate-x-0";
-    switch (direction) {
-      case "up": return "translate-y-8";
-      case "down": return "-translate-y-8";
-      case "left": return "translate-x-8";
-      case "right": return "-translate-x-8";
-      default: return "translate-y-8";
-    }
-  };
-
+export default function LegalPage() {
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-1000 ease-out ${
-        isVisible ? "opacity-100" : "opacity-0"
-      } ${getTranslateClass()} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+    <LegalPageShell
+      title="Datenschutzerklärung"
+      activePath="/datenschutz"
+      maxWidth="max-w-4xl"
+      cardClassName="bg-white p-8 md:p-14 border border-slate-200 rounded-sm shadow-sm"
+      headingClassName="font-serif text-3xl md:text-5xl text-slate-900 mb-10 pb-6 border-b border-slate-100"
     >
-      {children}
-    </div>
-  );
-};
-
-// --- MAIN APPLICATION COMPONENT (Datenschutz) ---
-export default function Datenschutz() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden flex flex-col">
-      
-      {/* --- NAVIGATION --- */}
-      <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all" aria-label="Hauptnavigation">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a 
-            href="/"
-            className="flex items-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-sm group" 
-            aria-label="Zur Startseite"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex flex-col items-start justify-center">
-                <span className="font-serif text-[1.5rem] font-light tracking-[0.05em] text-slate-900 leading-none group-hover:text-blue-900 transition-colors">
-                  Gilbert
-                </span>
-                <span className="text-[0.55rem] font-sans font-medium uppercase tracking-[0.4em] text-slate-400 leading-none mt-1.5 ml-[0.1rem]">
-                  Webdesign
-                </span>
-              </div>
-            </div>
-          </a>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <a href="/#philosophie" className="hover:text-blue-900 transition-colors">Philosophie</a>
-            <a href="/#referenzen" className="hover:text-blue-900 transition-colors">Referenzen</a>
-            <a href="/#about" className="hover:text-blue-900 transition-colors">Über mich</a>
-            <a href="/#leistungen" className="hover:text-blue-900 transition-colors">Leistungen</a>
-            <a href="/#faq" className="hover:text-blue-900 transition-colors">FAQ</a>
-            <a href="/#kontakt" className="bg-blue-900 text-white px-5 py-2.5 rounded-sm hover:bg-blue-800 transition-colors">
-              Gespräch vereinbaren
-            </a>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden text-slate-900 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-sm"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-          </button>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
-        <div className={`md:hidden bg-white border-b border-slate-200 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="px-6 py-4 flex flex-col gap-4 text-center">
-            <a href="/#philosophie" className="text-slate-600 py-2">Philosophie</a>
-            <a href="/#referenzen" className="text-slate-600 py-2">Referenzen</a>
-            <a href="/#about" className="text-slate-600 py-2">Über mich</a>
-            <a href="/#leistungen" className="text-slate-600 py-2">Leistungen</a>
-            <a href="/#faq" className="text-slate-600 py-2">FAQ</a>
-            <a href="/#kontakt" className="bg-blue-900 text-white px-5 py-3 rounded-sm w-full">
-              Gespräch vereinbaren
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      {/* --- MAIN CONTENT: DATENSCHUTZ --- */}
-      <main className="flex-grow pt-32 pb-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          
-          <Reveal>
-            <a href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-blue-900 transition-colors mb-8 group">
-              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-              Zurück zur Startseite
-            </a>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <div className="bg-white p-8 md:p-14 border border-slate-200 rounded-sm shadow-sm">
-              <h1 className="font-serif text-3xl md:text-5xl text-slate-900 mb-10 pb-6 border-b border-slate-100">
-                Datenschutzerklärung
-              </h1>
-
-              <div className="space-y-12 text-slate-600 leading-relaxed">
                 
                 {/* 1. Datenschutz auf einen Blick */}
                 <section>
@@ -331,43 +221,6 @@ export default function Datenschutz() {
                     (Quelle für Basistexte: <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-colors">e-recht24.de</a>)
                   </p>
                 </section>
-
-              </div>
-            </div>
-          </Reveal>
-
-        </div>
-      </main>
-
-      {/* --- FOOTER --- */}
-      <footer className="bg-[#0f172a] text-slate-300 py-10 mt-auto">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
-            <div className="flex flex-col items-center md:items-start gap-2 mb-6 md:mb-0">
-              <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
-                <div className="flex flex-col items-start justify-center">
-                  <span className="font-serif text-xl font-light tracking-[0.05em] text-white leading-none">
-                    Gilbert
-                  </span>
-                  <span className="text-[0.55rem] font-sans font-medium uppercase tracking-[0.4em] text-slate-400 leading-none mt-1 ml-[0.05rem]">
-                    Webdesign
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-slate-500 text-xs">
-                <Code2 size={14} />
-                <span>Handcrafted by Laurenz Gilbert in Berlin</span>
-              </div>
-            </div>
-            <div className="flex gap-6">
-              <a href="/impressum" className="hover:text-white transition-colors">Impressum</a>
-              <a href="/datenschutz" className="text-white transition-colors">Datenschutz</a>
-              <a href="/agb" className="hover:text-white transition-colors">AGB</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-    </div>
+    </LegalPageShell>
   );
 }

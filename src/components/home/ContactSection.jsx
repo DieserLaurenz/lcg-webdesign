@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CheckCircle, ShieldCheck, ArrowRight, Mail, Code2, ChevronDown } from 'lucide-react';
 
 const FORM_STORAGE_KEY = 'gilbertContactForm';
@@ -251,21 +251,30 @@ export default function ContactSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="interessiert_an" className="block text-sm font-medium text-slate-300 mb-1.5">Interessiert an</label>
-                  <CustomSelect
-                    id="interessiert_an"
-                    name="interessiert_an"
-                    value={formData.interessiert_an}
-                    onChange={handleFormChange}
-                    required
-                    disabled={formStatus === 'submitting'}
-                    placeholder="Bitte auswählen..."
-                    options={[
-                      { value: 'Digitale Visitenkarte (One-Pager)', label: 'Digitale Visitenkarte (One-Pager)' },
-                      { value: 'Umfassende Praxis-Website (Multi-Pager)', label: 'Umfassende Praxis-Website (Multi-Pager)' },
-                      { value: 'Wartung & Support', label: 'Wartung / Rundum-Sorglos-Paket' },
-                      { value: 'Anderes Anliegen', label: 'Anderes Anliegen' }
-                    ]}
-                  />
+                  <div className="relative">
+                    <select
+                      id="interessiert_an"
+                      name="interessiert_an"
+                      value={formData.interessiert_an}
+                      onChange={handleFormChange}
+                      required
+                      disabled={formStatus === 'submitting'}
+                      className={`w-full appearance-none bg-slate-950 border border-slate-500 rounded-sm px-4 py-2.5 pr-10 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors disabled:opacity-50 ${
+                        formData.interessiert_an ? 'text-white' : 'text-slate-300'
+                      }`}
+                    >
+                      <option value="" disabled className="bg-slate-950 text-slate-300">Bitte auswählen...</option>
+                      <option value="Digitale Visitenkarte (One-Pager)" className="bg-slate-950 text-white">Digitale Visitenkarte (One-Pager)</option>
+                      <option value="Umfassende Praxis-Website (Multi-Pager)" className="bg-slate-950 text-white">Umfassende Praxis-Website (Multi-Pager)</option>
+                      <option value="Wartung & Support" className="bg-slate-950 text-white">Wartung / Rundum-Sorglos-Paket</option>
+                      <option value="Anderes Anliegen" className="bg-slate-950 text-white">Anderes Anliegen</option>
+                    </select>
+                    <ChevronDown
+                      size={18}
+                      aria-hidden="true"
+                      className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-200"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -408,64 +417,5 @@ export default function ContactSection() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function CustomSelect({ options, value, onChange, placeholder, disabled, id, required }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const selectRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const selectedOption = options.find(opt => opt.value === value);
-
-  return (
-    <div className="relative" ref={selectRef}>
-      <select id={id} name={id} required={required} value={value} onChange={() => {}} className="hidden" aria-hidden="true">
-        <option value="" disabled hidden>{placeholder}</option>
-        {options.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
-      </select>
-
-      <button
-        type="button"
-        disabled={disabled}
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-full bg-slate-900/50 border ${isOpen ? 'border-blue-500 ring-1 ring-blue-500' : 'border-slate-700'} rounded-sm px-4 py-2.5 text-left text-white focus:outline-none transition-colors disabled:opacity-50 flex items-center justify-between group`}
-      >
-        <span className={value ? 'text-white' : 'text-slate-400'}>
-          {selectedOption ? selectedOption.label : placeholder}
-        </span>
-        <ChevronDown size={18} className={`text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-400' : 'group-hover:text-slate-300'}`} />
-      </button>
-
-      <div className={`absolute z-50 w-full mt-1 bg-slate-800 border border-slate-700 rounded-sm shadow-xl overflow-hidden transition-all duration-200 origin-top ${isOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
-        <div className="max-h-60 overflow-y-auto no-scrollbar py-1">
-          {options.map((option) => (
-            <button
-              type="button"
-              key={option.value}
-              onClick={() => {
-                onChange({ target: { name: id, value: option.value } });
-                setIsOpen(false);
-              }}
-              className={`w-full text-left px-4 py-2.5 text-sm transition-colors flex items-center gap-2.5 ${value === option.value ? 'bg-blue-600/20 text-blue-400' : 'text-slate-300 hover:bg-slate-700 hover:text-white'}`}
-            >
-              <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors ${value === option.value ? 'border-blue-400 bg-blue-400/10' : 'border-slate-600'}`}>
-                {value === option.value && <div className="w-2 h-2 rounded-full bg-blue-400"></div>}
-              </div>
-              <span className={value === option.value ? 'font-medium' : ''}>{option.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
   );
 }

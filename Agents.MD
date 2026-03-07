@@ -35,9 +35,18 @@ gilbert-webdesign.de/
 |-- src/
 |   |-- components/
 |   |   |-- home/
-|   |   |   |-- HomeStaticSections.jsx
+|   |   |   |-- HomeNavigation.jsx
+|   |   |   |-- HeroSection.jsx
+|   |   |   |-- PhilosophySection.jsx
+|   |   |   |-- ReferencesSection.jsx
+|   |   |   |-- AboutSection.jsx
+|   |   |   |-- PricingSection.jsx
 |   |   |   |-- FAQSection.jsx
+|   |   |   |-- FeatureCard.jsx
+|   |   |   |-- ListItem.jsx
+|   |   |   |-- StaticPhoneMockup.jsx
 |   |   |   `-- ContactSection.jsx
+|   |   |-- LegalPageShell.jsx
 |   |   |-- ImpressumPage.jsx
 |   |   |-- DatenschutzPage.jsx
 |   |   `-- AGBPage.jsx
@@ -66,7 +75,6 @@ gilbert-webdesign.de/
 |   |-- favicon.svg
 |   `-- *.webp
 |
-|-- App.jsx                       # Legacy-Monolith, aktuell nicht der produktive Einstieg
 |-- astro.config.mjs
 |-- tailwind.config.mjs
 |-- package.json
@@ -81,12 +89,12 @@ gilbert-webdesign.de/
 Die Startseite wird ueber [src/pages/index.astro] komponiert und verwendet:
 
 - `BaseLayout` fuer Meta-Tags, Canonical, Open Graph und strukturierte Daten
-- `HomeStaticSections` fuer die statischen Hauptbereiche der Homepage
+- einzelne JSX-Komponenten pro Homepage-Section
 - `FAQSection` als React-Insel mit `client:visible`
 - `ContactSection` als React-Insel mit `client:visible`
 
 ### Rechtliche Seiten
-Die Seiten `/impressum`, `/datenschutz` und `/agb` sind Astro-Seiten, die jeweils eine React-Komponente innerhalb von `BaseLayout` rendern.
+Die Seiten `/impressum`, `/datenschutz` und `/agb` sind Astro-Seiten, die jeweils eine statisch gerenderte React-Komponente innerhalb von `BaseLayout` rendern. Gemeinsame Navigation, Ruecklink und Footer liegen in `LegalPageShell.jsx`.
 
 ### Kontaktformular
 Die API-Route [src/pages/api/contact.js] verarbeitet Formularanfragen serverseitig:
@@ -116,8 +124,8 @@ Zentrale Layout-Datei fuer:
 - JSON-LD via `structuredData`
 - globale Dokumentstruktur
 
-### `src/components/home/HomeStaticSections.jsx`
-Enthaelt die statischen Hauptbereiche der Homepage:
+### `src/components/home/HomeNavigation.jsx` und `src/components/home/*Section.jsx`
+Die statischen Hauptbereiche der Homepage sind in kleine JSX-Dateien aufgeteilt:
 
 - Navigation
 - Hero
@@ -133,12 +141,17 @@ Accordion fuer den FAQ-Bereich. Bezieht die Inhalte aus `faqData.js`.
 Footer und Kontaktformular mit:
 
 - LocalStorage-Opt-in fuer Formularentwurf
-- Custom Select
+- nativem `select` fuer das Anfragefeld
 - Formularstatus fuer `idle`, `submitting`, `success`, `error`
 - POST auf `/api/contact`
 
-### `App.jsx`
-Historischer Monolith der Homepage. Dient aktuell eher als Referenz-/Altstand und ist nicht der produktive Einstiegspunkt. Aenderungen fuer die Live-Seite sollten standardmaessig nicht hier begonnen werden.
+### `src/components/LegalPageShell.jsx`
+Gemeinsame statische Huelle fuer Impressum, Datenschutz und AGB:
+
+- einheitliche Navigation
+- Ruecklink zur Startseite
+- konsistenter Footer
+- kein clientseitiges Hydration-JavaScript fuer die Rechtstext-Seiten
 
 ---
 
@@ -228,12 +241,12 @@ Das Design ist auf eine serioese B2B-Zielgruppe ausgerichtet: modern, aufgeraeum
 
 ## Hinweise fuer Agents
 
-1. **Homepage-Aenderungen passieren in der Regel in `src/components/home/*` und `src/pages/index.astro`**, nicht in `App.jsx`.
+1. **Homepage-Aenderungen passieren in der Regel in `src/components/home/*` und `src/pages/index.astro`.**
 2. **SEO-/Meta-Aenderungen gehoeren in `src/layouts/BaseLayout.astro` oder `src/pages/index.astro`.**
 3. **FAQ-Inhalte werden in `src/data/faqData.js` gepflegt.**
 4. **Das Kontaktformular haengt an `src/pages/api/contact.js` und benoetigt `RESEND_API_KEY`.**
 5. **Rechtliche Texte liegen aktuell in den React-Komponenten unter `src/components/`, nicht in Root-`.txt`-Dateien.**
-6. **`App.jsx` sowie `.bak`-Dateien gelten als Legacy-/Referenzstand, solange der Nutzer nichts anderes sagt.**
+6. **Die Rechtstext-Seiten laufen ueber `LegalPageShell.jsx` plus die jeweiligen Content-Komponenten und sollen ohne Client-Hydration bleiben, solange kein echter Interaktionsbedarf entsteht.**
 7. **Bilder gehoeren in `public/` und sollten bevorzugt als WebP eingebunden werden.**
 8. **Website-Texte bleiben auf Deutsch und klar im B2B-Kontext.**
 9. **Alle Preise sind Nettopreise.**

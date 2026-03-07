@@ -2,7 +2,12 @@
 import "../styles/global.css";
 import { faqData } from "../data/faqData.js";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HomeStaticSections from "../components/home/HomeStaticSections.jsx";
+import HomeNavigation from "../components/home/HomeNavigation.jsx";
+import HeroSection from "../components/home/HeroSection.jsx";
+import PhilosophySection from "../components/home/PhilosophySection.jsx";
+import ReferencesSection from "../components/home/ReferencesSection.jsx";
+import AboutSection from "../components/home/AboutSection.jsx";
+import PricingSection from "../components/home/PricingSection.jsx";
 import FAQSection from "../components/home/FAQSection.jsx";
 import ContactSection from "../components/home/ContactSection.jsx";
 
@@ -110,7 +115,16 @@ const structuredData = {
   twitterCard="summary_large_image"
   structuredData={structuredData}
 >
-  <HomeStaticSections />
+  <div class="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
+    <HomeNavigation />
+    <main>
+      <HeroSection />
+      <PhilosophySection />
+      <ReferencesSection />
+      <AboutSection />
+      <PricingSection />
+    </main>
+  </div>
   <FAQSection client:visible />
   <ContactSection client:visible />
 </BaseLayout>
