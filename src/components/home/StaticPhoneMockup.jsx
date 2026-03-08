@@ -113,6 +113,7 @@ export default function StaticPhoneMockup() {
           <img
             src="/webdesign-berlin-bodywork-praxis-beispiel-mobile.webp"
             alt="Bodywork Berlin Mobile Screenshot"
+            decoding="async"
             className="w-full h-auto block pointer-events-none select-none"
           />
         </div>
