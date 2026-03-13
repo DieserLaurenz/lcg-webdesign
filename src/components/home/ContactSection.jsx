@@ -122,7 +122,7 @@ export default function ContactSection() {
   };
 
   return (
-    <footer id="kontakt" className="bg-[#0f172a] text-slate-300 pt-20 pb-10 relative overflow-hidden">
+    <footer id="kontakt" className="bg-[#0f172a] text-slate-300 pt-20 pb-[calc(2.5rem+env(safe-area-inset-bottom))] relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-48 bg-blue-900/10 blur-[100px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
