@@ -1,3 +1,5 @@
+import { env } from "cloudflare:workers";
+
 export const prerender = false;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -19,12 +21,11 @@ const normalizeText = (value, maxLength = 255) =>
 const normalizeMultilineText = (value, maxLength = 5000) =>
   String(value ?? '').replace(/\r\n/g, '\n').trim().slice(0, maxLength);
 
-export async function POST({ request, locals }) {
+export async function POST({ request }) {
   try {
     const data = await request.json();
 
-    // Cloudflare runtime env
-    const RESEND_API_KEY = locals.runtime?.env?.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
+    const RESEND_API_KEY = env.RESEND_API_KEY;
 
     if (!RESEND_API_KEY) {
       return new Response(

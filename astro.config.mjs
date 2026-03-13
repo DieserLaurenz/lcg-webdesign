@@ -1,11 +1,20 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import cloudflare from "@astrojs/cloudflare";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://gilbert-webdesign.de",
-  adapter: cloudflare(),
-  integrations: [react(), tailwind(), sitemap()],
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
+  build: {
+    client: "./",
+    server: "./_worker.js",
+  },
+  integrations: [react(), sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
