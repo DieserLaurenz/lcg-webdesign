@@ -134,7 +134,7 @@ export default function ContactSection() {
             </div>
             <h2 className="font-serif text-2xl md:text-4xl text-white mb-4">Bereit für Ihren digitalen Aufstieg?</h2>
             <p className="text-slate-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Lassen Sie uns unverbindlich besprechen, wie wir Ihre digitale Sichtbarkeit und Ihre Anfragen verbessern können.
+              Lassen Sie uns unverbindlich besprechen, wie Ihre Website seriös, klar und technisch sauber aufgestellt werden kann.
             </p>
             {holidayNotice.enabled && (
               <div className="mt-6 bg-blue-900/30 border border-blue-800 text-blue-200 px-4 py-3 rounded-sm max-w-xl mx-auto text-sm flex items-start gap-3 text-left">
@@ -371,7 +371,7 @@ export default function ContactSection() {
                     </>
                   ) : (
                     <>
-                      Kostenloses Erstgespräch anfragen <ArrowRight size={18} />
+                      Unverbindliches Erstgespräch anfragen <ArrowRight size={18} />
                     </>
                   )}
                 </button>
@@ -411,7 +411,8 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <div className="flex gap-6 text-sm">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 text-sm">
+            <a href="/webdesign-berlin/" className="hover:text-white transition-colors">Webdesign Berlin</a>
             <a href="/impressum" className="hover:text-white transition-colors">Impressum</a>
             <a href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</a>
             <a href="/agb" className="hover:text-white transition-colors">AGB</a>
@@ -420,7 +421,7 @@ export default function ContactSection() {
 
         <div className="pt-6 border-t border-slate-800/80 text-[0.7rem] text-slate-500 text-center md:text-left flex flex-col gap-2 leading-relaxed">
           <p>Alle Angebote auf dieser Webseite richten sich ausschließlich an Gewerbetreibende, Freiberufler sowie juristische Personen des öffentlichen Rechts oder öffentlich-rechtliche Sondervermögen (B2B). Alle Preise verstehen sich zzgl. der gesetzlichen Mehrwertsteuer.</p>
-          <p>Die Marken Doctolib, Jameda und Treatwell sind Eigentum ihrer jeweiligen Inhaber. Die Nennung dient lediglich der Beschreibung der technischen Integrationsmöglichkeiten.</p>
+          <p>Die Marken Google, Google Maps, Google Business Profile, Doctolib, Jameda und Treatwell sind Eigentum ihrer jeweiligen Inhaber. Die Nennung dient lediglich der Beschreibung möglicher technischer Integrationen und Verlinkungen.</p>
         </div>
       </div>
     </footer>

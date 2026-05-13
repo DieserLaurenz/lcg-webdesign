@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowLeft } from 'lucide-react';
 
-const navLinks = [
-  { href: '#philosophie', label: 'Philosophie' },
-  { href: '#referenzen', label: 'Referenzen' },
-  { href: '#about', label: 'Über mich' },
+const defaultNavLinks = [
+  { href: '/#philosophie', label: 'Philosophie' },
+  { href: '/#referenzen', label: 'Referenzen' },
+  { href: '/#about', label: 'Über mich' },
   { href: '#leistungen', label: 'Leistungen' },
   { href: '#faq', label: 'FAQ' },
 ];
 
-export default function HomeNavigation() {
+export default function HomeNavigation({ links = defaultNavLinks }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -33,8 +33,13 @@ export default function HomeNavigation() {
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-blue-900 transition-colors">
+          {links.map((link) => (
+            <a 
+              key={link.href} 
+              href={link.href} 
+              className={`transition-colors flex items-center gap-1.5 ${link.isBackLink ? 'text-slate-400 hover:text-slate-600 mr-2 pr-6 border-r border-slate-200' : 'hover:text-blue-900'}`}
+            >
+              {link.isBackLink && <ArrowLeft size={16} />}
               {link.label}
             </a>
           ))}
@@ -55,8 +60,14 @@ export default function HomeNavigation() {
 
       <div className={`md:hidden bg-white border-b border-slate-200 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-6 py-4 flex flex-col gap-4 text-center">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-slate-600 py-2 hover:text-blue-900 transition-colors">
+          {links.map((link) => (
+            <a 
+              key={link.href} 
+              href={link.href} 
+              onClick={() => setIsMobileMenuOpen(false)} 
+              className={`py-2 transition-colors flex items-center justify-center gap-2 ${link.isBackLink ? 'text-slate-400 hover:text-slate-600 pb-4 mb-2 border-b border-slate-100' : 'text-slate-600 hover:text-blue-900'}`}
+            >
+              {link.isBackLink && <ArrowLeft size={16} />}
               {link.label}
             </a>
           ))}

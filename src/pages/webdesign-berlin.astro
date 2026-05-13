@@ -1,0 +1,313 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeNavigation from "../components/home/HomeNavigation.jsx";
+import PricingSection from "../components/home/PricingSection.jsx";
+import ContactSection from "../components/home/ContactSection.jsx";
+import { ArrowRight, CheckCircle2, ChevronDown, MapPin, Search, Smartphone, Zap } from "lucide-react";
+
+const pageTitle = "Webdesign für Praxen & Wellness in Berlin | Gilbert Webdesign";
+const pageDescription = "Professionelles, lokales Webdesign für Arztpraxen, Physiotherapie und Wellness-Studios in Berlin. Für einen seriösen Auftritt und ein starkes Fundament für lokale Sichtbarkeit.";
+const canonicalUrl = "https://gilbert-webdesign.de/webdesign-berlin/";
+const organizationId = "https://gilbert-webdesign.de/#organization";
+const websiteId = "https://gilbert-webdesign.de/#website";
+const webPageId = "https://gilbert-webdesign.de/webdesign-berlin/#webpage";
+const serviceId = "https://gilbert-webdesign.de/webdesign-berlin/#service";
+const faqPageId = "https://gilbert-webdesign.de/webdesign-berlin/#faq";
+
+const berlinFaqs = [
+  {
+    question: "Für wen ist Webdesign in Berlin mit lokalem SEO-Fokus sinnvoll?",
+    answer:
+      "Sinnvoll ist es für Praxen, Therapieangebote, Wellness-Studios und lokale Dienstleister, deren Kunden oder Patienten vor dem ersten Kontakt online vergleichen. Die Website sollte Leistungen, Standort, Kontaktwege und Vertrauen klar vermitteln.",
+  },
+  {
+    question: "Garantiert eine neue Website bessere Google-Rankings?",
+    answer:
+      "Nein. Rankings hängen von vielen Faktoren ab, die kein Anbieter vollständig kontrollieren kann. Ich schaffe ein technisches und inhaltliches Fundament für lokale Sichtbarkeit, etwa durch saubere Struktur, schnelle Ladezeiten, passende Meta-Daten und klare Inhalte.",
+  },
+  {
+    question: "Kann eine bestehende Website aus Berlin überarbeitet werden?",
+    answer:
+      "Ja. Vor einem Redesign prüfe ich Struktur, Inhalte, Ladezeiten und technische Grundlagen. Danach lässt sich entscheiden, ob gezielte Anpassungen ausreichen oder ein kompletter Neuaufbau wirtschaftlich sinnvoller ist.",
+  },
+  {
+    question: "Werden Doctolib, Jameda, Treatwell oder andere Tools eingebunden?",
+    answer:
+      "Bestehende Buchungs- oder Anfragewege können verlinkt oder passend in die Nutzerführung eingebunden werden. Welche technische Lösung sinnvoll ist, hängt vom jeweiligen Anbieter und vom gewünschten Ablauf ab.",
+  },
+  {
+    question: "Ist die Website nach dem Launch rechtlich vollständig abgesichert?",
+    answer:
+      "Ich setze die technischen Grundlagen datensparsam und nachvollziehbar um, leiste aber keine Rechtsberatung. Rechtstexte, berufsrechtliche Pflichtangaben und eine abschließende DSGVO-Prüfung sollten bei Bedarf durch spezialisierte Anbieter oder anwaltlich erfolgen.",
+  },
+];
+
+const berlinLinks = [
+  { href: '/', label: 'Zur Startseite', isBackLink: true },
+  { href: '#zielgruppe', label: 'Für wen' },
+  { href: '#vorteile', label: 'Vorteile' },
+  { href: '#ablauf', label: 'Ablauf' },
+  { href: '#referenz', label: 'Referenz' },
+  { href: '#leistungen', label: 'Preise' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": webPageId,
+      url: canonicalUrl,
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: "de-DE",
+      isPartOf: {
+        "@id": websiteId,
+      },
+      about: {
+        "@id": serviceId,
+      },
+      publisher: {
+        "@id": organizationId,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": serviceId,
+      name: "Webdesign Berlin",
+      description: pageDescription,
+      serviceType: "Webdesign und technische Website-Entwicklung",
+      provider: {
+        "@id": organizationId,
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Berlin",
+      },
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Arztpraxen, Physiotherapie-Praxen, Therapieangebote und Wellness-Studios",
+      },
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "EUR",
+        lowPrice: "1290",
+        highPrice: "2290",
+        offerCount: "2",
+        url: canonicalUrl,
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": faqPageId,
+      mainEntity: berlinFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Startseite",
+          item: "https://gilbert-webdesign.de/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Webdesign Berlin",
+          item: canonicalUrl,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <div class="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
+    <HomeNavigation client:load links={berlinLinks} />
+
+    <main>
+      
+      {/* 1. Hero Section (Slate-50) */}
+      <section class="min-h-[90svh] md:min-h-screen flex flex-col justify-center pt-32 md:pt-20 pb-12 px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-100/50 text-blue-900 rounded-sm text-sm font-medium mb-8 border border-blue-200 shadow-sm">
+            <MapPin size={16} /> Lokal in Berlin & Umland
+          </div>
+          <h1 class="font-serif text-4xl md:text-6xl font-medium text-slate-900 leading-[1.1] mb-8 tracking-tight">
+            Webdesign für Praxen, <br class="hidden md:block"/>Therapie & Wellness in Berlin.
+          </h1>
+          <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10">
+            Ihre Patienten und Kunden suchen online. Ich entwickle Websites, die hochwertig aussehen, Vertrauen aufbauen und technisch auf lokale Sichtbarkeit in der Berliner Suche vorbereitet sind.
+          </p>
+          <a href="#kontakt" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-900 text-white font-medium rounded-sm hover:bg-blue-800 transition-all">
+            Unverbindliches Erstgespräch anfragen <ArrowRight size={18} />
+          </a>
+        </div>
+      </section>
+
+      {/* 2. Zielgruppe & Spezialisierung (White) */}
+      <section id="zielgruppe" class="py-20 md:py-28 px-6 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Digitale Aushängeschilder, die überzeugen</h2>
+              <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                In einer Metropole wie Berlin ist der erste Eindruck entscheidend. Wenn jemand nach Physiotherapie in Charlottenburg oder einer Hautarztpraxis in Mitte sucht, entscheidet die Website oft in wenigen Sekunden darüber, ob ein Termin gebucht wird.
+              </p>
+              <p class="text-lg text-slate-600 leading-relaxed">
+                Deshalb baue ich keine Baukasten-Seiten, sondern maßgeschneiderte digitale Auftritte, die Seriosität, Struktur und fachliche Kompetenz vermitteln.
+              </p>
+            </div>
+            
+            <div class="bg-slate-50 p-8 md:p-10 rounded-sm border border-slate-200 shadow-sm">
+              <h3 class="font-medium text-slate-900 mb-6 uppercase tracking-wider text-sm">Mein Fokus:</h3>
+              <ul class="space-y-5">
+                {[
+                  'Arztpraxen & medizinische Spezialisten', 
+                  'Physiotherapie & Osteopathie', 
+                  'Kosmetik- & Wellness-Studios', 
+                  'Heilpraktiker & Coaches'
+                ].map(item => (
+                  <li class="flex items-center gap-4 text-slate-800">
+                    <div class="bg-white text-blue-900 p-2 rounded-full shadow-sm border border-slate-100 shrink-0">
+                      <CheckCircle2 size={20} />
+                    </div>
+                    <span class="font-medium text-lg">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Warum lokales SEO (Dark Blue) */}
+      <section id="vorteile" class="py-20 md:py-28 px-6 bg-slate-900 text-slate-50 relative">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-serif text-3xl md:text-4xl text-white mb-6">Warum lokales Webdesign den Unterschied macht</h2>
+            <p class="text-lg text-slate-300 leading-relaxed">
+              Es reicht heute nicht mehr aus, nur eine schöne Website zu haben. Sie sollte für Suchanfragen wie "Physiotherapeut Berlin Zehlendorf" gezielt vorbereitet sein.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: Search, title: 'Lokale Sichtbarkeit', desc: 'Ihre Website wird so aufgebaut, dass relevante Leistungen, Standortbezug und Kontaktwege für Nutzer und Suchmaschinen klar erkennbar sind.' },
+              { icon: Smartphone, title: 'Mobile First', desc: 'Viele Nutzer suchen auf dem Smartphone nach Praxen und Dienstleistungen. Ihre Seite wird deshalb für mobile Nutzung optimiert.' },
+              { icon: Zap, title: 'Starke Performance', desc: 'Kurze Ladezeiten verbessern die Nutzererfahrung und schaffen ein solides technisches Fundament für Suchmaschinenoptimierung.' }
+            ].map(feature => (
+              <div class="group bg-slate-800/50 hover:bg-slate-800 p-8 border border-slate-700/50 hover:border-slate-600 rounded-sm hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl">
+                <div class="w-14 h-14 rounded-full bg-blue-900/50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-800/50 transition-all duration-300">
+                  <feature.icon size={24} class="text-blue-400" />
+                </div>
+                <h3 class="text-xl font-serif text-white mb-4">{feature.title}</h3>
+                <p class="text-slate-300 leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Ablauf (Slate-50) */}
+      <section id="ablauf" class="py-20 md:py-28 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Der Weg zu Ihrer neuen Website</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Ein strukturierter, transparenter Prozess, damit Sie sich weiterhin auf Ihre Praxis konzentrieren können.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <div class="hidden md:block absolute top-8 left-16 right-16 h-0.5 bg-slate-200 -z-10"></div>
+            {[
+              { title: '1. Strategie & Konzept', desc: 'In einem Gespräch klären wir Ziele, analysieren Ihre Berliner Zielgruppe und besprechen Designwünsche.' },
+              { title: '2. Design & Entwicklung', desc: 'Ich erstelle einen modernen Entwurf, der Ihre Praxis professionell repräsentiert und für verschiedene Endgeräte optimiert wird.' },
+              { title: '3. SEO & Launch', desc: 'Ihre Website geht live. Sie wird technisch sauber optimiert, um lokale Auffindbarkeit bestmöglich zu unterstützen.' }
+            ].map((step, i) => (
+              <div class="relative bg-white p-8 rounded-sm border border-slate-200 shadow-sm text-center">
+                <div class="w-16 h-16 bg-blue-900 text-white flex items-center justify-center rounded-full font-serif text-2xl shadow-md mx-auto -mt-16 mb-6 border-4 border-slate-50">
+                  {i + 1}
+                </div>
+                <h3 class="text-xl font-medium text-slate-900 mb-4">{step.title}</h3>
+                <p class="text-slate-600 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Referenz (White) */}
+      <section id="referenz" class="py-20 md:py-28 px-6 bg-white border-t border-slate-200">
+         <div class="max-w-4xl mx-auto text-center">
+           <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-12">Referenz aus Berlin</h2>
+           
+           <div class="group block bg-slate-50 border border-slate-200 rounded-sm overflow-hidden hover:border-slate-300 transition-colors shadow-sm text-left relative">
+             <div class="p-8 md:p-12">
+               <div class="text-sm font-medium text-blue-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+                 <MapPin size={14} /> Physiotherapie Praxis
+               </div>
+               <div class="font-serif text-4xl text-slate-900 mb-6">Bodywork Berlin</div>
+               <p class="text-slate-600 mb-8 leading-relaxed text-lg max-w-2xl">
+                 Für eine Praxis in Berlin wurde ein performanter Internetauftritt entwickelt. Das Design orientiert sich am ganzheitlichen Ansatz der Praxis; bestehende Online-Terminwege wurden sinnvoll in die Nutzerführung eingebunden.
+               </p>
+               <a href="/#referenzen" class="inline-flex items-center gap-2 text-blue-900 font-medium group-hover:text-blue-700 transition-colors">
+                 Zur Case Study <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+               </a>
+             </div>
+           </div>
+         </div>
+      </section>
+
+      {/* 6. Leistungen & Preise */}
+      <PricingSection hideHeader={true} className="py-20 md:py-28 bg-slate-50 border-t border-slate-200" />
+
+    </main>
+
+    {/* FAQ & Kontakt */}
+    <div id="faq" class="bg-white border-t border-slate-200">
+      <section class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Häufige Fragen zu Webdesign in Berlin</h2>
+            <p class="text-slate-600">
+              Antworten zu lokaler Sichtbarkeit, Ablauf, Tool-Anbindung und rechtlichen Grenzen der Leistung.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            {berlinFaqs.map((faq) => (
+              <details class="group border border-slate-200 rounded-sm bg-white overflow-hidden">
+                <summary class="px-6 py-5 flex items-center justify-between cursor-pointer list-none focus:outline-none focus-visible:bg-slate-50">
+                  <span class="font-serif text-lg text-slate-900 pr-8">{faq.question}</span>
+                  <ChevronDown size={20} className="text-slate-400 shrink-0 transition-transform duration-300 group-open:rotate-180" aria-hidden="true" />
+                </summary>
+                <div class="px-6 pb-5 pt-1 text-slate-600 leading-relaxed border-t border-slate-100">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="bg-slate-50 border-t border-slate-200">
+      <ContactSection client:visible />
+    </div>
+  </div>
+</BaseLayout>

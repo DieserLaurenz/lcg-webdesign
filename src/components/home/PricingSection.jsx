@@ -2,29 +2,31 @@ import React from 'react';
 import { ShieldCheck } from 'lucide-react';
 import ListItem from './ListItem.jsx';
 
-export default function PricingSection() {
+export default function PricingSection({ hideHeader = false, className = "py-24 bg-white border-y border-slate-100" }) {
   return (
-    <section id="leistungen" className="py-24 bg-white border-y border-slate-100">
+    <section id="leistungen" className={className}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Investitionen in Ihre digitale Praxis</h2>
-          <p className="text-slate-600">
-            Transparente Lösungen, exakt zugeschnitten auf die Größe und Anforderungen Ihres Unternehmens.
-          </p>
-        </div>
+        {!hideHeader && (
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">Investitionen in Ihre digitale Praxis</h2>
+            <p className="text-slate-600">
+              Transparente Lösungen, exakt zugeschnitten auf die Größe und Anforderungen Ihres Unternehmens.      
+            </p>
+          </div>
+        )}
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="bg-slate-50 p-6 md:p-8 border border-slate-200 rounded-sm shadow-sm hover:shadow-md transition-shadow h-full flex flex-col relative">
             <div className="flex-grow flex flex-col relative z-10">
               <div className="mb-6">
                 <h3 className="font-serif text-2xl text-slate-900 mb-1">Die Digitale Visitenkarte</h3>
-                <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold mb-4">One-Pager</p>
+                <p className="text-slate-500 text-sm uppercase tracking-wide font-semibold mb-4">One-Pager</p>  
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-4xl font-bold text-slate-900">1.290 EUR</span>
                   <span className="text-sm text-slate-500 font-medium">zzgl. MwSt.</span>
                 </div>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              <p className="text-slate-600 text-sm leading-relaxed mb-6 min-h-[3rem]">
                 Die ideale Lösung für spezialisierte Therapeuten oder Neugründungen.
               </p>
               <ul className="space-y-3 mb-8">
@@ -50,13 +52,13 @@ export default function PricingSection() {
             <div className="flex-grow flex flex-col relative z-10">
               <div className="mb-6">
                 <h3 className="font-serif text-2xl text-white mb-1">Umfassende Praxis-Website</h3>
-                <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold mb-4">Multi-Pager</p>
+                <p className="text-blue-300 text-sm uppercase tracking-wide font-semibold mb-4">Multi-Pager</p> 
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-4xl font-bold text-white">2.290 EUR</span>
                   <span className="text-sm text-blue-300 font-medium">zzgl. MwSt.</span>
                 </div>
               </div>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-slate-300 text-sm leading-relaxed mb-6 min-h-[3rem]">
                 Für etablierte Praxen und Studios mit umfangreichem Angebot.
               </p>
               <ul className="space-y-3 mb-8">
